@@ -1,8 +1,19 @@
-import QtQuick 2.0
+import QtQuick 2.9
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.1
 
 Item {
+    id: item1
     width: 800
     height: 600
+
+    property bool fetchingData: false
+
+    BusyIndicator {
+        anchors.horizontalCenter: parent.horizontalCenter
+        z: 100
+        running: fetchingData
+    }
 
     signal articleClicked(int uid)
 
@@ -33,6 +44,7 @@ Item {
     }
 
     function getData() {
+        fetchingData = true;
         var request = new XMLHttpRequest()
         var url = "http://localhost:9080/mlb/article"
 
@@ -42,6 +54,8 @@ Item {
             } else {
                 console.debug(request)
             }
+
+            fetchingData = false;
         }
 
         request.open("GET", url, true)
@@ -61,5 +75,6 @@ Item {
                                                     uid: current.id
                                                 })
         }
+
     }
 }

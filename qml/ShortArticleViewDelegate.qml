@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.3
 Item {
     width: 400
     height: 200
+
     Pane {
         anchors.fill: parent
         Material.elevation: 6
