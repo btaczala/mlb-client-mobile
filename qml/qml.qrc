@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>ShortArticleView.qml</file>
+        <file>ShortArticleViewDelegate.qml</file>
+        <file>MainStackPage.qml</file>
+        <file>ArticlePage.qml</file>
+    </qresource>
+</RCC>
