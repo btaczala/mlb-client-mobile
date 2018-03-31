@@ -6,9 +6,9 @@ ApplicationWindow {
     id: window
     visible: true
     width: 600
-    height: width * 16/9
+    height: width * 16 / 9
 
-    Material.theme: Material.LightBlue
+    Material.theme: Material.Dark
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
@@ -20,16 +20,25 @@ ApplicationWindow {
         width: parent.width
         parent: window.overlay
 
-        Rectangle {
+        Image {
             width: 40
             height: 40
+            source: {
+
+                if (mainStack.depth === 1) {
+                    return "images/menu.png"
+                } else {
+                    return "images/back.png"
+                }
+            }
 
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
+            anchors.leftMargin: 5
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-
                     if (mainStack.depth === 1) {
 
                         if (drawer.visible) {
@@ -57,6 +66,8 @@ ApplicationWindow {
         overlayHeader: overlayHeader
 
         onRequestNewPage: {
+            mainStack.push(url, props)
+            drawer.close()
         }
     }
 
@@ -65,6 +76,10 @@ ApplicationWindow {
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
         anchors.leftMargin: !inPortrait ? drawer.width : undefined
+
+        Rectangle {
+            anchors.fill: parent
+        }
 
         initialItem: MainStackPage {
             window: window

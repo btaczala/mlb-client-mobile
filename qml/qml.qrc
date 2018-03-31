@@ -7,5 +7,9 @@
         <file>MainStackPage.qml</file>
         <file>ArticlePage.qml</file>
         <file>SideMenu.qml</file>
+        <file>SettingsPage.qml</file>
+        <file>SettingsPageMenuItem.qml</file>
+        <file>images/menu.png</file>
+        <file>images/back.png</file>
     </qresource>
 </RCC>

@@ -64,6 +64,14 @@ Drawer {
             text: "Ustawienia"
             width: parent.width
 
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: {
+                    requestNewPage("SettingsPage.qml", null)
+                }
+            }
+
             MenuSeparator {
                 parent: footer
                 width: parent.width
