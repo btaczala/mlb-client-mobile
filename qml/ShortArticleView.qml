@@ -44,6 +44,7 @@ Item {
     }
 
     function getData() {
+        console.log("Get data")
         fetchingData = true;
         var request = new XMLHttpRequest()
         var url = "http://localhost:9080/mlb/article"
@@ -52,7 +53,7 @@ Item {
             if (request.readyState === 4 && request.status === 200) {
                 myFunction(request.responseText)
             } else {
-                console.debug(request)
+                console.debug("error " + request.readyState + " " + request.status)
             }
 
             fetchingData = false;
@@ -64,7 +65,6 @@ Item {
 
     function myFunction(json) {
         var obj = JSON.parse(json)
-        console.debug(json)
         for (var i = 0; i < obj.length; ++i) {
             var current = obj[i]
             articleHeadersListView.model.append({

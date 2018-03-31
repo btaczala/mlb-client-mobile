@@ -6,5 +6,6 @@
         <file>ShortArticleViewDelegate.qml</file>
         <file>MainStackPage.qml</file>
         <file>ArticlePage.qml</file>
+        <file>SideMenu.qml</file>
     </qresource>
 </RCC>

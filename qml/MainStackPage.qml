@@ -8,11 +8,8 @@ Item {
 
     signal requestNewPage(string url, var props)
 
-
     ShortArticleView {
         anchors.fill: parent
-        anchors.topMargin: overlayHeader.height
-        anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
         onArticleClicked: {
             console.debug("Article clicked " + uid)

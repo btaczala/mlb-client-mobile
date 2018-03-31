@@ -51,71 +51,20 @@ ApplicationWindow {
         }
     }
 
-    Drawer {
+    SideMenu {
         id: drawer
+        window: window
+        overlayHeader: overlayHeader
 
-        y: overlayHeader.height
-        width: window.width / 2
-        height: window.height - overlayHeader.height
-
-        modal: inPortrait
-        interactive: inPortrait
-        position: inPortrait ? 0 : 1
-        visible: !inPortrait
-
-        ListView {
-            id: listView
-            anchors.fill: parent
-
-            headerPositioning: ListView.OverlayHeader
-            header: Pane {
-                id: header
-                z: 2
-                width: parent.width
-
-                contentHeight: logo.height
-
-                Image {
-                    id: logo
-                    width: parent.width
-                    source: "images/qt-logo.png"
-                    fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
-                }
-
-                MenuSeparator {
-                    parent: header
-                    width: parent.width
-                    anchors.verticalCenter: parent.bottom
-                    visible: !listView.atYBeginning
-                }
-            }
-
-            footer: ItemDelegate {
-                id: footer
-                text: qsTr("Footer")
-                width: parent.width
-
-                MenuSeparator {
-                    parent: footer
-                    width: parent.width
-                    anchors.verticalCenter: parent.top
-                }
-            }
-
-            model: 50
-
-            delegate: ItemDelegate {
-                text: qsTr("Title %1").arg(index + 1)
-                width: parent.width
-            }
-
-            ScrollIndicator.vertical: ScrollIndicator {
-            }
+        onRequestNewPage: {
         }
     }
+
     StackView {
         id: mainStack
         anchors.fill: parent
+        anchors.topMargin: overlayHeader.height
+        anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
         initialItem: MainStackPage {
             window: window
