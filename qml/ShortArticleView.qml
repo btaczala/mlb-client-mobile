@@ -25,6 +25,35 @@ Pane {
             postedContent: "2017-10-20 14:55, Michael Jordan"
             uid: 10
         }
+
+        ListElement {
+            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
+            headerContent: "AKADEMIA BASKETU 2016/2017"
+            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+            postedContent: "2017-10-20 14:55, Michael Jordan"
+            uid: 11
+        }
+        ListElement {
+            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
+            headerContent: "AKADEMIA BASKETU 2016/2017"
+            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+            postedContent: "2017-10-20 14:55, Michael Jordan"
+            uid: 12
+        }
+        ListElement {
+            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
+            headerContent: "AKADEMIA BASKETU 2016/2017"
+            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+            postedContent: "2017-10-20 14:55, Michael Jordan"
+            uid: 13
+        }
+        ListElement {
+            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
+            headerContent: "AKADEMIA BASKETU 2016/2017"
+            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+            postedContent: "2017-10-20 14:55, Michael Jordan"
+            uid: 14
+        }
     }
 
     Component.onCompleted: getData()
@@ -33,6 +62,7 @@ Pane {
         id: articleHeadersListView
         anchors.fill: parent
         anchors.margins: 20
+        spacing: 10
 
         model: model
         delegate: ShortArticleViewDelegate {

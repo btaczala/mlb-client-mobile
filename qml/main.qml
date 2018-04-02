@@ -86,7 +86,10 @@ ApplicationWindow {
 
             onRequestNewPage: {
                 console.log("Pushing " + url + props)
-                mainStack.push(url, props)
+                var item = mainStack.push(url, props)
+
+                item.width = mainStack.width
+                item.height = mainStack.height
             }
         }
     }
