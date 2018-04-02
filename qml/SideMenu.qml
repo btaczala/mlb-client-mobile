@@ -89,6 +89,7 @@ Drawer {
                 anchors.fill: parent
                 onClicked: {
                     console.log("Selecting " + name)
+                    requestNewPage(url, null)
                 }
             }
         }

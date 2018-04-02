@@ -8,7 +8,7 @@ ApplicationWindow {
     width: 600
     height: width * 16 / 9
 
-    Material.theme: Material.Dark
+    Material.theme: Material.System
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
@@ -21,14 +21,12 @@ ApplicationWindow {
         parent: window.overlay
 
         Image {
-            width: 40
-            height: 40
             source: {
 
                 if (mainStack.depth === 1) {
-                    return "images/menu.png"
+                    return "images/ic_menu_white_24px.svg"
                 } else {
-                    return "images/back.png"
+                    return "images/ic_chevron_left_white_48px.svg"
                 }
             }
 
@@ -66,8 +64,11 @@ ApplicationWindow {
         overlayHeader: overlayHeader
 
         onRequestNewPage: {
-            mainStack.push(url, props)
+            var newPage = mainStack.push(url, props)
             drawer.close()
+
+            newPage.width = mainStack.width;
+            newPage.height = mainStack.height;
         }
     }
 
