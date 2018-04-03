@@ -51,7 +51,7 @@ Drawer {
             Image {
                 id: logo
                 width: parent.width
-                source: "images/qt-logo.png"
+                source: "images/logo-mlb.png"
                 fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
             }
 

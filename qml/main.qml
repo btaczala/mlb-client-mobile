@@ -7,20 +7,23 @@ import Qt.labs.settings 1.0
 ApplicationWindow {
     id: window
     visible: true
-//    width: 600
-//    height: width * 16 / 9
 
-    width: 1000
-    height: 600
+    width: settings.orientation
+           === "portrait" ? settings.portraitSize.width : settings.landscapeSize.width
+    height: settings.orientation
+            === "portrait" ? settings.portraitSize.height : settings.landscapeSize.height
 
-
-    Material.theme: Material.System
+    Material.theme: settings.theme
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
 
     Settings {
         id: settings
+        property string orientation: "landscape"
+        property size portraitSize: Qt.size(800, 800 * 16 / 9)
+        property size landscapeSize: Qt.size(800, 600)
+        property int theme
     }
 
     Component.onCompleted: {
@@ -37,6 +40,8 @@ ApplicationWindow {
 
         newPage.width = mainStack.width
         newPage.height = mainStack.height
+
+        newPage.globalSettings = settings
 
         if (!!newPage.window)
             newPage.window = window
@@ -108,8 +113,8 @@ ApplicationWindow {
         id: mainStack
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
-//        anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
+        //        anchors.leftMargin: !inPortrait ? drawer.width : undefined
         initialItem: MainStackPage {
 
             width: mainStack.width
