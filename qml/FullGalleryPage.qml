@@ -64,13 +64,18 @@ Page {
 
                 anchors.centerIn: parent
 
-
                 Material.elevation: 6
 
                 Image {
+                    id: image
                     width: parent.width
                     height: parent.height
                     source: url
+                }
+
+                BusyIndicator {
+                    running: image.status === Image.Loading
+                    anchors.centerIn: parent
                 }
 
                 MouseArea {

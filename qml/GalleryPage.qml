@@ -51,13 +51,15 @@ Page {
         model: galleryModel
 
         delegate: Item {
-                height: list.cellHeight
-                width: list.cellWidth
+            height: list.cellHeight
+            width: list.cellWidth
             GalleryPageDelegate {
                 height: parent.height - 30
-                width: parent. width- 30
+                width: parent.width - 30
 
                 anchors.centerIn: parent
+
+                url: picture
 
                 MouseArea {
                     anchors.fill: parent

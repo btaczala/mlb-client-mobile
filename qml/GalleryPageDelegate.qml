@@ -7,6 +7,8 @@ Pane {
     width: 400
     height: 400
 
+    property string url
+
     anchors.margins: 5
     Material.elevation: 6
 
@@ -15,11 +17,16 @@ Pane {
 
         Item {
             Image {
+                id: image
                 anchors.centerIn: parent
-                source: "http://www.miastobasketu.com//images/galeria_albumy/photo_8153601_2018.03.24%20MLB%20(41).jpg"
+                source: url
 
                 width: parent.width - 40
                 height: parent.height - 40
+            }
+            BusyIndicator {
+                running: image.status === Image.Loading
+                anchors.centerIn: parent
             }
 
             Layout.fillWidth: true
