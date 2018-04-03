@@ -2,14 +2,10 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
-Page {
+BasePage {
     id: root
     width: 700
     height: 700 * 16 / 9
-
-    readonly property bool inPortrait: root.width < root.height
-
-    signal requestNewPage(string url, var props)
 
     ListModel {
         id: galleryModel

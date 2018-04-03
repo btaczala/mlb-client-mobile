@@ -31,6 +31,10 @@ Drawer {
             url: "SchedulePage.qml"
         }
         ListElement {
+            name : "Tabela"
+            url: "StandingsPage.qml"
+        }
+        ListElement {
             name : "Galeria"
             url: "GalleryPage.qml"
         }

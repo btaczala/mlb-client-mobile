@@ -3,14 +3,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
-Page {
+BasePage {
     id: pane
     property int uid
 
     width: 800
     height: 1024
 
-    signal requestNewPage(string url, var props)
 
     Component.onCompleted: {
         console.debug("Showing article uid = " + uid)

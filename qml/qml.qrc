@@ -28,5 +28,8 @@
         <file>FullGalleryPage.qml</file>
         <file>ImageView.qml</file>
         <file>images/logo-mlb.png</file>
+        <file>BasePage.qml</file>
+        <file>StandingsPage.qml</file>
+        <file>StandingsPageDelegate.qml</file>
     </qresource>
 </RCC>

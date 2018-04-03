@@ -20,7 +20,7 @@ ApplicationWindow {
 
     Settings {
         id: settings
-        property string orientation: "landscape"
+        property string orientation
         property size portraitSize: Qt.size(800, 800 * 16 / 9)
         property size landscapeSize: Qt.size(800, 600)
         property int theme

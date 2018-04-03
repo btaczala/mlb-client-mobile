@@ -3,12 +3,11 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
-Page {
+BasePage {
     id: root
 
     width: 700
     height: 16 / 9 * 700
-    signal requestNewPage(string url, var props)
 
     ListModel {
         id: images

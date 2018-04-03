@@ -64,6 +64,10 @@ Pane {
         anchors.margins: 20
         spacing: 10
 
+        onContentYChanged: {
+            console.debug(articleHeadersListView.contentY)
+        }
+
         model: model
         delegate: ShortArticleViewDelegate {
             width: parent.width
