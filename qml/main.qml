@@ -7,8 +7,12 @@ import Qt.labs.settings 1.0
 ApplicationWindow {
     id: window
     visible: true
-    width: 600
-    height: width * 16 / 9
+//    width: 600
+//    height: width * 16 / 9
+
+    width: 1000
+    height: 600
+
 
     Material.theme: Material.System
     Material.accent: Material.Purple
@@ -104,7 +108,7 @@ ApplicationWindow {
         id: mainStack
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
-        anchors.leftMargin: !inPortrait ? drawer.width : undefined
+//        anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
         initialItem: MainStackPage {
 

@@ -10,7 +10,14 @@ Page {
 
     ListView {
         id: listView
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: dotDotDot.top
+        anchors.bottomMargin: 30
+
+        anchors.left: parent.left
+        anchors.right: parent.right
+        clip: true
+
         orientation: Qt.Horizontal
         snapMode: ListView.SnapOneItem
         highlightFollowsCurrentItem: true
@@ -29,8 +36,8 @@ Page {
         }
 
         delegate: SchedulePageDelegate {
-            width: page.width
-            height: page.height
+            width: listView.width
+            height: listView.height
             leagueName: league
         }
 
@@ -42,6 +49,12 @@ Page {
 
             repeater.itemAt(currentIndex).color = Material.primary
         }
+
+//        Rectangle {
+//            width: listView.width
+//            height: listView.height
+//            color: "yellow"
+//        }
     }
 
     Row {

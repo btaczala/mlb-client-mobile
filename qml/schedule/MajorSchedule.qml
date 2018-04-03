@@ -68,6 +68,36 @@ ScheduleBase {
             host: "San Antonio"
             date: "2018-10-12 15:10"
         }
+        ListElement {
+            type: "week_nr"
+            number: 3
+        }
+        ListElement {
+            type: "game"
+            guest: "San Antonio"
+            host: "San Antonio"
+            date: "2018-10-12 15:10"
+        }
+        ListElement {
+            type: "week_nr"
+            number: 3
+        }
+        ListElement {
+            type: "game"
+            guest: "San Antonio"
+            host: "San Antonio"
+            date: "2018-10-12 15:10"
+        }
+        ListElement {
+            type: "week_nr"
+            number: 3
+        }
+        ListElement {
+            type: "game"
+            guest: "San Antonio"
+            host: "San Antonio"
+            date: "2018-10-12 15:10"
+        }
     }
     scheduleModel: model
 }

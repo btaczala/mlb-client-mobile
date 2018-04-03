@@ -5,7 +5,9 @@ import QtQuick.Controls.Material 2.1
 Page {
     id: root
     width: 700
-    height: 700 * 16/9
+    height: 700 * 16 / 9
+
+    readonly property bool inPortrait: root.width < root.height
 
     signal requestNewPage(string url, var props)
 
@@ -38,24 +40,33 @@ Page {
         }
     }
 
-    ListView {
+    GridView {
         id: list
         anchors.fill: parent
         anchors.margins: 20
 
-        spacing: 10
+        cellHeight: 400
+        cellWidth: 400
 
         model: galleryModel
 
-        delegate: GalleryPageDelegate {
-            height: 400
-            width: parent.width - 20
+        delegate: Item {
+                height: list.cellHeight
+                width: list.cellWidth
+            GalleryPageDelegate {
+                height: parent.height - 30
+                width: parent. width- 30
 
-            MouseArea {
-                anchors.fill: parent
+                anchors.centerIn: parent
 
-                onClicked: {
-                    requestNewPage("FullGalleryPage.qml", {})
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: {
+                        requestNewPage("FullGalleryPage.qml", {
+
+                                       })
+                    }
                 }
             }
         }

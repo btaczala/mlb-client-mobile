@@ -19,6 +19,7 @@ RowLayout {
         Layout.preferredWidth: 120
 
         text: root.date
+        font.pointSize: 8
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -36,6 +37,7 @@ RowLayout {
                 Layout.preferredWidth: parent.width / 2 - 10
                 Layout.fillHeight: true
                 text: guest
+                font.pointSize: 11
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }

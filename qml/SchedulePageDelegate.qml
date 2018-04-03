@@ -4,18 +4,17 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
+    id: root
 
     property alias leagueName: label.text
 
     width: 800
     height: 1024
 
-
     Item {
         id: header
         width: parent.width
         height: 70
-        z: 100
 
         Label {
             id: label
@@ -28,17 +27,15 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        console.log(leagueName)
-        console.log(loader.source)
-    }
-
     Loader {
         id: loader
         source: "qrc:/schedule/" + leagueName + "Schedule.qml"
-        width: parent.width
+
+        parent: root
 
         anchors.top: header.bottom
-
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
     }
 }

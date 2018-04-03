@@ -7,7 +7,7 @@ Page {
     id: root
 
     width: 700
-    height: 16/9 * 700
+    height: 16 / 9 * 700
     signal requestNewPage(string url, var props)
 
     ListModel {
@@ -21,35 +21,65 @@ Page {
         }
 
         ListElement {
-            url :"http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+        ListElement {
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+        ListElement {
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+        ListElement {
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+        ListElement {
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+        ListElement {
+            url: "http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
         }
     }
 
-    ListView {
+    GridView {
+        id: grid
         anchors.fill: parent
         model: images
 
+        cellWidth: 240
+        cellHeight: 240
 
         anchors.leftMargin: 10
         anchors.rightMargin: 10
-        spacing: 5
 
-        delegate: Pane {
-            width: root.width - 20
-            height: width
+        delegate: Item {
+            width: grid.cellWidth
+            height: grid.cellHeight
 
-            Material.elevation: 6
+            anchors.margins: 10
 
-            Image {
-                width: parent.width
-                height: parent.height
-                source: url
-            }
+            Pane {
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    requestNewPage("ImageView.qml", {url: url})
+                width: parent.width - 10
+                height: parent.height - 10
+
+                anchors.centerIn: parent
+
+
+                Material.elevation: 6
+
+                Image {
+                    width: parent.width
+                    height: parent.height
+                    source: url
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        requestNewPage("ImageView.qml", {
+                                           url: url
+                                       })
+                    }
                 }
             }
         }

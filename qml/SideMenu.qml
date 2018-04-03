@@ -15,10 +15,10 @@ Drawer {
     width: window.width / 2
     height: window.height - overlayHeader.height
 
-    modal: inPortrait
-    interactive: inPortrait
-    position: inPortrait ? 0 : 1
-    visible: !inPortrait
+    modal: true
+    interactive: true
+    position: 0
+    visible: false
 
     ListModel {
         id: drawerItems
