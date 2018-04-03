@@ -3,8 +3,6 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
 Item {
-    readonly property bool inPortrait: window.width < window.height
-    property var window
 
     signal requestNewPage(string url, var props)
 

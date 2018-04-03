@@ -5,28 +5,40 @@ import QtQuick.Layouts 1.3
 
 Item {
 
-    property alias leagueName : label.text
+    property alias leagueName: label.text
 
     width: 800
     height: 1024
 
-    ColumnLayout {
-        anchors.fill: parent
+
+    Item {
+        id: header
+        width: parent.width
+        height: 70
+        z: 100
 
         Label {
             id: label
-            Layout.fillWidth: true
-            Layout.preferredHeight: 140
+            anchors.fill: parent
 
             text: "Major"
             font.pointSize: 16
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
         }
+    }
 
-        ListView {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
+    Component.onCompleted: {
+        console.log(leagueName)
+        console.log(loader.source)
+    }
+
+    Loader {
+        id: loader
+        source: "qrc:/schedule/" + leagueName + "Schedule.qml"
+        width: parent.width
+
+        anchors.top: header.bottom
+
     }
 }

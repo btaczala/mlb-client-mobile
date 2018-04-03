@@ -2,6 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
+import Qt.labs.settings 1.0
+
 ApplicationWindow {
     id: window
     visible: true
@@ -12,6 +14,29 @@ ApplicationWindow {
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
+
+    Settings {
+        id: settings
+    }
+
+    Component.onCompleted: {
+        console.log(mainStack.depth)
+        console.log(mainStack.initialItem)
+    }
+
+    function pushNewPage(url, props) {
+
+        var newPage = mainStack.push(url, props)
+        console.log("Pushing " + url + " " + props)
+        console.log("New Page = ", +newPage)
+        drawer.close()
+
+        newPage.width = mainStack.width
+        newPage.height = mainStack.height
+
+        if (!!newPage.window)
+            newPage.window = window
+    }
 
     ToolBar {
         id: overlayHeader
@@ -64,11 +89,14 @@ ApplicationWindow {
         overlayHeader: overlayHeader
 
         onRequestNewPage: {
-            var newPage = mainStack.push(url, props)
-            drawer.close()
+            pushNewPage(url, props)
+        }
+    }
 
-            newPage.width = mainStack.width;
-            newPage.height = mainStack.height;
+    Connections {
+        target: mainStack.currentItem
+        onRequestNewPage: {
+            pushNewPage(url, props)
         }
     }
 
@@ -78,20 +106,10 @@ ApplicationWindow {
         anchors.topMargin: overlayHeader.height
         anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
-        Rectangle {
-            anchors.fill: parent
-        }
-
         initialItem: MainStackPage {
-            window: window
 
-            onRequestNewPage: {
-                console.log("Pushing " + url + props)
-                var item = mainStack.push(url, props)
-
-                item.width = mainStack.width
-                item.height = mainStack.height
-            }
+            width: mainStack.width
+            height: mainStack.height
         }
     }
 }

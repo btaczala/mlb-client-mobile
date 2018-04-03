@@ -17,5 +17,14 @@
         <file>images/ic_chevron_left_white_48px.svg</file>
         <file>SchedulePage.qml</file>
         <file>SchedulePageDelegate.qml</file>
+        <file>schedule/MajorSchedule.qml</file>
+        <file>schedule/WeekLabelDelegate.qml</file>
+        <file>schedule/GameDelegate.qml</file>
+        <file>schedule/ScheduleBase.qml</file>
+        <file>schedule/PretendentSchedule.qml</file>
+        <file>schedule/BasicSchedule.qml</file>
+        <file>GalleryPage.qml</file>
+        <file>GalleryPageDelegate.qml</file>
+        <file>FullGalleryPage.qml</file>
     </qresource>
 </RCC>

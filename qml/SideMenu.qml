@@ -30,6 +30,10 @@ Drawer {
             name : "Terminarz"
             url: "SchedulePage.qml"
         }
+        ListElement {
+            name : "Galeria"
+            url: "GalleryPage.qml"
+        }
     }
 
     ListView {

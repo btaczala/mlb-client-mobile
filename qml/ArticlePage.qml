@@ -10,6 +10,8 @@ Page {
     width: 800
     height: 1024
 
+    signal requestNewPage(string url, var props)
+
     Component.onCompleted: {
         console.debug("Showing article uid = " + uid)
     }
