@@ -26,5 +26,6 @@
         <file>GalleryPage.qml</file>
         <file>GalleryPageDelegate.qml</file>
         <file>FullGalleryPage.qml</file>
+        <file>ImageView.qml</file>
     </qresource>
 </RCC>

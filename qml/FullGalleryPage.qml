@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Page {
+    id: root
 
     width: 700
     height: 16/9 * 700
@@ -21,6 +22,36 @@ Page {
 
         ListElement {
             url :"http://www.miastobasketu.com//images/galeria_albumy/photo_4124249_2018.03.24%20MLB%20(37).jpg"
+        }
+    }
+
+    ListView {
+        anchors.fill: parent
+        model: images
+
+
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        spacing: 5
+
+        delegate: Pane {
+            width: root.width - 20
+            height: width
+
+            Material.elevation: 6
+
+            Image {
+                width: parent.width
+                height: parent.height
+                source: url
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    requestNewPage("ImageView.qml", {url: url})
+                }
+            }
         }
     }
 }

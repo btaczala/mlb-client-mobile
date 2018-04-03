@@ -16,6 +16,26 @@ Page {
             title: "MLB SEZON XXII III TYDZIEŃ (D.Reszke)"
             date: "23-03-2018"
         }
+        ListElement {
+            picture: "http://www.miastobasketu.com//images/galeria_albumy/photo_8153601_2018.03.24%20MLB%20(41).jpg"
+            title: "MLB SEZON XXII III TYDZIEŃ (D.Reszke)"
+            date: "23-03-2018"
+        }
+        ListElement {
+            picture: "http://www.miastobasketu.com//images/galeria_albumy/photo_8153601_2018.03.24%20MLB%20(41).jpg"
+            title: "MLB SEZON XXII III TYDZIEŃ (D.Reszke)"
+            date: "23-03-2018"
+        }
+        ListElement {
+            picture: "http://www.miastobasketu.com//images/galeria_albumy/photo_8153601_2018.03.24%20MLB%20(41).jpg"
+            title: "MLB SEZON XXII III TYDZIEŃ (D.Reszke)"
+            date: "23-03-2018"
+        }
+        ListElement {
+            picture: "http://www.miastobasketu.com//images/galeria_albumy/photo_8153601_2018.03.24%20MLB%20(41).jpg"
+            title: "MLB SEZON XXII III TYDZIEŃ (D.Reszke)"
+            date: "23-03-2018"
+        }
     }
 
     ListView {
