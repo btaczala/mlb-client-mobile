@@ -8,9 +8,26 @@ BasePage {
     width: 800
     height: 1024
 
+
+    Item {
+        id: header
+
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        height: 60
+
+        Label {
+            anchors.centerIn: parent
+            text: listView.model.get(listView.currentIndex).league
+            font.bold: true
+        }
+    }
+
     ListView {
         id: listView
-        anchors.top: parent.top
+        anchors.top: header.bottom
         anchors.bottom: dotDotDot.top
         anchors.bottomMargin: 30
 

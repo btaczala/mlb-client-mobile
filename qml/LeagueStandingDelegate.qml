@@ -34,6 +34,126 @@ Item {
             diff: -4
             points: 4
         }
+        ListElement {
+            lp: 3
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 4
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 5
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 6
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 7
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 8
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
+        ListElement {
+            lp: 9
+            name: "FRASSATI"
+            games: 3
+            wons: 1
+            lost: 2
+            score: "(206-210)"
+            diff: -4
+            points: 4
+        }
     }
 
     ListView {
@@ -41,10 +161,13 @@ Item {
         anchors.fill: parent
         model: standings
         spacing: 4
+        headerPositioning: ListView.OverlayHeader
+        clip: true
         header: RowLayout {
             spacing: 4
             width: list.width
             height: 40
+            z:10
 
             Repeater {
                 id: headerRepeater
@@ -54,7 +177,7 @@ Item {
                     Layout.preferredWidth: {
 
                         if (index === 0) {
-                            return 40;
+                            return 40
                         }
 
                         return lbl.contentWidth + 10
@@ -67,7 +190,11 @@ Item {
                     }
 
                     Layout.fillHeight: true
-                    color: Material.primary
+                    color: {
+                        if (index === 0)
+                            return Material.background
+                        return Material.primary
+                    }
 
                     Label {
                         id: lbl
@@ -81,10 +208,10 @@ Item {
 
         delegate: LeagueStandingOneEntryDelegate {
             property var ll: list.headerItem.children
-            sizes: [ll[0].width,ll[1].width,ll[2].width,ll[3].width,ll[4].width,ll[5].width,ll[6].width, ll[7].width]
+            sizes: [ll[0].width, ll[1].width, ll[2].width, ll[3].width, ll[4].width, ll[5].width, ll[6].width, ll[7].width]
             height: 40
 
-            differentColor: index % 2 !==0
+            differentColor: index % 2 !== 0
 
             lpText: lp
             teamNameText: name
