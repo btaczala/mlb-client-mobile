@@ -4,8 +4,6 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
-    width: 600
-    height: width * 16 / 9
 
     property alias scheduleModel : list.model
 
@@ -14,12 +12,15 @@ Item {
     ListView {
         anchors.fill: parent
 
+        Component.onCompleted: console.log(contentHeight, height)
+
         id: list
         clip: true
+        ScrollBar.vertical: ScrollBar {}
 
         delegate: Loader {
-            width: parent.width
             id: loader
+            width: parent.width
             height: 80
 
             sourceComponent: {

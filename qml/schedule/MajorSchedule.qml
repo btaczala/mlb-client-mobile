@@ -1,8 +1,6 @@
 import QtQuick 2.9
 
 ScheduleBase {
-    width: 600
-    height: width * 16 / 9
 
     ListModel {
         id: model

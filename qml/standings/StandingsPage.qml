@@ -6,9 +6,6 @@ import QtQuick.Layouts 1.3
 import ".."
 
 BasePage {
-    width: 800
-    height: 1024
-
 
     Item {
         id: header

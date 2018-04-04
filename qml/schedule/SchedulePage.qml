@@ -23,6 +23,7 @@ BasePage {
         snapMode: ListView.SnapOneItem
         highlightFollowsCurrentItem: true
         highlightRangeMode: ListView.StrictlyEnforceRange
+        ScrollBar.vertical: ScrollBar {}
 
         model: ListModel {
             ListElement{

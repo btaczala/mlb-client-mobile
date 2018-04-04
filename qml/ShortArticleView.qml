@@ -56,17 +56,13 @@ Pane {
         }
     }
 
-    Component.onCompleted: getData()
-
     ListView {
         id: articleHeadersListView
         anchors.fill: parent
         anchors.margins: 20
         spacing: 10
 
-        onContentYChanged: {
-            console.debug(articleHeadersListView.contentY)
-        }
+        ScrollBar.vertical: ScrollBar {}
 
         model: model
         delegate: ShortArticleViewDelegate {
@@ -82,41 +78,4 @@ Pane {
             }
         }
     }
-
-    function getData() {
-    }
-
-//        console.log("Get data")
-//        fetchingData = true;
-//        var request = new XMLHttpRequest()
-//        var url = "http://localhost:9080/mlb/article"
-
-//        request.onreadystatechange = function () {
-//            if (request.readyState === 4 && request.status === 200) {
-//                myFunction(request.responseText)
-//            } else {
-//                console.debug("error " + request.readyState + " " + request.status)
-//            }
-
-//            fetchingData = false;
-//        }
-
-//        request.open("GET", url, true)
-//        request.send()
-//    }
-
-//    function myFunction(json) {
-//        var obj = JSON.parse(json)
-//        for (var i = 0; i < obj.length; ++i) {
-//            var current = obj[i]
-//            articleHeadersListView.model.append({
-//                                                    headerContent: current.title,
-//                                                    postedContent: current.postedDate + " " + current.author,
-//                                                    textContent: current.text,
-//                                                    imageUrl: current.picture.url,
-//                                                    uid: current.id
-//                                                })
-//        }
-
-//    }
 }

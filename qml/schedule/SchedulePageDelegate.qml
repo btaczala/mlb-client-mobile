@@ -8,8 +8,10 @@ Item {
 
     property alias leagueName: label.text
 
-    width: 800
-    height: 1024
+    width: 600
+    height: 800
+
+    Component.onCompleted: console.log("Window size ", height)
 
     Item {
         id: header
@@ -29,13 +31,15 @@ Item {
 
     Loader {
         id: loader
-        source: "qrc:/schedule/" + leagueName + "Schedule.qml"
-
-        parent: root
+        source: leagueName + "Schedule.qml"
 
         anchors.top: header.bottom
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+
+        onLoaded:{
+            console.log("component size ", loader.height)
+        }
     }
 }

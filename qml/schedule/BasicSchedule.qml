@@ -1,9 +1,6 @@
 import QtQuick 2.9
 
 ScheduleBase {
-    width: 600
-    height: width * 16 / 9
-
     scheduleModel: ListModel {
         ListElement {
             type: "week_nr"
