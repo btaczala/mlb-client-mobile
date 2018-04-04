@@ -28,7 +28,7 @@ Drawer {
         }
         ListElement {
             name : "Terminarz"
-            url: "SchedulePage.qml"
+            url: "schedule/SchedulePage.qml"
         }
         ListElement {
             name : "Tabela"
@@ -36,7 +36,7 @@ Drawer {
         }
         ListElement {
             name : "Galeria"
-            url: "GalleryPage.qml"
+            url: "gallery/GalleryPage.qml"
         }
     }
 

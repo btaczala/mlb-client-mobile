@@ -38,8 +38,7 @@ ApplicationWindow {
         console.log("New Page = ", +newPage)
         drawer.close()
 
-        newPage.width = mainStack.width
-        newPage.height = mainStack.height
+        newPage.anchors.fill = mainStack
 
         newPage.globalSettings = settings
 
