@@ -31,5 +31,7 @@
         <file>BasePage.qml</file>
         <file>StandingsPage.qml</file>
         <file>StandingsPageDelegate.qml</file>
+        <file>LeagueStandingDelegate.qml</file>
+        <file>LeagueStandingOneEntryDelegate.qml</file>
     </qresource>
 </RCC>
