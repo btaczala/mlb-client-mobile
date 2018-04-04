@@ -8,22 +8,24 @@ ApplicationWindow {
     id: window
     visible: true
 
-    width: settings.orientation
-           === "portrait" ? settings.portraitSize.width : settings.landscapeSize.width
-    height: settings.orientation
-            === "portrait" ? settings.portraitSize.height : settings.landscapeSize.height
+    width: 800
+    height: 1024
 
     Material.theme: settings.theme
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
 
+    onInPortraitChanged: {
+        console.log("Orientation changed! ",
+                    inPortrait ? "portrait" : "landscape")
+    }
+
     Settings {
         id: settings
-        property string orientation
-        property size portraitSize: Qt.size(800, 800 * 16 / 9)
-        property size landscapeSize: Qt.size(800, 600)
         property int theme
+        property alias width: window.width
+        property alias height: window.height
     }
 
     Component.onCompleted: {
@@ -39,7 +41,6 @@ ApplicationWindow {
         drawer.close()
 
         newPage.anchors.fill = mainStack
-
         newPage.globalSettings = settings
 
         if (!!newPage.window)
@@ -87,7 +88,7 @@ ApplicationWindow {
         Label {
             id: label
             anchors.centerIn: parent
-            text: "MLB"
+            text: "miastobasketu.com"
         }
     }
 
@@ -113,7 +114,6 @@ ApplicationWindow {
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
 
-        //        anchors.leftMargin: !inPortrait ? drawer.width : undefined
         initialItem: MainStackPage {
 
             width: mainStack.width

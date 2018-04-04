@@ -32,7 +32,7 @@ Drawer {
         }
         ListElement {
             name : "Tabela"
-            url: "StandingsPage.qml"
+            url: "standings/StandingsPage.qml"
         }
         ListElement {
             name : "Galeria"
@@ -76,7 +76,7 @@ Drawer {
                 anchors.fill: parent
 
                 onClicked: {
-                    requestNewPage("SettingsPage.qml", null)
+                    requestNewPage("settings/SettingsPage.qml", null)
                 }
             }
 

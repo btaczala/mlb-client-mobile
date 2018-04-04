@@ -7,7 +7,6 @@
         <file>MainStackPage.qml</file>
         <file>ArticlePage.qml</file>
         <file>SideMenu.qml</file>
-        <file>SettingsPageMenuItem.qml</file>
         <file>images/menu.png</file>
         <file>images/back.png</file>
         <file>images/ic_menu_black_24px.svg</file>
@@ -24,13 +23,15 @@
         <file>ImageView.qml</file>
         <file>images/logo-mlb.png</file>
         <file>BasePage.qml</file>
-        <file>StandingsPage.qml</file>
-        <file>StandingsPageDelegate.qml</file>
-        <file>LeagueStandingDelegate.qml</file>
-        <file>LeagueStandingOneEntryDelegate.qml</file>
         <file>gallery/GalleryPage.qml</file>
         <file>gallery/GalleryPageDelegate.qml</file>
         <file>schedule/SchedulePage.qml</file>
         <file>schedule/SchedulePageDelegate.qml</file>
+        <file>settings/SettingsPage.qml</file>
+        <file>settings/SettingsPageMenuItem.qml</file>
+        <file>standings/StandingsPage.qml</file>
+        <file>standings/StandingsPageDelegate.qml</file>
+        <file>standings/LeagueStandingDelegate.qml</file>
+        <file>standings/LeagueStandingOneEntryDelegate.qml</file>
     </qresource>
 </RCC>

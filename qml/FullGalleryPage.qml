@@ -9,6 +9,8 @@ BasePage {
     width: 700
     height: 16 / 9 * 700
 
+    property int numberOfColumns: inPortrait ? 2 : 4
+
     ListModel {
         id: images
         ListElement {
@@ -44,8 +46,8 @@ BasePage {
         anchors.fill: parent
         model: images
 
-        cellWidth: 240
-        cellHeight: 240
+        cellWidth: width / numberOfColumns
+        cellHeight: cellWidth
 
         anchors.leftMargin: 10
         anchors.rightMargin: 10

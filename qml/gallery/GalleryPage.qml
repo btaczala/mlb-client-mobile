@@ -9,6 +9,8 @@ BasePage {
     width: 700
     height: 700 * 16 / 9
 
+    property int numberOfColumns: inPortrait ? 1 : 3
+
     ListModel {
         id: galleryModel
         ListElement {
@@ -43,10 +45,11 @@ BasePage {
         anchors.fill: parent
         anchors.margins: 20
 
-        cellHeight: 400
-        cellWidth: 400
+        cellHeight: width / numberOfColumns
+        cellWidth: cellHeight
 
         model: galleryModel
+        ScrollBar.vertical: ScrollBar {}
 
         delegate: Item {
             height: list.cellHeight
@@ -64,7 +67,6 @@ BasePage {
 
                     onClicked: {
                         requestNewPage("FullGalleryPage.qml", {
-
                                        })
                     }
                 }
