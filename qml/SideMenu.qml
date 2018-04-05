@@ -38,6 +38,10 @@ Drawer {
             name : "Galeria"
             url: "gallery/GalleryPage.qml"
         }
+        ListElement {
+            name : "Zespoły"
+            url: "teams/TeamsPage.qml"
+        }
     }
 
     ListView {

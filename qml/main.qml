@@ -35,13 +35,18 @@ ApplicationWindow {
 
     function pushNewPage(url, props) {
 
+        if (url === "")
+            console.assert("Url cannot be empty")
+
         var newPage = mainStack.push(url, props)
         console.log("Pushing " + url + " " + props)
         console.log("New Page = ", +newPage)
         drawer.close()
 
-        newPage.anchors.fill = mainStack
+        newPage.anchors.left = mainStack.left
+        newPage.anchors.right = mainStack.right
         newPage.globalSettings = settings
+        newPage.applicationWindow = window
 
         if (!!newPage.window)
             newPage.window = window

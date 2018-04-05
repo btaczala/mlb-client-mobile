@@ -39,5 +39,9 @@
         <file>images/ic_invert_colors_white_48px.svg</file>
         <file>images/ic_invert_colors_black_48px.svg</file>
         <file>CommonScrollableLeaguePage.qml</file>
+        <file>teams/TeamsPage.qml</file>
+        <file>teams/TeamsPageDelegate.qml</file>
+        <file>teams/TeamPage.qml</file>
+        <file>teams/TeamPlayerDelegate.qml</file>
     </qresource>
 </RCC>
