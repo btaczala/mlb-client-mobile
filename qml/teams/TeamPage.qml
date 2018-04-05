@@ -4,70 +4,22 @@ import QtQuick.Controls.Material 2.1
 
 import QtQuick.Layouts 1.3
 
-import ".."
+import ".." as Common
+import "../rest_controller.js" as Rest
 
-BasePage {
+Common.BasePage {
     width: 600
     height: 900
 
+    Component.onCompleted: {
+        loading = true
+        Rest.getTeamData(teamModel, function () {
+            loading = false;
+        })
+    }
+
     ListModel {
         id: teamModel
-
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
-        ListElement {
-            image: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
-            name: "Michal Dudzik"
-            age: 31
-        }
     }
 
     ColumnLayout {
@@ -90,7 +42,8 @@ BasePage {
                 id: list
                 anchors.fill: parent
                 clip: true
-                ScrollBar.vertical: ScrollBar {}
+                ScrollBar.vertical: ScrollBar {
+                }
 
                 model: teamModel
 

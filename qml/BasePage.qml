@@ -23,6 +23,8 @@ Page {
         x: 100
         y: 100
 
+        closePolicy: Popup.NoAutoClose
+
         enter: Transition {
             NumberAnimation {
                 property: "opacity"
@@ -30,6 +32,7 @@ Page {
                 to: 1.0
             }
         }
+
         exit: Transition {
             NumberAnimation {
                 property: "opacity"

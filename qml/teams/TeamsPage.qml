@@ -4,67 +4,34 @@ import QtQuick.Controls.Material 2.1
 
 import ".."
 
+import "../rest_controller.js" as Rest
+
 CommonScrollableLeaguePage {
+    id: root
+
+    Component.onCompleted: {
+        loading = true;
+        Rest.getTeamsData(majorTeamsModel, pretendentTeamsModel, basicTeamsModel, root);
+    }
 
     ListModel {
         id: majorTeamsModel
-
-        ListElement {
-            name: "GRYF-PANTHERS"
-        }
-        ListElement {
-            name: "MELBEST"
-        }
-        ListElement {
-            name: "OPEN BASKETBALL TEAM"
-        }
-        ListElement {
-            name: "RIM"
-        }
-        ListElement {
-            name: "Elektryka Morska"
-        }
-        ListElement {
-            name: "FASOLKI"
-        }
-        ListElement {
-            name: "ENDOO DROGMAL"
-        }
-        ListElement {
-            name: "THE CATHLONS"
-        }
-        ListElement {
-            name: "FRASSATI"
-        }
     }
 
     ListModel {
         id: pretendentTeamsModel
 
-        ListElement {
-            name: "GRYF-PANTHERS"
-        }
-        ListElement {
-            name: "MELBEST"
-        }
     }
     ListModel {
         id: basicTeamsModel
-
-        ListElement {
-            name: "GRYF-PANTHERS"
-        }
-        ListElement {
-            name: "MELBEST"
-        }
     }
 
-    property var __models: [majorTeamsModel, pretendentTeamsModel, majorTeamsModel]
+    property var __models: [ majorTeamsModel, pretendentTeamsModel, basicTeamsModel]
 
     delegate: TeamsPageDelegate {
         width: list.width
         height: list.height
         title: list.model.get(list.currentIndex).league
-        models:  __models
+        models: __models
     }
 }

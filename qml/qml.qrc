@@ -43,5 +43,6 @@
         <file>teams/TeamsPageDelegate.qml</file>
         <file>teams/TeamPage.qml</file>
         <file>teams/TeamPlayerDelegate.qml</file>
+        <file>rest_controller.js</file>
     </qresource>
 </RCC>

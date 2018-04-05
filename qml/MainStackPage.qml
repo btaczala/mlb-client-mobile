@@ -7,15 +7,6 @@ BasePage {
     width: 600
     height: 700
 
-    Component.onCompleted: loading = true
-
-    Timer {
-
-        interval: 1000 * 3
-        running: true
-        onTriggered: loading = false
-
-    }
 
     ShortArticleView {
         anchors.fill: parent
