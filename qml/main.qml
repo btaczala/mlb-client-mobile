@@ -8,8 +8,8 @@ ApplicationWindow {
     id: window
     visible: true
 
-    width: 800
-    height: 1024
+    width: 600
+    height: 900
 
     Material.theme: settings.theme
     Material.accent: Material.Purple
@@ -43,8 +43,10 @@ ApplicationWindow {
         console.log("New Page = ", +newPage)
         drawer.close()
 
+        newPage.anchors.top = mainStack.top
         newPage.anchors.left = mainStack.left
         newPage.anchors.right = mainStack.right
+        newPage.anchors.bottom = mainStack.bottom
         newPage.globalSettings = settings
         newPage.applicationWindow = window
 

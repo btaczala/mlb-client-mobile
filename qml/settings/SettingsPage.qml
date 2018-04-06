@@ -50,6 +50,11 @@ BasePage {
             width: parent.width
         }
 
+        SelectTeamSettingsMenuItem {
+            Layout.preferredHeight: 60
+            width: parent.width
+        }
+
         Item {
             Layout.preferredWidth: parent.width
             Layout.preferredHeight: 40

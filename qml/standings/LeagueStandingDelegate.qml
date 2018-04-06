@@ -5,9 +5,16 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
+    id: root
     width: 800
     height: 600
     property string title
+
+    property bool portrait
+    property alias model: list.model
+
+    property var portraitModel: ["", "Drużyna", "Mecze", "Wygrane", "Przegrane", "Punkty"]
+    property var landscapeModel: ["", "Drużyna", "Mecze", "Wygrane", "Przegrane", "Bilans", "Różnica", "Punkty"]
 
     readonly property int lpCellSize: 20
     readonly property int itemMarginSize: 4
@@ -167,11 +174,11 @@ Item {
             spacing: 4
             width: list.width
             height: 40
-            z:10
+            z: 10
 
             Repeater {
                 id: headerRepeater
-                model: ["", "Drużyna", "Mecze", "Wygrane", "Przegrane", "Bilans", "Różnica", "Punkty"]
+                model: portrait ? portraitModel : landscapeModel
 
                 Rectangle {
                     Layout.preferredWidth: {
@@ -208,9 +215,17 @@ Item {
 
         delegate: LeagueStandingOneEntryDelegate {
             property var ll: list.headerItem.children
-            sizes: [ll[0].width, ll[1].width, ll[2].width, ll[3].width, ll[4].width, ll[5].width, ll[6].width, ll[7].width]
+            sizes: {
+                if (root.portrait) {
+                    return [ll[0].width, ll[1].width, ll[2].width, ll[3].width, ll[4].width, ll[5].width]
+                } else {
+                    return [ll[0].width, ll[1].width, ll[2].width, ll[3].width, ll[4].width, ll[5].width, ll[6].width, ll[7].width]
+                }
+            }
+
             height: 40
 
+            portrait: root.portrait
             differentColor: index % 2 !== 0
 
             lpText: lp
@@ -221,8 +236,6 @@ Item {
             diffText: diff
             bilansText: score
             pointsText: points
-
-            Component.onCompleted: console.log(points)
         }
     }
 }

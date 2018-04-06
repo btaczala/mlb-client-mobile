@@ -10,8 +10,8 @@ Page {
 
     property bool loading: false
 
-    onLoadingChanged: {
-
+    onInPortraitChanged: {
+        console.log("Page.qml orientation changed ", inPortrait ? "portrait" : "landscape" )
     }
 
     Popup {

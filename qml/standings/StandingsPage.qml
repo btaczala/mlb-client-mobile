@@ -5,11 +5,33 @@ import QtQuick.Layouts 1.3
 
 import ".."
 
-CommonScrollableLeaguePage {
-    width: 800
-    height: 1024
-    delegate: LeagueStandingDelegate {
-        width: list.width
-        height: list.height
+BasePage {
+    width: 600
+    height: 800
+
+
+    SwipeView {
+        id: view
+        anchors.fill: parent
+
+        LeagueStandingDelegate {
+            portrait: inPortrait
+        }
+        LeagueStandingDelegate {
+            portrait: inPortrait
+        }
+        LeagueStandingDelegate {
+            portrait: inPortrait
+        }
+    }
+
+    PageIndicator {
+        id: indicator
+
+        count: view.count
+        currentIndex: view.currentIndex
+
+        anchors.bottom: view.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

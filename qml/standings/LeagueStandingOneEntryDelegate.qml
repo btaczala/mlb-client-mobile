@@ -12,6 +12,8 @@ Item {
     property var sizes: [20, 20, 30, 40, 50, 60, 50, 30]
     property bool differentColor: false
 
+    property bool portrait
+
     property alias lpText: lp.text
     property alias teamNameText: teamName.text
     property alias gamesText: games.text
@@ -20,8 +22,6 @@ Item {
     property alias bilansText: bilans.text
     property alias diffText: diff.text
     property alias pointsText: points.text
-
-    Component.onCompleted: console.log(sizes)
 
     RowLayout {
         anchors.fill: parent
@@ -87,8 +87,9 @@ Item {
         Rectangle {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: sizes[5]
+            Layout.preferredWidth: portrait ? 0: sizes[5]
             color: !differentColor ? Material.background : "grey"
+            visible: !portrait
 
             Label {
                 id: bilans
@@ -98,8 +99,9 @@ Item {
         Rectangle {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: sizes[6]
+            Layout.preferredWidth: portrait ? 0: sizes[6]
             color: !differentColor ? Material.background : "grey"
+            visible: !portrait
 
             Label {
                 id: diff
@@ -109,7 +111,7 @@ Item {
         Rectangle {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: sizes[7]
+            Layout.preferredWidth: portrait ? sizes[5] : sizes[7]
             color: !differentColor ? Material.background : "grey"
 
             Label {
