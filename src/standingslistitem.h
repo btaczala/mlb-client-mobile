@@ -1,0 +1,6 @@
+#ifndef STANDINGSLISTITEM_H
+#define STANDINGSLISTITEM_H
+
+#include <QObject>
+
+#endif // STANDINGSLISTITEM_H

@@ -14,7 +14,6 @@ Item {
 
     property bool portrait
 
-    property alias lpText: lp.text
     property alias teamNameText: teamName.text
     property alias gamesText: games.text
     property alias winsText: wins.text
@@ -37,6 +36,7 @@ Item {
             Label {
                 id: lp
                 anchors.centerIn: parent
+                text: index +1
             }
         }
 
@@ -94,6 +94,8 @@ Item {
             Label {
                 id: bilans
                 anchors.centerIn: parent
+
+                font.pixelSize: 9
             }
         }
         Rectangle {
