@@ -2,8 +2,9 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
-Pane {
-    id: item1
+BasePage {
+    width: 600
+    height: 900
 
     property bool fetchingData: false
 
@@ -13,47 +14,34 @@ Pane {
         running: fetchingData
     }
 
+    onRefresh: {
+
+        loading = true
+        articlesShortModel.clear()
+
+        articlesDataAPI.refreshArticlesList(function (jsonData) {
+
+            var response = JSON.parse(jsonData)
+            for (var count = 0; count < response.length; count++) {
+                var object = response[count]
+                articlesShortModel.append({
+                                              imageUrl: object.imageUrl,
+                                              headerContent: object.headerContent,
+                                              textContent: object.textContent,
+                                              postedContent: object.postedContent,
+                                              uid: object.uid
+                                          })
+            }
+
+            loading = false
+        })
+    }
+
+    Component.onCompleted: refresh()
+
     signal articleClicked(int uid)
 
-    ListModel {
-        id: model
-
-        ListElement {
-            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
-            headerContent: "AKADEMIA BASKETU 2016/2017"
-            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
-            postedContent: "2017-10-20 14:55, Michael Jordan"
-            uid: 10
-        }
-
-        ListElement {
-            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
-            headerContent: "AKADEMIA BASKETU 2016/2017"
-            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
-            postedContent: "2017-10-20 14:55, Michael Jordan"
-            uid: 11
-        }
-        ListElement {
-            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
-            headerContent: "AKADEMIA BASKETU 2016/2017"
-            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
-            postedContent: "2017-10-20 14:55, Michael Jordan"
-            uid: 12
-        }
-        ListElement {
-            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
-            headerContent: "AKADEMIA BASKETU 2016/2017"
-            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
-            postedContent: "2017-10-20 14:55, Michael Jordan"
-            uid: 13
-        }
-        ListElement {
-            imageUrl: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
-            headerContent: "AKADEMIA BASKETU 2016/2017"
-            textContent: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
-            postedContent: "2017-10-20 14:55, Michael Jordan"
-            uid: 14
-        }
+    property var articlesShortModel: ListModel {
     }
 
     ListView {
@@ -62,9 +50,10 @@ Pane {
         anchors.margins: 20
         spacing: 10
 
-        ScrollBar.vertical: ScrollBar {}
+        ScrollBar.vertical: ScrollBar {
+        }
 
-        model: model
+        model: articlesShortModel
         delegate: ShortArticleViewDelegate {
             width: parent.width
             height: 300

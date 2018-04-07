@@ -7,21 +7,22 @@
 #include <QtQml/QJSValue>
 
 class Standings : public QObject {
-  Q_OBJECT
-  Q_PROPERTY(QString majorStandings READ majorStandings NOTIFY
-                 majorStandingsChanged)
+    Q_OBJECT
+    Q_PROPERTY(QString standingsJson READ standingsJson NOTIFY
+            standingJsonChanged)
 public:
-  explicit Standings(QObject *parent = nullptr);
-  QString majorStandings() const noexcept { return _majorStandings; }
+    explicit Standings(QObject* parent = nullptr);
+    QString standingsJson() const noexcept { return _standingsJson; }
+
 public slots:
-  void refreshStandings(QJSValue callback);
+    void refreshStandings(QJSValue callback);
 
 signals:
-  void majorStandingsChanged();
-  void error(QString errorMessage);
+    void standingJsonChanged();
+    void error(QString errorMessage);
 
 private:
-  QString _majorStandings;
+    QString _standingsJson;
 };
 
 #endif // STANDINGS_H

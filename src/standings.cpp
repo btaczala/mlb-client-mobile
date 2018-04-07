@@ -3,13 +3,16 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
-Standings::Standings(QObject *parent) : QObject(parent) {}
+Standings::Standings(QObject* parent)
+    : QObject(parent)
+{
+}
 
-void Standings::refreshStandings(QJSValue callback) {
-
-  QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
-    QJSValueList args;
-    auto str = R"(
+void Standings::refreshStandings(QJSValue callback)
+{
+    QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+        QJSValueList args;
+        auto str = R"(
                {
                    "major": [{
                        "name": "FRASSATTI",
@@ -40,12 +43,13 @@ void Standings::refreshStandings(QJSValue callback) {
                    }]
                }
 )";
-    args.append(QJSValue(QString(str)));
-    const auto jsvalue = callback.call(args);
+        args.append(QJSValue(QString(str)));
+        const auto jsvalue = callback.call(args);
 
-    if ( jsvalue.isError())
-        emit error(jsvalue.toString());
+        if (jsvalue.isError()) {
+            emit error(jsvalue.toString());
+        }
 
-    qDebug() << jsvalue.toString();
-  });
+        qDebug() << jsvalue.toString();
+    });
 }

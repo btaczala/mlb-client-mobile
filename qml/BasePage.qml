@@ -10,6 +10,8 @@ Page {
 
     property bool loading: false
 
+    signal refresh()
+
     onInPortraitChanged: {
         console.log("Page.qml orientation changed ", inPortrait ? "portrait" : "landscape" )
     }

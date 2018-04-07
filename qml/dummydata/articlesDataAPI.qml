@@ -1,23 +1,21 @@
-import QtQuick 2.3
+import QtQuick 2.0
 
 import "rest_controller.js" as Rest
 import "FileIO.js" as File
 
 QtObject {
-    id: standings
 
-    property int __delay: 0 * 1000
+    property int __delay: 1 * 1000
 
-    signal error(string errorMessage)
-    function refreshStandings(callback) {
+    function refreshArticlesList(callback) {
         var timer = new Rest.Timer(standings)
         timer.interval = __delay
 
         timer.repeat = false
 
         timer.triggered.connect(function () {
-            File.readFile("standings.json", function (data) {
-                callback(data)
+            File.readFile("articlesList.json", function (data) {
+                callback(data);
             })
         })
 
