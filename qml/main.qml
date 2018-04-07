@@ -40,7 +40,7 @@ ApplicationWindow {
 
         var newPage = mainStack.push(url, props)
         console.log("main.qml: ", "Pushing " + url + " " + props)
-        console.log("main.qml: ", "New Page = ", +newPage)
+        console.log("main.qml: ", "New Page = ", newPage)
         drawer.close()
 
         newPage.anchors.top = mainStack.top
@@ -122,9 +122,6 @@ ApplicationWindow {
         anchors.topMargin: overlayHeader.height
 
         initialItem: MainStackPage {
-
-            width: mainStack.width
-            height: mainStack.height
         }
     }
 }

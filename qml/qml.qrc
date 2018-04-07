@@ -45,6 +45,6 @@
         <file>teams/TeamPlayerDelegate.qml</file>
         <file>rest_controller.js</file>
         <file>settings/SelectTeamSettingsMenuItem.qml</file>
-        <file>standings/logic.js</file>
+        <file>commonLogic.js</file>
     </qresource>
 </RCC>

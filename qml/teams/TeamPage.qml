@@ -11,12 +11,6 @@ Common.BasePage {
     width: 600
     height: 900
 
-    Component.onCompleted: {
-        loading = true
-        Rest.getTeamData(teamModel, function () {
-            loading = false;
-        })
-    }
 
     ListModel {
         id: teamModel

@@ -22,6 +22,7 @@ int main(int argc, char* argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("standings", controller.standings());
     engine.rootContext()->setContextProperty("articlesDataAPI", controller.articles());
+    engine.rootContext()->setContextProperty("teamDataAPI", controller.teamAPI());
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty()) {
         return EXIT_FAILURE;

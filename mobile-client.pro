@@ -16,7 +16,8 @@ SOURCES += \
         src/main.cpp \
         src/datacontroller.cpp \
     src/standings.cpp \
-    src/articles.cpp
+    src/articles.cpp \
+    src/teamapi.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -34,4 +35,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     src/datacontroller.h \
     src/standings.h \
-    src/articles.h
+    src/articles.h \
+    src/teamapi.h

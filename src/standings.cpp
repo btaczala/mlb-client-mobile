@@ -11,6 +11,7 @@ Standings::Standings(QObject* parent)
 void Standings::refreshStandings(QJSValue callback)
 {
     QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+        qDebug() << Q_FUNC_INFO;
         QJSValueList args;
         auto str = R"(
                {
@@ -18,7 +19,7 @@ void Standings::refreshStandings(QJSValue callback)
                        "name": "FRASSATTI",
                        "games": 3,
                        "wons": 1,
-                       "lost": 2
+                       "lost": 2,
                        "score": "206-210",
                        "diff": -4,
                        "points": 4
@@ -45,6 +46,7 @@ void Standings::refreshStandings(QJSValue callback)
 )";
         args.append(QJSValue(QString(str)));
         const auto jsvalue = callback.call(args);
+        qDebug() << Q_FUNC_INFO << jsvalue.toString();
 
         if (jsvalue.isError()) {
             emit error(jsvalue.toString());

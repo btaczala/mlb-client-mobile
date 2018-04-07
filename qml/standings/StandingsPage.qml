@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
-import "logic.js" as Data
+import "../commonLogic.js" as Logic
 import ".." as Common
 
 Common.BasePage {
@@ -17,18 +17,38 @@ Common.BasePage {
     property var basicStandings: ListModel {
     }
 
-    Component.onCompleted: {
-        loading = true;
-        Data.getStandings(majorStandings, pretendentStandings, basicStandings, standings, function() {
-            loading = false;
-        });
+    function refresh() {
+        loading = true
+        Logic.getThreeModels(majorStandings, pretendentStandings,
+                             basicStandings, standings.refreshStandings,
+                             function () {
+                                 loading = false;
+                             }, function (obj) {
+                                 return {
+                                     name: obj.name,
+                                     points: obj.points,
+                                     score: obj.score,
+                                     diff: obj.diff,
+                                     lost: obj.lost,
+                                     wons: obj.wons,
+                                     games: obj.games
+                                 }
+                             })
+    }
+
+    Component.onCompleted: refresh();
+
+    Connections {
+        target: floatingButton
+        onClicked: refresh();
     }
 
     Connections {
         target: standings
         onError: {
-            loading = false;
-            console.error("Standings.qml: Error ", errorMessage, " during json parsing");
+            loading = false
+            console.error("Standings.qml: Error ", errorMessage,
+                          " during json parsing")
         }
     }
 
