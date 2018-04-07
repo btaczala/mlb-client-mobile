@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
 #include <QtQml/QQmlContext>
+
+#include <QtCore/QDebug>
 
 #include "datacontroller.h"
 

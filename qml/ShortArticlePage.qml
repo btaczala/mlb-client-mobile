@@ -14,7 +14,18 @@ BasePage {
         running: fetchingData
     }
 
-    onRefresh: {
+    Component.onCompleted: refreshPageContent()
+
+    Connections {
+        target: floatingButton
+        onClicked: {
+            console.log("ShortArticleView.qml: Refresh clicked" );
+            refreshPageContent();
+        }
+    }
+
+    onRefreshPageContent: {
+        console.log("ShortArticleView.qml Refreshing")
 
         loading = true
         articlesShortModel.clear()
@@ -37,7 +48,6 @@ BasePage {
         })
     }
 
-    Component.onCompleted: refresh()
 
     signal articleClicked(int uid)
 

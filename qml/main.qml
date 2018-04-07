@@ -17,7 +17,7 @@ ApplicationWindow {
     readonly property bool inPortrait: window.width < window.height
 
     onInPortraitChanged: {
-        console.log("Orientation changed! ",
+        console.log("main.qml: Orientation changed! ",
                     inPortrait ? "portrait" : "landscape")
     }
 
@@ -29,8 +29,8 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        console.log(mainStack.depth)
-        console.log(mainStack.initialItem)
+        console.log("main.qml: ", mainStack.depth)
+        console.log("main.qml: ", mainStack.initialItem)
     }
 
     function pushNewPage(url, props) {
@@ -39,8 +39,8 @@ ApplicationWindow {
             console.assert("Url cannot be empty")
 
         var newPage = mainStack.push(url, props)
-        console.log("Pushing " + url + " " + props)
-        console.log("New Page = ", +newPage)
+        console.log("main.qml: ", "Pushing " + url + " " + props)
+        console.log("main.qml: ", "New Page = ", +newPage)
         drawer.close()
 
         newPage.anchors.top = mainStack.top

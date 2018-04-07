@@ -7,12 +7,12 @@ Item {
 
     property alias scheduleModel : list.model
 
-    Component.onCompleted: console.log(scheduleModel)
+    Component.onCompleted: console.log("ScheduleBase.qml: ", scheduleModel)
 
     ListView {
         anchors.fill: parent
 
-        Component.onCompleted: console.log(contentHeight, height)
+        Component.onCompleted: console.log("ScheduleBase.qml: ", contentHeight, height)
 
         id: list
         clip: true

@@ -39,7 +39,7 @@ BasePage {
         }
 
         onCurrentIndexChanged: {
-            console.log("current index changed" + currentIndex)
+            console.log("CommonScrollableLeaguePage.qml: current index changed" + currentIndex)
 
             for(var count = 0; count < repeater.count; count++)
                 repeater.itemAt(count).color = "white"

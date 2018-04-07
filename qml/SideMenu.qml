@@ -100,7 +100,7 @@ Drawer {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    console.log("Selecting " + name)
+                    console.log("SideMenu.qml: Selecting " + name)
                     requestNewPage(url, null)
                 }
             }
