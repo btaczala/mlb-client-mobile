@@ -15,8 +15,10 @@ public:
   QString majorStandings() const noexcept { return _majorStandings; }
 public slots:
   void refreshStandings(QJSValue callback);
+
 signals:
   void majorStandingsChanged();
+  void error(QString errorMessage);
 
 private:
   QString _majorStandings;

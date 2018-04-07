@@ -3,41 +3,33 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
-import ".."
+import "logic.js" as Data
+import ".." as Common
 
-BasePage {
+Common.BasePage {
     width: 600
     height: 800
 
     property var majorStandings: ListModel {
     }
+    property var pretendentStandings: ListModel {
+    }
+    property var basicStandings: ListModel {
+    }
 
     Component.onCompleted: {
-        loading = true
-        standings.refreshStandings(function (json) {
-            majorStandings.clear()
-            console.log("StandingsPage.qml: Refreshing finished")
-            console.log("StandingsPage.qml: Received data ", json)
-
-            var result = JSON.parse(json)
-            console.log("StandingsPage.qml: Result ", result)
-
-            for (var count = 0; count < result.length; count++) {
-                console.log(result[count].name)
-                var obj = result[count]
-                majorStandings.append({
-                                          name: obj.name,
-                                          points: obj.points,
-                                          score: obj.score,
-                                          diff: obj.diff,
-                                          lost: obj.lost,
-                                          wons: obj.wons,
-                                          games: obj.games
-                                      })
-            }
-            console.log("StandingsPage.qml Finished Parsing");
+        loading = true;
+        Data.getStandings(majorStandings, pretendentStandings, basicStandings, standings, function() {
             loading = false;
-        })
+        });
+    }
+
+    Connections {
+        target: standings
+        onError: {
+            loading = false;
+            console.error("Standings.qml: Error ", errorMessage, " during json parsing");
+        }
     }
 
     SwipeView {
@@ -50,11 +42,11 @@ BasePage {
         }
         LeagueStandingDelegate {
             portrait: inPortrait
-            model: majorStandings
+            model: pretendentStandings
         }
         LeagueStandingDelegate {
             portrait: inPortrait
-            model: majorStandings
+            model: basicStandings
         }
     }
 
