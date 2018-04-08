@@ -4,7 +4,7 @@
 #include <QtCore/QtDebug>
 
 Articles::Articles(QObject* parent)
-    : QObject(parent)
+  : QObject(parent)
 {
 }
 

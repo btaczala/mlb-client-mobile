@@ -4,7 +4,7 @@
 #include <QtCore/QtDebug>
 
 TeamAPI::TeamAPI(QObject* parent)
-    : QObject(parent)
+  : QObject(parent)
 {
 }
 

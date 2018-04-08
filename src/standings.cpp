@@ -4,7 +4,7 @@
 #include <QtCore/QtDebug>
 
 Standings::Standings(QObject* parent)
-    : QObject(parent)
+  : QObject(parent)
 {
 }
 

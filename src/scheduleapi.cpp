@@ -1,7 +1,7 @@
 #include "scheduleapi.h"
 
 ScheduleAPI::ScheduleAPI(QObject* parent)
-    : QObject(parent)
+  : QObject(parent)
 {
 }
 

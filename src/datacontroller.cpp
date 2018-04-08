@@ -5,17 +5,20 @@
 #include "teamapi.h"
 
 DataController::DataController(QObject* parent)
-    : QObject(parent)
-    , _standingsAPI(new Standings())
-    , _articles(new Articles())
-    , _teamAPI(new TeamAPI())
-    , _scheduleAPI(new ScheduleAPI())
+  : QObject(parent)
+  , _standingsAPI(new Standings())
+  , _articles(new Articles())
+  , _teamAPI(new TeamAPI())
+  , _scheduleAPI(new ScheduleAPI())
 {
 }
 
 DataController::~DataController() noexcept = default;
 
-QObject* DataController::standings() const noexcept { return _standingsAPI.get(); }
+QObject* DataController::standings() const noexcept
+{
+    return _standingsAPI.get();
+}
 
 QObject* DataController::articles() const noexcept
 {
