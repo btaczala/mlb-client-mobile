@@ -74,7 +74,7 @@ Item {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: requestNewPage("teams/TeamPage.qml", {teamName: name})
+                        onClicked: requestNewPage("teams/TeamPage.qml", {teamName: name, teamImage: image})
                     }
                 }
             }

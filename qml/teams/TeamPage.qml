@@ -12,19 +12,28 @@ Common.BasePage {
     height: 900
 
     property string teamName
+    property string teamImage
+    property var teamModel: ListModel {}
 
-    function refresh() {
+    onRefreshPageContent: {
+        loading = true;
 
-        var dataCallback = function(jsonData) { }
+        var dataCallback = function(jsonData) { 
+            var result = JSON.parse(jsonData);
+
+            for(var index in result) {
+                var player = result[index];
+
+                teamModel.append( { "name": player.name, "age": player.age, "image" : player.image });
+            }
+            
+            loading = false;
+        }
         teamDataAPI.teamPlayers(teamName, dataCallback)
     }
 
     Component.onCompleted: {
-        refresh();
-    }
-
-    ListModel {
-        id: teamModel
+        refreshPageContent();
     }
 
     ColumnLayout {
@@ -34,7 +43,8 @@ Common.BasePage {
             Layout.fillWidth: true
             Layout.preferredHeight: 400
             Image {
-                source: "http://www.miastobasketu.com/zespoly/foto/photo_9330428_2017_533_1511276869.11"
+                //source: ""
+                source: teamImage
                 anchors.centerIn: parent
             }
         }

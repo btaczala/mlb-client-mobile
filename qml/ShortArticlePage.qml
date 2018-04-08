@@ -16,14 +16,6 @@ BasePage {
 
     Component.onCompleted: refreshPageContent()
 
-    Connections {
-        target: floatingButton
-        onClicked: {
-            console.log("ShortArticleView.qml: Refresh clicked")
-            refreshPageContent()
-        }
-    }
-
     onRefreshPageContent: {
         console.log("ShortArticleView.qml Refreshing")
 

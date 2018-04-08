@@ -7,7 +7,7 @@ QtObject {
 
     property int __delay: 1 * 1000
 
-    function refreshTeams(callback) {
+    function refresh(callback) {
         var timer = new Rest.Timer(standings)
         timer.interval = __delay
 

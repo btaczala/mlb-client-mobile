@@ -35,7 +35,7 @@ Item {
                 spacing: 10
 
                 Image {
-                    source: "http://miastobasketu.com/zawodnicy/foto4/michaldudzik.JPG"
+                    source: image
                     sourceSize: Qt.size(32, 32)
                 }
 

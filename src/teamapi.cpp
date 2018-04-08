@@ -3,42 +3,42 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
-TeamAPI::TeamAPI(QObject* parent)
-  : QObject(parent)
+void TeamAPI::refresh(QJSValue callback)
 {
-}
 
-void TeamAPI::refreshTeams(QJSValue callback)
-{
-    QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+    qDebug() << Q_FUNC_INFO;
+
+    QTimer::singleShot(500, this, [this, callback]() mutable {
         QJSValueList args;
-        auto str = R"(
-                   {
-                                      "major": [{
-                                          "name": "FRASSATTI"
-                                      }],
-                                      "pretendent": [{
-                                          "name": "Charlotte"
-                                      }],
-                                      "basic": [{
-                                          "name": "Basket++"
-                                      }]
-                                  }
+        auto str = R"({
+    "major": [{
+        "name": "FRASSATTI", 
+        "image": "http://www.miastobasketu.com/zespoly/foto/photo_9330428_2017_533_1511276869.11"
+    }],
+        "pretendent": [{
+        "name": "Charlotte", 
+        "image": "http://www.miastobasketu.com/zespoly/foto/photo_9330428_2017_533_1511276869.11"
+    }],
+        "basic": [{
+        "name": "Basket++", 
+        "image": "http://www.miastobasketu.com/zespoly/foto/photo_9330428_2017_533_1511276869.11"
+    }]
+}
 )";
         args.append(QJSValue(QString(str)));
         const auto jsvalue = callback.call(args);
 
-        //        if (jsvalue.isError()) {
-        //            emit error(jsvalue.toString());
-        //        }
+        if (jsvalue.isError()) {
+            emit error(jsvalue.toString());
+        }
 
         qDebug() << jsvalue.toString();
     });
 }
 
-void TeamAPI::teamPlayers(const QString& teamID, QJSValue callback)
+void TeamAPI::teamPlayers(const QString& /*teamID*/, QJSValue callback)
 {
-    QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+    QTimer::singleShot(500, this, [this, callback]() mutable {
         QJSValueList args;
         auto str = R"(
                    [
@@ -87,9 +87,9 @@ void TeamAPI::teamPlayers(const QString& teamID, QJSValue callback)
         args.append(QJSValue(QString(str)));
         const auto jsvalue = callback.call(args);
 
-        //        if (jsvalue.isError()) {
-        //            emit error(jsvalue.toString());
-        //        }
+        if (jsvalue.isError()) {
+            emit error(jsvalue.toString());
+        }
 
         qDebug() << jsvalue.toString();
     });

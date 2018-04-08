@@ -9,22 +9,18 @@ import "../commonLogic.js" as Logic
 CommonScrollableLeaguePage {
     id: root
 
-    function refresh() {
+    onRefreshPageContent: {
         loading = true;
-        var convert = function(obj) { return { name: obj.name} };
+        var convert = function(obj) { return { name: obj.name, image: obj.image} };
         var finishCb = function() { loading = false;}
-        Logic.getThreeModels(majorTeamsModel, pretendentTeamsModel, basicTeamsModel, teamDataAPI.refreshTeams,
+        Logic.getThreeModels(majorTeamsModel, pretendentTeamsModel, basicTeamsModel, teamDataAPI.refresh,
                              finishCb, convert );
 
     }
 
     Component.onCompleted: {
-        refresh();
+        refreshPageContent();
     }
-//    Component.onCompleted: {
-//        loading = true;
-//        Rest.getTeamsData(majorTeamsModel, pretendentTeamsModel, basicTeamsModel, root);
-//    }
 
     ListModel {
         id: majorTeamsModel

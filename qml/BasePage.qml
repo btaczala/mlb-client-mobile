@@ -7,7 +7,7 @@ Page {
     property var applicationWindow
     property var globalSettings
     readonly property bool inPortrait: width < height
-    signal requestNewPage(string url, var props)
+    signal requestNewPage(string url, var props);
     signal refreshPageContent();
 
     property bool loading: false
@@ -66,6 +66,10 @@ Page {
         highlighted: true
 
         visible: !loading
+        onClicked: {
+            console.log("BasePage.qml: Refresh clicked")
+            refreshPageContent()
+        }
 
         anchors.right: parent.right
         anchors.rightMargin: 30

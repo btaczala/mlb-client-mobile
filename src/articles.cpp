@@ -10,7 +10,7 @@ Articles::Articles(QObject* parent)
 
 void Articles::refreshArticlesList(QJSValue callback)
 {
-    QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+    QTimer::singleShot(500, this, [this, callback]() mutable {
         QJSValueList args;
         auto str = R"(
                    [

@@ -20,10 +20,6 @@ public:
     QObject* teamAPI() const noexcept;
     QObject* scheduleAPI() const noexcept;
 
-signals:
-
-public slots:
-
 private:
     const bool _dummy;
     std::unique_ptr<Standings> _standingsAPI;

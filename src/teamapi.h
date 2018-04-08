@@ -4,16 +4,14 @@
 #include <QtCore/QObject>
 #include <QtQml/QJSValue>
 
-class TeamAPI : public QObject
+#include "apibase.h"
+
+class TeamAPI : public APIBase
 {
     Q_OBJECT
-public:
-    explicit TeamAPI(QObject* parent = nullptr);
-
-signals:
 
 public slots:
-    void refreshTeams(QJSValue callback);
+    void refresh(QJSValue callback) override;
 
     void teamPlayers(const QString& teamID, QJSValue callback);
 };

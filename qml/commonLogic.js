@@ -1,13 +1,13 @@
 function getThreeModels(major, pretendent, basic, apiToCall, functionToCallAfter, convertFunction) {
-    major.clear()
-    pretendent.clear()
-    basic.clear()
 
     var callback = function (jsonData) {
         console.debug("Logic.js: Parsing json=", jsonData)
         var result = JSON.parse(jsonData)
 
         console.log("Standings: Parsing result ", result)
+        major.clear()
+        pretendent.clear()
+        basic.clear()
 
         __parseModel(result["major"], major, convertFunction)
         __parseModel(result["pretendent"], pretendent, convertFunction)
