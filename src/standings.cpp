@@ -3,12 +3,11 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
-Standings::Standings(QObject* parent)
-  : QObject(parent)
+Standings::Standings()
 {
 }
 
-void Standings::refreshStandings(QJSValue callback)
+void Standings::refresh(QJSValue callback)
 {
     QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
         qDebug() << Q_FUNC_INFO;

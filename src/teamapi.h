@@ -4,7 +4,8 @@
 #include <QtCore/QObject>
 #include <QtQml/QJSValue>
 
-class TeamAPI : public QObject {
+class TeamAPI : public QObject
+{
     Q_OBJECT
 public:
     explicit TeamAPI(QObject* parent = nullptr);

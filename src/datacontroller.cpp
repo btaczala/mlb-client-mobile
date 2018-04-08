@@ -4,8 +4,9 @@
 #include "standings.h"
 #include "teamapi.h"
 
-DataController::DataController(QObject* parent)
+DataController::DataController(bool dummy, QObject* parent)
   : QObject(parent)
+  , _dummy(dummy)
   , _standingsAPI(new Standings())
   , _articles(new Articles())
   , _teamAPI(new TeamAPI())

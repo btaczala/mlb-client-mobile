@@ -20,7 +20,7 @@ Common.BasePage {
     function refresh() {
         loading = true
         Logic.getThreeModels(majorStandings, pretendentStandings,
-                             basicStandings, standings.refreshStandings,
+                             basicStandings, standings.refresh,
                              function () {
                                  loading = false;
                              }, function (obj) {

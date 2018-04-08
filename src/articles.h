@@ -4,7 +4,8 @@
 #include <QObject>
 #include <QtQml/QJSValue>
 
-class Articles : public QObject {
+class Articles : public QObject
+{
     Q_OBJECT
 public:
     explicit Articles(QObject* parent = nullptr);

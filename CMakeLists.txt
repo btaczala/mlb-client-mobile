@@ -17,6 +17,7 @@ set(sources
     src/scheduleapi.cpp
     src/standings.cpp
     src/teamapi.cpp
+    src/apibase.cpp
 )
 qt5_add_resources(rsc qml/qml.qrc)
 

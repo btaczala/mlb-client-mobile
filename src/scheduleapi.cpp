@@ -5,6 +5,6 @@ ScheduleAPI::ScheduleAPI(QObject* parent)
 {
 }
 
-void ScheduleAPI::refreshSchedule(QJSValue callback)
+void ScheduleAPI::refreshSchedule(QJSValue)
 {
 }

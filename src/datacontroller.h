@@ -8,10 +8,11 @@ class Standings;
 class Articles;
 class TeamAPI;
 class ScheduleAPI;
-class DataController : public QObject {
+class DataController : public QObject
+{
     Q_OBJECT
 public:
-    explicit DataController(QObject* parent = nullptr);
+    explicit DataController(bool dummy, QObject* parent = nullptr);
     ~DataController() noexcept final;
 
     QObject* standings() const noexcept;
@@ -24,6 +25,7 @@ signals:
 public slots:
 
 private:
+    const bool _dummy;
     std::unique_ptr<Standings> _standingsAPI;
     std::unique_ptr<Articles> _articles;
     std::unique_ptr<TeamAPI> _teamAPI;

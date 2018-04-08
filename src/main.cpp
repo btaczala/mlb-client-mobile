@@ -1,7 +1,9 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include <QtGui/QGuiApplication>
+#include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 
+#include <QtCore/QCommandLineOption>
+#include <QtCore/QCommandLineParser>
 #include <QtCore/QDebug>
 
 #include "datacontroller.h"
@@ -15,8 +17,17 @@ int main(int argc, char* argv[])
     QGuiApplication::setOrganizationName("MLB");
     QGuiApplication::setApplicationName("mlb-mobile-client");
     QGuiApplication::setApplicationDisplayName("mlb client");
+    QGuiApplication::setApplicationVersion("0.1");
 
-    DataController controller;
+    QCommandLineParser parser;
+    QCommandLineOption useDummyData("d", QCoreApplication::translate("main", "use dummy data"));
+    parser.addOption(useDummyData);
+
+    parser.process(app);
+
+    const bool useDummy = parser.isSet(useDummyData);
+
+    DataController controller{useDummy};
     qRegisterMetaType<QObjectList>("QObjectList");
 
     QQmlApplicationEngine engine;
