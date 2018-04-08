@@ -1,0 +1,36 @@
+{
+  "major": [
+    {
+      "type": "week_nr",
+      "number": 2,
+      "guest": "",
+      "host": "",
+      "date": ""
+    },
+    {
+      "type": "game",
+      "number": -1,
+      "guest": "Basket++",
+      "host": "MLB",
+      "date": "2018-04-05 15:10"
+    }
+  ],
+  "pretendent": [
+    {
+      "type": "week_nr",
+      "number": 1,
+      "guest": "",
+      "host": "",
+      "date": ""
+    }
+  ],
+  "basic": [
+    {
+      "type": "week_nr",
+      "number": 3,
+      "guest": "",
+      "host": "",
+      "date": ""
+    }
+  ]
+}

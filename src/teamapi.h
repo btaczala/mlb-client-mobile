@@ -13,6 +13,8 @@ signals:
 
 public slots:
     void refreshTeams(QJSValue callback);
+
+    void teamPlayers(const QString& teamID, QJSValue callback);
 };
 
 #endif // TEAMAPI_H

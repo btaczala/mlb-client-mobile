@@ -17,7 +17,8 @@ SOURCES += \
         src/datacontroller.cpp \
     src/standings.cpp \
     src/articles.cpp \
-    src/teamapi.cpp
+    src/teamapi.cpp \
+    src/scheduleapi.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -36,4 +37,5 @@ HEADERS += \
     src/datacontroller.h \
     src/standings.h \
     src/articles.h \
-    src/teamapi.h
+    src/teamapi.h \
+    src/scheduleapi.h

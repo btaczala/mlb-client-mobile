@@ -1,26 +1,59 @@
 import QtQuick 2.9
+import QtQml 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 import ".."
+import "../commonLogic.js" as Logic
 
 BasePage {
     width: 600
     height: 800
 
+    property var majorModel: ListModel {
+    }
+    property var pretendentModel: ListModel {
+    }
+    property var basicModel: ListModel {
+    }
+
+    function refresh() {
+
+        var afterCallback = function () {
+            loading = false
+        }
+
+        var transform = function (object) {
+            return {
+                type: object.type,
+                number: object.number,
+                guest: object.guest,
+                host: object.host,
+                date: object.date
+            }
+        }
+
+        Logic.getThreeModels(majorModel, pretendentModel, basicModel,
+                             scheduleAPI.refreshSchedule, afterCallback, transform)
+    }
+
+    Component.onCompleted: {
+        refresh()
+    }
+
     SwipeView {
         id: view
         anchors.fill: parent
 
-        SchedulePageDelegate {
-            leagueName: "Major"
+        ScheduleBase {
+            scheduleModel: majorModel
         }
-        SchedulePageDelegate {
-            leagueName: "Pretendent"
+        ScheduleBase {
+            scheduleModel: pretendentModel
         }
-        SchedulePageDelegate {
-            leagueName: "Basic"
+        ScheduleBase {
+            scheduleModel: basicModel
         }
     }
 
@@ -33,5 +66,4 @@ BasePage {
         anchors.bottom: view.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }
-
 }

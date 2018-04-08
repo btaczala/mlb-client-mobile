@@ -19,8 +19,8 @@ BasePage {
     Connections {
         target: floatingButton
         onClicked: {
-            console.log("ShortArticleView.qml: Refresh clicked" );
-            refreshPageContent();
+            console.log("ShortArticleView.qml: Refresh clicked")
+            refreshPageContent()
         }
     }
 
@@ -28,10 +28,10 @@ BasePage {
         console.log("ShortArticleView.qml Refreshing")
 
         loading = true
-        articlesShortModel.clear()
 
         articlesDataAPI.refreshArticlesList(function (jsonData) {
 
+            articlesShortModel.clear()
             var response = JSON.parse(jsonData)
             for (var count = 0; count < response.length; count++) {
                 var object = response[count]
@@ -47,7 +47,6 @@ BasePage {
             loading = false
         })
     }
-
 
     signal articleClicked(int uid)
 

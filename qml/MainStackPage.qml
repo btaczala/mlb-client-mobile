@@ -3,7 +3,6 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
 ShortArticlePage {
-    anchors.fill: parent
 
     onArticleClicked: {
         console.debug("Article clicked " + uid)

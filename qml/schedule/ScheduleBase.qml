@@ -12,8 +12,6 @@ Item {
     ListView {
         anchors.fill: parent
 
-        Component.onCompleted: console.log("ScheduleBase.qml: ", contentHeight, height)
-
         id: list
         clip: true
         ScrollBar.vertical: ScrollBar {}

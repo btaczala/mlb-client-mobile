@@ -21,4 +21,19 @@ QtObject {
 
         timer.start()
     }
+
+    function teamPlayers(teamID, callback) {
+        var timer = new Rest.Timer(standings)
+        timer.interval = __delay
+
+        timer.repeat = false
+
+        timer.triggered.connect(function () {
+            File.readFile("teamExample.json", function (data) {
+                callback(data);
+            })
+        })
+
+        timer.start()
+    }
 }

@@ -11,6 +11,17 @@ Common.BasePage {
     width: 600
     height: 900
 
+    property string teamName
+
+    function refresh() {
+
+        var dataCallback = function(jsonData) { }
+        teamDataAPI.teamPlayers(teamName, dataCallback)
+    }
+
+    Component.onCompleted: {
+        refresh();
+    }
 
     ListModel {
         id: teamModel
