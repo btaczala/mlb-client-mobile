@@ -16,6 +16,18 @@ ApplicationWindow {
 
     readonly property bool inPortrait: window.width < window.height
 
+    onClosing: {
+        if (Qt.platform.os === "android") {
+
+            if (mainStack.depth === 1) {
+                close.accepted = true;
+            } else {
+                close.accepted = false
+                mainStack.pop()
+            }
+        }
+    }
+
     onInPortraitChanged: {
         console.log("main.qml: Orientation changed! ",
                     inPortrait ? "portrait" : "landscape")
@@ -26,6 +38,8 @@ ApplicationWindow {
         property int theme
         property alias width: window.width
         property alias height: window.height
+
+        property size drawerLogoSize: Qt.size(128,128)
     }
 
     Component.onCompleted: {
@@ -61,19 +75,23 @@ ApplicationWindow {
         width: parent.width
         parent: window.overlay
 
-        Image {
-            source: {
-
-                if (mainStack.depth === 1) {
-                    return "images/ic_menu_white_24px.svg"
-                } else {
-                    return "images/ic_chevron_left_white_48px.svg"
-                }
-            }
-
+        Rectangle {
+            width: 64
+            height: parent.height
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 5
+
+            Image {
+
+                source: {
+                    if (mainStack.depth === 1) {
+                        return "images/ic_menu_white_24px.svg"
+                    } else {
+                        return "images/ic_chevron_left_white_48px.svg"
+                    }
+                }
+            }
 
             MouseArea {
                 anchors.fill: parent
@@ -103,6 +121,7 @@ ApplicationWindow {
         id: drawer
         window: window
         overlayHeader: overlayHeader
+        globalSettings: settings
 
         onRequestNewPage: {
             pushNewPage(url, props)
