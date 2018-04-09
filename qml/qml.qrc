@@ -46,5 +46,15 @@
         <file>rest_controller.js</file>
         <file>settings/SelectTeamSettingsMenuItem.qml</file>
         <file>commonLogic.js</file>
+        <file>images/ic_menu_white_48dp/android/drawable-hdpi/ic_menu_white_48dp.png</file>
+        <file>images/ic_menu_white_48dp/android/drawable-mdpi/ic_menu_white_48dp.png</file>
+        <file>images/ic_menu_white_48dp/android/drawable-xhdpi/ic_menu_white_48dp.png</file>
+        <file>images/ic_menu_white_48dp/android/drawable-xxhdpi/ic_menu_white_48dp.png</file>
+        <file>images/ic_menu_white_48dp/android/drawable-xxxhdpi/ic_menu_white_48dp.png</file>
+        <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-hdpi/ic_keyboard_arrow_left_white_48dp.png</file>
+        <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-mdpi/ic_keyboard_arrow_left_white_48dp.png</file>
+        <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
+        <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xxhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
+        <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xxxhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
     </qresource>
 </RCC>

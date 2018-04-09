@@ -15,10 +15,10 @@ ApplicationWindow {
     Material.accent: Material.Purple
 
     readonly property bool inPortrait: window.width < window.height
+    readonly property bool isAndroid: Qt.platform.os === "android"
 
     onClosing: {
-        if (Qt.platform.os === "android") {
-
+        if (isAndroid) {
             if (mainStack.depth === 1) {
                 close.accepted = true;
             } else {
@@ -38,8 +38,7 @@ ApplicationWindow {
         property int theme
         property alias width: window.width
         property alias height: window.height
-
-        property size drawerLogoSize: Qt.size(128,128)
+        readonly property size drawerLogoSize: Qt.size(128,128)
     }
 
     Component.onCompleted: {
@@ -75,8 +74,8 @@ ApplicationWindow {
         width: parent.width
         parent: window.overlay
 
-        Rectangle {
-            width: 64
+        Item {
+            width: height
             height: parent.height
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
@@ -86,11 +85,14 @@ ApplicationWindow {
 
                 source: {
                     if (mainStack.depth === 1) {
-                        return "images/ic_menu_white_24px.svg"
+                        return "images/ic_menu_white_48dp/android/drawable-hdpi/ic_menu_white_48dp.png"
                     } else {
-                        return "images/ic_chevron_left_white_48px.svg"
+                        return "images/ic_keyboard_arrow_left_white_48dp/android/drawable-hdpi/ic_keyboard_arrow_left_white_48dp.png"
                     }
                 }
+                anchors.fill: parent
+                sourceSize: Qt.size(64,64)
+                smooth: true
             }
 
             MouseArea {
