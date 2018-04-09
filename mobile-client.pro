@@ -1,4 +1,5 @@
-QT += quick
+QT += quick svg xml gui core
+QTPLUGIN += qsvg@
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -15,10 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         src/main.cpp \
         src/datacontroller.cpp \
-    src/standings.cpp \
-    src/articles.cpp \
-    src/teamapi.cpp \
-    src/scheduleapi.cpp
+        src/standings.cpp \
+        src/articles.cpp \
+        src/teamapi.cpp \
+        src/scheduleapi.cpp
 
 RESOURCES += qml/qml.qrc
 
@@ -38,4 +39,12 @@ HEADERS += \
     src/standings.h \
     src/articles.h \
     src/teamapi.h \
-    src/scheduleapi.h
+    src/scheduleapi.h \
+    src/apibase.h \
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/res/values/libs.xml \
+    android/build.gradle
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
