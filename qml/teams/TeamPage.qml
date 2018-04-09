@@ -4,104 +4,128 @@ import QtQuick.Controls.Material 2.1
 
 import QtQuick.Layouts 1.3
 
-import ".." as Common
+import ".."
 import "../rest_controller.js" as Rest
 
-Common.BasePage {
-    width: 600
-    height: 900
+BasePage {
+    width: 900
+    height: 600
 
     property string teamName
-    property string teamImage
-    property var teamModel: ListModel {}
+    property string teamImage: "http://www.miastobasketu.com/zespoly/foto/photo_9330428_2017_533_1511276869.11"
+    property var teamModel: ListModel {
+    }
 
     onRefreshPageContent: {
-        loading = true;
+        loading = true
 
-        var dataCallback = function(jsonData) { 
-            var result = JSON.parse(jsonData);
+        var dataCallback = function (jsonData) {
+            var result = JSON.parse(jsonData)
 
-            for(var index in result) {
-                var player = result[index];
+            for (var index in result) {
+                var player = result[index]
 
-                teamModel.append( { "name": player.name, "age": player.age, "image" : player.image });
+                teamModel.append({
+                                     name: player.name,
+                                     age: player.age,
+                                     image: player.image
+                                 })
             }
-            
-            loading = false;
+
+            loading = false
         }
         teamDataAPI.teamPlayers(teamName, dataCallback)
     }
 
     Component.onCompleted: {
-        refreshPageContent();
+        refreshPageContent()
     }
 
-    ColumnLayout {
-        anchors.fill: parent
+    Flickable {
+        id: flickable
+        width: parent.width - scrollbar.width - 5
+        height: parent.height
 
-        Item {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 400
-            Image {
-                //source: ""
-                source: teamImage
-                anchors.centerIn: parent
-            }
+        contentHeight: column.height
+
+        ScrollBar.vertical: ScrollBar {
+            id: scrollbar
+            parent: flickable.parent
+            anchors.top: flickable.top
+            anchors.left: flickable.right
+            anchors.bottom: flickable.bottom
+            contentItem.opacity: 1
         }
 
-        Item {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 400
+        ColumnLayout {
+            id: column
+            width: parent.width
+            height: imageItem.height + list.contentHeight
 
-            ListView {
-                id: list
-                anchors.fill: parent
-                clip: true
-                ScrollBar.vertical: ScrollBar {
+            Item {
+                id: imageItem
+                Layout.fillWidth: true
+                Layout.preferredHeight: 400
+                Image {
+                    //source: ""
+                    source: teamImage
+                    anchors.centerIn: parent
                 }
+            }
 
-                model: teamModel
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-                header: Item {
-                    width: list.width
-                    height: 40
+                ListView {
+                    id: list
+                    anchors.fill: parent
+                    clip: true
+                    interactive: false
 
-                    RowLayout {
-                        anchors.fill: parent
+                    model: teamModel
 
-                        Repeater {
-                            model: ["LP.", "Imię i nazwisko", "Wiek"]
+                    header: Item {
+                        width: list.width
+                        height: 40
 
-                            Rectangle {
-                                Layout.fillWidth: index === 1
-                                Layout.preferredWidth: {
-                                    if (index === 0)
-                                        return 20
-                                    else if (index === 2)
-                                        return 40
-                                    else
-                                        return 100
-                                }
-                                Layout.fillHeight: true
+                        RowLayout {
+                            anchors.fill: parent
 
-                                color: Material.primary
+                            Repeater {
+                                model: ["LP.", "Imię i nazwisko", "Wiek"]
 
-                                Label {
-                                    text: modelData
-                                    anchors.centerIn: parent
+                                Rectangle {
+                                    Layout.fillWidth: index === 1
+                                    Layout.preferredWidth: {
+                                        if (index === 0)
+                                            return 20
+                                        else if (index === 2)
+                                            return 40
+                                        else
+                                            return 100
+                                    }
+                                    Layout.fillHeight: true
+
+                                    color: Material.primary
+
+                                    Label {
+                                        text: modelData
+                                        anchors.centerIn: parent
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                delegate: TeamPlayerDelegate {
-                    width: list.width
-                    height: 60
-                    image: image
-                    playerName: name
-                    playerAge: age
-                    property var ll: list.headerItem.children[0].children
+                    delegate: TeamPlayerDelegate {
+                        width: list.width
+                        height: 60
+                        image: image
+                        playerName: name
+                        playerAge: age
+                        property var ll: list.headerItem.children[0].children
+                    }
                 }
             }
         }

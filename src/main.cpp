@@ -39,5 +39,6 @@ int main(int argc, char* argv[])
     if (engine.rootObjects().isEmpty()) {
         return EXIT_FAILURE;
     }
+
     return QGuiApplication::exec();
 }
