@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.1
 Drawer {
     id: drawer
     property var window
+    property var globalSettings
     property var overlayHeader
     readonly property bool inPortrait: window.width < window.height
 
@@ -61,6 +62,11 @@ Drawer {
                 width: parent.width
                 source: "images/logo-mlb.png"
                 fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
+                sourceSize: {
+                    if ( !inPortrait ) {
+                        return globalSettings.drawerLogoSize
+                    }
+                }
             }
 
             MenuSeparator {
