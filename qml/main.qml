@@ -51,6 +51,10 @@ ApplicationWindow {
         if (url === "")
             console.assert("Url cannot be empty")
 
+        if ( props !== null && props.newHeader ) {
+            label.text = props.newHeader;
+        }
+
         var newPage = mainStack.push(url, props)
         console.log("main.qml: ", "Pushing " + url + " " + props)
         console.log("main.qml: ", "New Page = ", newPage)
@@ -70,7 +74,6 @@ ApplicationWindow {
     ToolBar {
         id: overlayHeader
 
-        z: 1
         width: parent.width
         parent: window.overlay
 
@@ -122,9 +125,10 @@ ApplicationWindow {
     SideMenu {
         id: drawer
         window: window
-        overlayHeader: overlayHeader
+        width: inPortrait ? 0.66 * window.width : 0.33 * window.width
+        height: window.height
         globalSettings: settings
-
+        topBarHeight: overlayHeader.height
         onRequestNewPage: {
             pushNewPage(url, props)
         }

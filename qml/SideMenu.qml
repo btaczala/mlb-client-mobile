@@ -2,19 +2,16 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
+import QtQuick.Layouts 1.3
+
 Drawer {
     id: drawer
     property var window
     property var globalSettings
-    property var overlayHeader
+    property int topBarHeight: 40
     readonly property bool inPortrait: window.width < window.height
 
     signal requestNewPage(string url, var props)
-
-    y: overlayHeader.height
-
-    width: window.width / 2
-    height: window.height - overlayHeader.height
 
     modal: true
     interactive: true
@@ -24,95 +21,114 @@ Drawer {
     ListModel {
         id: drawerItems
         ListElement {
-            name : "Artykuły"
+            name: "Artykuły"
             url: "MainStackPage.qml"
         }
         ListElement {
-            name : "Terminarz"
+            name: "Terminarz"
             url: "schedule/SchedulePage.qml"
         }
         ListElement {
-            name : "Tabela"
+            name: "Tabela"
             url: "standings/StandingsPage.qml"
         }
         ListElement {
-            name : "Galeria"
+            name: "Galeria"
             url: "gallery/GalleryPage.qml"
         }
         ListElement {
-            name : "Zespoły"
+            name: "Zespoły"
             url: "teams/TeamsPage.qml"
         }
     }
 
-    ListView {
-        id: listView
+    ColumnLayout {
         anchors.fill: parent
 
-        headerPositioning: ListView.OverlayHeader
-        header: Pane {
-            id: header
-            z: 2
-            width: parent.width
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: topBarHeight
 
-            contentHeight: logo.height
+            color: Material.primary
 
-            Image {
-                id: logo
+        }
+
+        Image {
+            id: logo
+            Layout.fillWidth: true
+            Layout.preferredHeight: 180
+            source: "images/logo-mlb.png"
+            fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
+            sourceSize: {
+                if (!inPortrait) {
+                    return globalSettings.drawerLogoSize
+                }
+            }
+        }
+
+        ListView {
+            id: listView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+
+            headerPositioning: ListView.OverlayHeader
+//            header: Pane {
+//                id: header
+//                width: parent.width
+
+//                contentHeight: logo.height + rect.height
+//                ColumnLayout {
+//                    anchors.fill: parent
+
+//                    MenuSeparator {
+//                        parent: header
+//                        Layout.fillWidth: true
+//                        anchors.verticalCenter: parent.bottom
+//                        visible: !listView.atYBeginning
+//                    }
+//                }
+//            }
+
+            footer: ItemDelegate {
+                id: footer
+                text: "Ustawienia"
                 width: parent.width
-                source: "images/logo-mlb.png"
-                fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
-                sourceSize: {
-                    if ( !inPortrait ) {
-                        return globalSettings.drawerLogoSize
+
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: {
+                        requestNewPage("settings/SettingsPage.qml", {
+                                           newHeader: "Ustawienia"
+                                       })
+                    }
+                }
+
+                MenuSeparator {
+                    parent: footer
+                    width: parent.width
+                    anchors.verticalCenter: parent.top
+                }
+            }
+
+            model: drawerItems
+
+            delegate: ItemDelegate {
+                text: name
+                width: parent.width
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("SideMenu.qml: Selecting " + name)
+                        requestNewPage(url, null)
                     }
                 }
             }
 
-            MenuSeparator {
-                parent: header
-                width: parent.width
-                anchors.verticalCenter: parent.bottom
-                visible: !listView.atYBeginning
+            ScrollIndicator.vertical: ScrollIndicator {
             }
-        }
-
-        footer: ItemDelegate {
-            id: footer
-            text: "Ustawienia"
-            width: parent.width
-
-            MouseArea {
-                anchors.fill: parent
-
-                onClicked: {
-                    requestNewPage("settings/SettingsPage.qml", null)
-                }
-            }
-
-            MenuSeparator {
-                parent: footer
-                width: parent.width
-                anchors.verticalCenter: parent.top
-            }
-        }
-
-        model: drawerItems
-
-        delegate: ItemDelegate {
-            text: name
-            width: parent.width
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log("SideMenu.qml: Selecting " + name)
-                    requestNewPage(url, null)
-                }
-            }
-        }
-
-        ScrollIndicator.vertical: ScrollIndicator {
         }
     }
 }
