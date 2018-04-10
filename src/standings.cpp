@@ -22,6 +22,14 @@ void Standings::refresh(QJSValue callback)
                        "score": "206-210",
                        "diff": -4,
                        "points": 4
+                   },{
+                       "name": "GRYFPANTHERS",
+                       "games": 3,
+                       "wons": 1,
+                       "lost": 2,
+                       "score": "206-210",
+                       "diff": -4,
+                       "points": 4
                    }],
                    "pretendent": [{
                        "name": "Charlotte",

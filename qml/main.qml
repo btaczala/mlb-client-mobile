@@ -20,7 +20,7 @@ ApplicationWindow {
     onClosing: {
         if (isAndroid) {
             if (mainStack.depth === 1) {
-                close.accepted = true;
+                close.accepted = true
             } else {
                 close.accepted = false
                 mainStack.pop()
@@ -38,7 +38,7 @@ ApplicationWindow {
         property int theme
         property alias width: window.width
         property alias height: window.height
-        readonly property size drawerLogoSize: Qt.size(128,128)
+        readonly property size drawerLogoSize: Qt.size(128, 128)
     }
 
     Component.onCompleted: {
@@ -51,8 +51,10 @@ ApplicationWindow {
         if (url === "")
             console.assert("Url cannot be empty")
 
-        if ( props !== null && props.newHeader ) {
-            label.text = props.newHeader;
+        if (props !== null && props.newHeader) {
+            label.text = props.newHeader
+        } else {
+            label.text = "miastobasketu.com"
         }
 
         var newPage = mainStack.push(url, props)
@@ -94,7 +96,7 @@ ApplicationWindow {
                     }
                 }
                 anchors.fill: parent
-                sourceSize: Qt.size(64,64)
+                sourceSize: Qt.size(64, 64)
                 smooth: true
             }
 
@@ -145,6 +147,7 @@ ApplicationWindow {
         id: mainStack
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
+
 
         initialItem: MainStackPage {
             anchors.left: parent.left

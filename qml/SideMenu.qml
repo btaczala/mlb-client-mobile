@@ -48,9 +48,7 @@ Drawer {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: topBarHeight
-
             color: Material.primary
-
         }
 
         Image {
@@ -71,25 +69,9 @@ Drawer {
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
+            interactive: height < contentHeight
 
             headerPositioning: ListView.OverlayHeader
-//            header: Pane {
-//                id: header
-//                width: parent.width
-
-//                contentHeight: logo.height + rect.height
-//                ColumnLayout {
-//                    anchors.fill: parent
-
-//                    MenuSeparator {
-//                        parent: header
-//                        Layout.fillWidth: true
-//                        anchors.verticalCenter: parent.bottom
-//                        visible: !listView.atYBeginning
-//                    }
-//                }
-//            }
-
             footer: ItemDelegate {
                 id: footer
                 text: "Ustawienia"
