@@ -48,21 +48,28 @@ BasePage {
     ListView {
         id: articleHeadersListView
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.leftMargin: scrollbar.width
+        anchors.topMargin: 10
         spacing: 10
 
         ScrollBar.vertical: ScrollBar {
+            id: scrollbar
         }
 
         model: articlesShortModel
         delegate: ShortArticleViewDelegate {
-            width: parent.width
+            width: parent.width - scrollbar.width
             height: 300
+
+            image: imageUrl
+            header: headerContent
+            text: textContent
 
             MouseArea {
                 anchors.fill: parent
 
                 onClicked: {
+                    console.log("Pushing new article uid=", uid)
                     articleClicked(uid)
                 }
             }

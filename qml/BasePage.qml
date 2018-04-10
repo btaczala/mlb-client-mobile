@@ -7,8 +7,8 @@ Page {
     property var applicationWindow
     property var globalSettings
     readonly property bool inPortrait: width < height
-    signal requestNewPage(string url, var props);
-    signal refreshPageContent();
+    signal requestNewPage(string url, var props)
+    signal refreshPageContent
 
     property bool loading: false
 
@@ -19,40 +19,47 @@ Page {
                     inPortrait ? "portrait" : "landscape")
     }
 
-    Popup {
-        modal: true
-        focus: true
-        visible: loading
-        width: 100
-        height: 100
-        x: 100
-        y: 100
+    onStateChanged: {
+        console.debug("BasePage.qml: State changed to ", state)
+    }
 
-        closePolicy: Popup.NoAutoClose
+    Rectangle {
+        id: busyItem
+        z: 100
+        radius: 30
+        width: busy.width + 10
+        height: busy.height + 10
 
-        enter: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 0.0
-                to: 1.0
-            }
+        color: Material.background
+
+        BusyIndicator {
+            id: busy
+            anchors.centerIn: parent
         }
 
-        exit: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 1.0
-                to: 0.0
-            }
-        }
+        state: root.loading ? "loading" : "normal"
 
-        Rectangle {
-            anchors.fill: parent
-            color: "transparent"
-
-            BusyIndicator {
-                anchors.fill: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        states: [
+            State {
+                name: "loading"
+                AnchorChanges {
+                    target: busyItem
+                    anchors.top: parent.top
+                }
+            },
+            State {
+                name: "normal"
+                AnchorChanges {
+                    target: busyItem
+                    anchors.top: undefined
+                    anchors.bottom: parent.top
+                }
             }
+        ]
+
+        transitions: Transition {
+            AnchorAnimation { duration: 100 }
         }
     }
 

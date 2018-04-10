@@ -4,55 +4,71 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
-    width: 400
+    width: 500
     height: 200
 
+    property alias header: title.text
+
+    property alias image: imageItem.source
+    property alias text: textLabel.text
+    property alias posted: postedItem.text
     Pane {
         anchors.fill: parent
         Material.elevation: 6
 
-        ColumnLayout {
-            id: column
+        RowLayout {
             anchors.fill: parent
-            spacing: 40
+            spacing: 5
 
-            Label {
-                id: title
-                text: headerContent
-                font.pointSize: 14
-                font.bold: true
-                Layout.alignment: Qt.AlignCenter
-                width: parent.width
-                Layout.preferredHeight: 40
-            }
-
-            RowLayout {
-                width: parent.width
+            Item {
+                Layout.fillWidth: true
                 Layout.fillHeight: true
-                spacing: 10
 
                 Image {
-                    Layout.preferredWidth: 128
-                    sourceSize.height: 128
-                    sourceSize.width: 128
-                    source: imageUrl
+                    id: imageItem
+                    fillMode: Image.Stretch
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    sourceSize.height: parent.height
+                    sourceSize.width: parent.width
+                    source: "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg"
                 }
-
-                Label {
-                    id: textLabel
-                    text: textContent
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                }
-
             }
 
-            Label {
-                id: posted
-                text: postedContent
-                font.pointSize: 8
-                width: parent.width
-                Layout.alignment: Qt.AlignRight
+            Item {
+                Layout.fillHeight: true
+                Layout.preferredWidth: title.contentWidth
+
+                ColumnLayout {
+                    anchors.fill: parent
+
+                    Label {
+                        id: title
+                        font.pointSize: 14
+                        font.bold: true
+                        Layout.alignment: Qt.AlignCenter
+                        Layout.preferredHeight: contentHeight
+                        width: parent.width
+                        Layout.fillWidth: true
+                        text: "AKADEMIA BASKETU 2016/2017"
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+
+                    Label {
+                        id: textLabel
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: contentHeight
+                        text: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+                    }
+                    Label {
+                        id: postedItem
+                        Layout.fillWidth: true
+                        font.pointSize: 8
+                        text: "2018-25-12, Micheal Jordan"
+                        horizontalAlignment: Text.AlignRight
+                    }
+                }
             }
         }
     }

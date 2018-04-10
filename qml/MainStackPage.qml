@@ -6,7 +6,7 @@ ShortArticlePage {
 
     onArticleClicked: {
         console.debug("Article clicked " + uid)
-        requestNewPage("qrc:/ArticlePage.qml", {
+        requestNewPage("ArticlePage.qml", {
                            uid: uid
                        })
     }
