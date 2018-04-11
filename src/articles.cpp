@@ -5,5 +5,5 @@
 
 void Articles::refresh(QJSValue callback)
 {
-    return APIBase::loadDummyData("articlesList.json", callback);
+    return APIBase::loadDummyData("articlesList.json", callback, 500);
 }

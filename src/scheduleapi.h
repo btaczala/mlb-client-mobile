@@ -1,17 +1,15 @@
 #ifndef SCHEDULEAPI_H
 #define SCHEDULEAPI_H
 
+#include "apibase.h"
 #include <QObject>
 #include <QtQml/QJSValue>
 
-class ScheduleAPI : public QObject
+class ScheduleAPI : public APIBase
 {
     Q_OBJECT
-public:
-    explicit ScheduleAPI(QObject* parent = nullptr);
-
 public slots:
-    void refreshSchedule(QJSValue callback);
+    void refresh(QJSValue callback) override;
 };
 
 #endif // SCHEDULEAPI_H

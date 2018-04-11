@@ -6,12 +6,11 @@ import QtQuick.Layouts 1.3
 import "../commonLogic.js" as Logic
 import ".." as Common
 
-Item {
+Common.BasePage {
     width: 600
     height: 800
 
     property var playersModel: ListModel {
-
         ListElement {
             name: "Abushe Damian"
         }
@@ -21,6 +20,28 @@ Item {
         ListElement {
             name: "Bartek Taczała"
         }
+    }
+
+    function refreshPlayersList() {
+        loading = true
+
+        playersAPI.refresh(function (jsonData) {
+
+            var response = JSON.parse(jsonData)
+            playersModel.clear()
+
+            for (var number in response) {
+                var ob = response[number]
+                playersModel.append({
+                                        name: ob.name
+                                    })
+            }
+            loading = false
+        })
+    }
+
+    Component.onCompleted: {
+        refreshPlayersList()
     }
 
     property var originalList: playersModel

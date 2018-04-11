@@ -20,6 +20,7 @@ SOURCES += \
         src/articles.cpp \
         src/teamapi.cpp \
         src/apibase.cpp \
+        src/playersapi.cpp \
         src/scheduleapi.cpp
 
 RESOURCES += qml/qml.qrc \
@@ -42,6 +43,7 @@ HEADERS += \
     src/articles.h \
     src/teamapi.h \
     src/scheduleapi.h \
+    src/playersapi.h \
     src/apibase.h \
 
 DISTFILES += \

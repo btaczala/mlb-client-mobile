@@ -4,9 +4,9 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
-void APIBase::loadDummyData(const QString& file, QJSValue callback)
+void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 {
-    QTimer::singleShot(1000 * 2, this, [this, file, callback]() mutable {
+    QTimer::singleShot(delay, this, [this, file, callback]() mutable {
         qDebug() << Q_FUNC_INFO;
         QJSValueList args;
 

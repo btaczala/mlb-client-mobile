@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
     engine.rootContext()->setContextProperty("articlesDataAPI", controller.articles());
     engine.rootContext()->setContextProperty("teamDataAPI", controller.teamAPI());
     engine.rootContext()->setContextProperty("scheduleAPI", controller.scheduleAPI());
+    engine.rootContext()->setContextProperty("playersAPI", controller.playersAPI());
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty()) {
         return EXIT_FAILURE;

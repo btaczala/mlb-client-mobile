@@ -16,7 +16,7 @@ public slots:
     virtual void refresh(QJSValue) = 0;
 
 protected:
-    void loadDummyData(const QString& file, QJSValue callback);
+    void loadDummyData(const QString& file, QJSValue callback, int delay);
 
 signals:
     void error(QString errorMessage);

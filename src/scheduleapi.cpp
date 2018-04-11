@@ -1,10 +1,6 @@
 #include "scheduleapi.h"
 
-ScheduleAPI::ScheduleAPI(QObject* parent)
-  : QObject(parent)
+void ScheduleAPI::refresh(QJSValue callback)
 {
-}
-
-void ScheduleAPI::refreshSchedule(QJSValue)
-{
+    APIBase::loadDummyData("scheduleExample.json", callback, 500);
 }

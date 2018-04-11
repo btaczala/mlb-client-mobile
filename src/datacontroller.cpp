@@ -3,6 +3,7 @@
 #include "scheduleapi.h"
 #include "standings.h"
 #include "teamapi.h"
+#include "playersapi.h"
 
 DataController::DataController(bool dummy, QObject* parent)
   : QObject(parent)
@@ -11,6 +12,7 @@ DataController::DataController(bool dummy, QObject* parent)
   , _articles(new Articles())
   , _teamAPI(new TeamAPI())
   , _scheduleAPI(new ScheduleAPI())
+  , _playersAPI(new PlayersAPI())
 {
 }
 
@@ -34,4 +36,9 @@ QObject* DataController::teamAPI() const noexcept
 QObject* DataController::scheduleAPI() const noexcept
 {
     return _scheduleAPI.get();
+}
+
+QObject* DataController::playersAPI() const noexcept
+{
+    return _playersAPI.get();
 }
