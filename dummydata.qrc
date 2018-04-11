@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/dummydata/articlesList.json</file>
+        <file>qml/dummydata/scheduleExample.json</file>
+        <file>qml/dummydata/teamExample.json</file>
+        <file>qml/dummydata/standings.json</file>
+        <file>qml/dummydata/teamsList.json</file>
+    </qresource>
+</RCC>

@@ -56,5 +56,6 @@
         <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
         <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xxhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
         <file>images/ic_keyboard_arrow_left_white_48dp/android/drawable-xxxhdpi/ic_keyboard_arrow_left_white_48dp.png</file>
+        <file>players/PlayersPage.qml</file>
     </qresource>
 </RCC>

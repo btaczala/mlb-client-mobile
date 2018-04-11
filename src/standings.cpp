@@ -9,10 +9,11 @@ Standings::Standings()
 
 void Standings::refresh(QJSValue callback)
 {
-    QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
-        qDebug() << Q_FUNC_INFO;
-        QJSValueList args;
-        auto str = R"(
+    if (useDummyData) {
+        QTimer::singleShot(1000 * 2, this, [this, callback]() mutable {
+            qDebug() << Q_FUNC_INFO;
+            QJSValueList args;
+            auto str = R"(
                {
                    "major": [{
                        "name": "FRASSATTI",
@@ -51,14 +52,17 @@ void Standings::refresh(QJSValue callback)
                    }]
                }
 )";
-        args.append(QJSValue(QString(str)));
-        const auto jsvalue = callback.call(args);
-        qDebug() << Q_FUNC_INFO << jsvalue.toString();
+            args.append(QJSValue(QString(str)));
+            const auto jsvalue = callback.call(args);
+            qDebug() << Q_FUNC_INFO << jsvalue.toString();
 
-        if (jsvalue.isError()) {
-            emit error(jsvalue.toString());
-        }
+            if (jsvalue.isError()) {
+                emit error(jsvalue.toString());
+            }
 
-        qDebug() << jsvalue.toString();
-    });
+            qDebug() << jsvalue.toString();
+        });
+    } else {
+
+    }
 }

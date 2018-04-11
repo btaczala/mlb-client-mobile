@@ -4,6 +4,8 @@
 #include <QtCore/QObject>
 #include <QtQml/QJSValue>
 
+extern bool useDummyData;
+
 class APIBase : public QObject
 {
     Q_OBJECT

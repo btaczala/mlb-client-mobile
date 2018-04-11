@@ -21,13 +21,14 @@ SOURCES += \
         src/teamapi.cpp \
         src/scheduleapi.cpp
 
-RESOURCES += qml/qml.qrc
+RESOURCES += qml/qml.qrc \
+    dummydata.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+QML_DESIGNER_IMPORT_PATH = qml
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

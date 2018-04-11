@@ -40,6 +40,10 @@ Drawer {
             name: "Zespoły"
             url: "teams/TeamsPage.qml"
         }
+        ListElement {
+            name: "Zawodnicy"
+            url: "players/PlayersPage.qml"
+        }
     }
 
     ColumnLayout {
