@@ -4,17 +4,16 @@
 #include <QObject>
 #include <QtQml/QJSValue>
 
-class Articles : public QObject
+#include "apibase.h"
+
+class Articles : public APIBase
 {
     Q_OBJECT
-public:
-    explicit Articles(QObject* parent = nullptr);
-
 signals:
     void error(QString errorMessage);
 
 public slots:
-    void refreshArticlesList(QJSValue callback);
+    void refresh(QJSValue callback) override;
 };
 
 #endif // ARTICLES_H

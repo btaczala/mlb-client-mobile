@@ -19,6 +19,7 @@ SOURCES += \
         src/standings.cpp \
         src/articles.cpp \
         src/teamapi.cpp \
+        src/apibase.cpp \
         src/scheduleapi.cpp
 
 RESOURCES += qml/qml.qrc \
