@@ -21,7 +21,7 @@ BasePage {
 
         loading = true
 
-        articlesDataAPI.refreshArticlesList(function (jsonData) {
+        articlesDataAPI.refresh(function (jsonData) {
 
             articlesShortModel.clear()
             var response = JSON.parse(jsonData)

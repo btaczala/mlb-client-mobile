@@ -35,10 +35,11 @@ BasePage {
                 }
 
                 onActivated: {
-                    console.log(comboBox.currentText, currentIndex,  globalSettings)
-                    if ( comboBox.currentIndex === 0) {
+                    console.log(comboBox.currentText, currentIndex,
+                                globalSettings)
+                    if (comboBox.currentIndex === 0) {
                         globalSettings.theme = Material.Light
-                    } else if(comboBox.currentIndex === 1) {
+                    } else if (comboBox.currentIndex === 1) {
                         globalSettings.theme = Material.Dark
                     }
                 }

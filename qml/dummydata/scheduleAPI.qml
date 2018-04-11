@@ -15,7 +15,7 @@ QtObject {
 
         timer.triggered.connect(function () {
             File.readFile("scheduleExample.json", function (data) {
-                callback(data);
+                callback(data)
             })
         })
 

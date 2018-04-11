@@ -24,16 +24,17 @@ BasePage {
         snapMode: ListView.SnapOneItem
         highlightFollowsCurrentItem: true
         highlightRangeMode: ListView.StrictlyEnforceRange
-        ScrollBar.vertical: ScrollBar {}
+        ScrollBar.vertical: ScrollBar {
+        }
 
         model: ListModel {
-            ListElement{
+            ListElement {
                 league: "Major"
             }
-            ListElement{
+            ListElement {
                 league: "Pretendent"
             }
-            ListElement{
+            ListElement {
                 league: "Basic"
             }
         }
@@ -41,7 +42,7 @@ BasePage {
         onCurrentIndexChanged: {
             console.log("CommonScrollableLeaguePage.qml: current index changed" + currentIndex)
 
-            for(var count = 0; count < repeater.count; count++)
+            for (var count = 0; count < repeater.count; count++)
                 repeater.itemAt(count).color = "white"
 
             repeater.itemAt(currentIndex).color = Material.primary
@@ -55,7 +56,6 @@ BasePage {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 30
         spacing: 5
-
 
         Repeater {
             id: repeater

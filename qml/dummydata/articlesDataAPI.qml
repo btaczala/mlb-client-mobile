@@ -7,7 +7,7 @@ QtObject {
 
     property int __delay: 1 * 1000
 
-    function refreshArticlesList(callback) {
+    function refresh(callback) {
         var timer = new Rest.Timer(standings)
         timer.interval = __delay
 
@@ -15,7 +15,7 @@ QtObject {
 
         timer.triggered.connect(function () {
             File.readFile("articlesList.json", function (data) {
-                callback(data);
+                callback(data)
             })
         })
 

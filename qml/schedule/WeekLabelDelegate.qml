@@ -15,7 +15,7 @@ Item {
         color: Material.primary
 
         anchors.leftMargin: 5
-        anchors.rightMargin:5
+        anchors.rightMargin: 5
     }
 
     Label {

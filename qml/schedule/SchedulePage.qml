@@ -35,7 +35,8 @@ BasePage {
         }
 
         Logic.getThreeModels(majorModel, pretendentModel, basicModel,
-                             scheduleAPI.refreshSchedule, afterCallback, transform)
+                             scheduleAPI.refreshSchedule, afterCallback,
+                             transform)
     }
 
     Component.onCompleted: {

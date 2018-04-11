@@ -59,7 +59,9 @@ Page {
         ]
 
         transitions: Transition {
-            AnchorAnimation { duration: 100 }
+            AnchorAnimation {
+                duration: 100
+            }
         }
     }
 

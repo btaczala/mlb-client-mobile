@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 
 Item {
 
-    property alias scheduleModel : list.model
+    property alias scheduleModel: list.model
 
     Component.onCompleted: console.log("ScheduleBase.qml: ", scheduleModel)
 
@@ -14,7 +14,8 @@ Item {
 
         id: list
         clip: true
-        ScrollBar.vertical: ScrollBar {}
+        ScrollBar.vertical: ScrollBar {
+        }
 
         delegate: Loader {
             id: loader
@@ -22,7 +23,8 @@ Item {
             height: 80
 
             sourceComponent: {
-                return Qt.createComponent(type === "week_nr" ? "WeekLabelDelegate.qml" : "GameDelegate.qml")
+                return Qt.createComponent(
+                            type === "week_nr" ? "WeekLabelDelegate.qml" : "GameDelegate.qml")
             }
 
             onStatusChanged: {
@@ -30,9 +32,9 @@ Item {
                     if (type === "week_nr") {
                         loader.item.label = "Tydzień numer " + number
                     } else {
-                        loader.item.guest = guest;
-                        loader.item.home = host;
-                        loader.item.date = date;
+                        loader.item.guest = guest
+                        loader.item.home = host
+                        loader.item.date = date
                     }
                 }
             }

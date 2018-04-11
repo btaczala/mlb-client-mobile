@@ -20,9 +20,8 @@ Common.BasePage {
     function refresh() {
         loading = true
         Logic.getThreeModels(majorStandings, pretendentStandings,
-                             basicStandings, standings.refresh,
-                             function () {
-                                 loading = false;
+                             basicStandings, standings.refresh, function () {
+                                 loading = false
                              }, function (obj) {
                                  return {
                                      name: obj.name,
@@ -36,11 +35,11 @@ Common.BasePage {
                              })
     }
 
-    Component.onCompleted: refresh();
+    Component.onCompleted: refresh()
 
     Connections {
         target: floatingButton
-        onClicked: refresh();
+        onClicked: refresh()
     }
 
     Connections {

@@ -38,7 +38,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        onLoaded:{
+        onLoaded: {
             console.log("component size ", loader.height)
         }
     }

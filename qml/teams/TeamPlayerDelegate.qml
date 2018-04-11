@@ -58,7 +58,6 @@ Item {
                 id: ageLabel
                 anchors.centerIn: parent
             }
-
         }
     }
 }

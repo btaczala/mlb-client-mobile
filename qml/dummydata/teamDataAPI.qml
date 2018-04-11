@@ -15,7 +15,7 @@ QtObject {
 
         timer.triggered.connect(function () {
             File.readFile("teamsList.json", function (data) {
-                callback(data);
+                callback(data)
             })
         })
 
@@ -30,7 +30,7 @@ QtObject {
 
         timer.triggered.connect(function () {
             File.readFile("teamExample.json", function (data) {
-                callback(data);
+                callback(data)
             })
         })
 

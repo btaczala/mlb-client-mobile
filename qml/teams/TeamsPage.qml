@@ -10,16 +10,23 @@ CommonScrollableLeaguePage {
     id: root
 
     onRefreshPageContent: {
-        loading = true;
-        var convert = function(obj) { return { name: obj.name, image: obj.image} };
-        var finishCb = function() { loading = false;}
-        Logic.getThreeModels(majorTeamsModel, pretendentTeamsModel, basicTeamsModel, teamDataAPI.refresh,
-                             finishCb, convert );
-
+        loading = true
+        var convert = function (obj) {
+            return {
+                name: obj.name,
+                image: obj.image
+            }
+        }
+        var finishCb = function () {
+            loading = false
+        }
+        Logic.getThreeModels(majorTeamsModel, pretendentTeamsModel,
+                             basicTeamsModel, teamDataAPI.refresh,
+                             finishCb, convert)
     }
 
     Component.onCompleted: {
-        refreshPageContent();
+        refreshPageContent()
     }
 
     ListModel {
@@ -28,13 +35,12 @@ CommonScrollableLeaguePage {
 
     ListModel {
         id: pretendentTeamsModel
-
     }
     ListModel {
         id: basicTeamsModel
     }
 
-    property var __models: [ majorTeamsModel, pretendentTeamsModel, basicTeamsModel]
+    property var __models: [majorTeamsModel, pretendentTeamsModel, basicTeamsModel]
 
     delegate: TeamsPageDelegate {
         width: list.width

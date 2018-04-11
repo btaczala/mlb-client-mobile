@@ -36,7 +36,7 @@ Item {
             Label {
                 id: lp
                 anchors.centerIn: parent
-                text: index +1
+                text: index + 1
             }
         }
 
@@ -87,7 +87,7 @@ Item {
         Rectangle {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: portrait ? 0: sizes[5]
+            Layout.preferredWidth: portrait ? 0 : sizes[5]
             color: !differentColor ? Material.background : "grey"
             visible: !portrait
 
@@ -101,7 +101,7 @@ Item {
         Rectangle {
 
             Layout.fillHeight: true
-            Layout.preferredWidth: portrait ? 0: sizes[6]
+            Layout.preferredWidth: portrait ? 0 : sizes[6]
             color: !differentColor ? Material.background : "grey"
             visible: !portrait
 

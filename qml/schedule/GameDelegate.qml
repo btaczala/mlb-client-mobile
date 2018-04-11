@@ -13,7 +13,6 @@ RowLayout {
     property string home: "San Antonio"
     property string date: "2018-10-15 12:00"
 
-
     Label {
         Layout.fillHeight: true
         Layout.preferredWidth: 120

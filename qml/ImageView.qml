@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.1
 
 BasePage {
     width: 700
-    height: 16/9 * width
+    height: 16 / 9 * width
 
     property string url
 

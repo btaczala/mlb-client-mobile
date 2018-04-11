@@ -148,7 +148,6 @@ ApplicationWindow {
         anchors.fill: parent
         anchors.topMargin: overlayHeader.height
 
-
         initialItem: MainStackPage {
             anchors.left: parent.left
             anchors.right: parent.right
