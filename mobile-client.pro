@@ -1,6 +1,6 @@
 QT += quick svg xml gui core
 QTPLUGIN += qsvg@
-CONFIG += c++11
+CONFIG += c++11 warn_on
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
