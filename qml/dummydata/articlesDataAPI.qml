@@ -21,4 +21,20 @@ QtObject {
 
         timer.start()
     }
+
+    function fetchArticle(uid, callback) {
+        var artId = "article" + uid + ".json"
+        var timer = new Rest.Timer(standings)
+        timer.interval = __delay
+
+        timer.repeat = false
+
+        timer.triggered.connect(function () {
+            File.readFile(artId, function (data) {
+                callback(data)
+            })
+        })
+
+        timer.start()
+    }
 }

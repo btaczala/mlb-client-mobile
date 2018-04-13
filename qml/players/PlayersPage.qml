@@ -10,16 +10,9 @@ Common.BasePage {
     width: 600
     height: 800
 
+    floatingButton.visible: false
+
     property var playersModel: ListModel {
-        ListElement {
-            name: "Abushe Damian"
-        }
-        ListElement {
-            name: "Adamus Kinga"
-        }
-        ListElement {
-            name: "Bartek Taczała"
-        }
     }
 
     function refreshPlayersList() {
@@ -89,6 +82,7 @@ Common.BasePage {
                 height: 60
 
                 Pane {
+                    id: pane
                     anchors.fill: parent
                     Material.elevation: 4
                     anchors.margins: 5
@@ -98,6 +92,13 @@ Common.BasePage {
                         text: name
 
                         verticalAlignment: Text.AlignVCenter
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+
+                        onClicked: {
+                            console.log("PlayersPage.qml: Selecting player ", name);
+                        }
                     }
                 }
             }

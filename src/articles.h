@@ -14,6 +14,7 @@ signals:
 
 public slots:
     void refresh(QJSValue callback) override;
+    void fetchArticle(qint32 uid, QJSValue callback);
 };
 
 #endif // ARTICLES_H
