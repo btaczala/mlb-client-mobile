@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 BasePage {
-    id: pane
+    id: root
     property int uid: 10
 
     floatingButton.visible: !flickable.atYEnd
@@ -29,6 +29,14 @@ BasePage {
 
     onRefreshPageContent: {
         refreshArticle()
+    }
+
+    Connections {
+        target: articlesDataAPI
+        onError: {
+            console.log("ArticlePage.qml: Error ", errorMessage);
+            root.error("Unable to fetch" + uid)
+        }
     }
 
     Flickable {

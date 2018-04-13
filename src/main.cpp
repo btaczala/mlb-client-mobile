@@ -7,6 +7,7 @@
 #include <QtCore/QDebug>
 
 #include "datacontroller.h"
+#include "articles.h"
 
 bool useDummyData = true;
 
@@ -34,7 +35,7 @@ int main(int argc, char* argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("standings", controller.standings());
-    engine.rootContext()->setContextProperty("articlesDataAPI", controller.articles());
+    engine.rootContext()->setContextProperty("articlesDataAPI", QVariant::fromValue(controller.articles()));
     engine.rootContext()->setContextProperty("teamDataAPI", controller.teamAPI());
     engine.rootContext()->setContextProperty("scheduleAPI", controller.scheduleAPI());
     engine.rootContext()->setContextProperty("playersAPI", controller.playersAPI());

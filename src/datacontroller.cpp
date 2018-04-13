@@ -23,7 +23,7 @@ QObject* DataController::standings() const noexcept
     return _standingsAPI.get();
 }
 
-QObject* DataController::articles() const noexcept
+Articles* DataController::articles() const noexcept
 {
     return _articles.get();
 }

@@ -9,8 +9,6 @@
 class Articles : public APIBase
 {
     Q_OBJECT
-signals:
-    void error(QString errorMessage);
 
 public slots:
     void refresh(QJSValue callback) override;

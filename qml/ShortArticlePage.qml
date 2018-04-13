@@ -48,17 +48,13 @@ BasePage {
     ListView {
         id: articleHeadersListView
         anchors.fill: parent
-        anchors.leftMargin: scrollbar.width
+        anchors.leftMargin: 10
         anchors.topMargin: 10
         spacing: 10
 
-        ScrollBar.vertical: ScrollBar {
-            id: scrollbar
-        }
-
         model: articlesShortModel
         delegate: ShortArticleViewDelegate {
-            width: parent.width - scrollbar.width
+            width: parent.width - 10
             height: 300
 
             image: imageUrl

@@ -17,7 +17,7 @@ public:
     ~DataController() noexcept final;
 
     QObject* standings() const noexcept;
-    QObject* articles() const noexcept;
+    Articles* articles() const noexcept;
     QObject* teamAPI() const noexcept;
     QObject* scheduleAPI() const noexcept;
     QObject* playersAPI() const noexcept;

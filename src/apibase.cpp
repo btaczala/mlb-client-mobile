@@ -4,6 +4,8 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
+#include <QtCore/QJsonDocument>
+
 void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 {
     QTimer::singleShot(delay, this, [this, file, callback]() mutable {
@@ -14,7 +16,9 @@ void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 
         QFile f{fName};
         if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            emit error("Error while loading dummy file");
+            qWarning() << "Error while reading " << fName;
+            emit error("Error while loading dummy file" + fName);
+            return;
         }
 
         qDebug() << "Loading dummy data from " << f.fileName();
@@ -24,9 +28,8 @@ void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
         qDebug() << Q_FUNC_INFO << jsvalue.toString();
 
         if (jsvalue.isError()) {
+            qWarning() << "Error while calling " << callback.toString();
             emit error(jsvalue.toString());
         }
-
-        qDebug() << jsvalue.toString();
     });
 }

@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
+    id: root
     width: 500
     height: 200
 
@@ -21,8 +22,8 @@ Item {
             spacing: 5
 
             Item {
-                Layout.fillWidth: true
                 Layout.fillHeight: true
+                Layout.fillWidth: true
 
                 Image {
                     id: imageItem
@@ -37,7 +38,8 @@ Item {
 
             Item {
                 Layout.fillHeight: true
-                Layout.preferredWidth: title.contentWidth
+                //Layout.preferredWidth: title.contentWidth
+                Layout.preferredWidth: root.width / 2
 
                 ColumnLayout {
                     anchors.fill: parent
@@ -59,7 +61,7 @@ Item {
                         wrapMode: Text.WordWrap
                         Layout.fillWidth: true
                         Layout.preferredHeight: contentHeight
-                        text: "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]"
+                        text: "Czwarty tydzień rozgrywek już za nami. Na początek doszło do sporej niespodzianki Elektryka Morska ograła zespół OPEN BASKETBALL TEAM. Co prawda w pierwszej połowie OPEN kontrol [...]"
                     }
                     Label {
                         id: postedItem
