@@ -2,3 +2,5 @@
 *.user
 *.qmlc
 *.jsc
+build
+build-*
