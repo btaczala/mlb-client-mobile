@@ -87,17 +87,16 @@ ApplicationWindow {
             anchors.leftMargin: 5
 
             Image {
-
                 source: {
                     if (mainStack.depth === 1) {
-                        return "images/ic_menu_white_48dp/android/drawable-hdpi/ic_menu_white_48dp.png"
+                        return "images/ic_menu_white_48dp/android/drawable-mdpi/ic_menu_white_48dp.png"
                     } else {
                         return "images/ic_keyboard_arrow_left_white_48dp/android/drawable-hdpi/ic_keyboard_arrow_left_white_48dp.png"
                     }
                 }
-                anchors.fill: parent
-                sourceSize: Qt.size(64, 64)
+                sourceSize: Qt.size(24, 24)
                 smooth: true
+                anchors.centerIn: parent
             }
 
             MouseArea {
