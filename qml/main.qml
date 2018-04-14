@@ -89,7 +89,7 @@ ApplicationWindow {
             MaterialIcon {
                 size: 16
                 text: {
-                    if ( mainStack.depth === 1 ) {
+                    if (mainStack.depth === 1) {
                         return "\ue5d2"
                     } else {
                         return "\ue5c4"

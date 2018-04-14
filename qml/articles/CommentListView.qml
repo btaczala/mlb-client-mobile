@@ -47,7 +47,7 @@ ListView {
                     anchors.centerIn: parent
                     font.family: "Material Design Icons"
                     font.pointSize: 24
-                    text:"\uE853"
+                    text: "\uE853"
                 }
             }
 

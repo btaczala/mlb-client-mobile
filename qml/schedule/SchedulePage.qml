@@ -34,12 +34,11 @@ BasePage {
             }
         }
         Logic.getThreeModels(majorModel, pretendentModel, basicModel,
-                             scheduleAPI.refresh, afterCallback,
-                             transform)
+                             scheduleAPI.refresh, afterCallback, transform)
     }
 
     Component.onCompleted: {
-        refresh();
+        refresh()
     }
 
     SwipeView {

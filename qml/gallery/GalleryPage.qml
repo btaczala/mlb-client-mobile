@@ -49,8 +49,6 @@ BasePage {
         cellWidth: cellHeight
 
         model: galleryModel
-        ScrollBar.vertical: ScrollBar {
-        }
 
         delegate: Item {
             height: list.cellHeight

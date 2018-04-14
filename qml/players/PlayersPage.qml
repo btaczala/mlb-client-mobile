@@ -97,7 +97,8 @@ Common.BasePage {
                         anchors.fill: parent
 
                         onClicked: {
-                            console.log("PlayersPage.qml: Selecting player ", name);
+                            console.log("PlayersPage.qml: Selecting player ",
+                                        name)
                         }
                     }
                 }
