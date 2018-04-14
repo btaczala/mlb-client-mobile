@@ -3,9 +3,11 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
+import "articles"
+
 BasePage {
     id: root
-    property int uid: 10
+    property int uid: 11
 
     floatingButton.visible: !flickable.atYEnd
 
@@ -18,6 +20,19 @@ BasePage {
             var result = JSON.parse(jsonData)
             textItem.text = result.text
             image.source = result.image
+
+            commentListView.model.clear()
+            for (var count = 0; count < result.comments.length; count++) {
+
+                var object = result.comments[count]
+                commentListView.model.append({
+                                                 name: object.name,
+                                                 date: object.date,
+                                                 time: object.time,
+                                                 commentText: object.text
+                                             })
+            }
+
             loading = false
         })
     }
@@ -34,7 +49,7 @@ BasePage {
     Connections {
         target: articlesDataAPI
         onError: {
-            console.log("ArticlePage.qml: Error ", errorMessage);
+            console.log("ArticlePage.qml: Error ", errorMessage)
             root.error("Unable to fetch" + uid)
         }
     }
@@ -43,18 +58,11 @@ BasePage {
         id: flickable
         anchors.fill: parent
         // 15 is bottom margins sorta like
-        contentHeight: textItem.contentHeight + pictureItem.height + layout.spacing + 15
+        contentHeight: textItem.contentHeight + pictureItem.height + comments.height
+                       + commentListView.contentHeight + layout.spacing + 50
         flickableDirection: Flickable.VerticalFlick
         anchors.leftMargin: 10
         anchors.rightMargin: 10
-
-        ScrollBar.vertical: ScrollBar {
-            parent: flickable.parent
-            anchors.top: flickable.top
-            anchors.left: flickable.right
-            anchors.bottom: flickable.bottom
-            contentItem.opacity: 1
-        }
 
         ColumnLayout {
             id: layout
@@ -80,8 +88,19 @@ BasePage {
             Label {
                 id: textItem
                 Layout.fillWidth: true
-
                 wrapMode: Text.WordWrap
+            }
+
+            Label {
+                id: comments
+                Layout.fillWidth: true
+                visible: !loading
+                text: "Komentarze"
+            }
+
+            CommentListView {
+                id: commentListView
+                Layout.fillWidth: true
             }
         }
     }

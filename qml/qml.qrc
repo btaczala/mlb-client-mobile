@@ -7,6 +7,7 @@
         <file>ShortArticleViewDelegate.qml</file>
         <file>MainStackPage.qml</file>
         <file>ArticlePage.qml</file>
+        <file>articles/CommentListView.qml</file>
         <file>SideMenu.qml</file>
         <file>MaterialIcon.qml</file>
         <file>images/menu.png</file>
