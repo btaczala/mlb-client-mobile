@@ -32,8 +32,6 @@ Page {
     onError: {
         console.error("BasePage.qml: Error = ", errorMessage)
         errorText = errorMessage
-
-        errorDialog.visible = true
         loading = false
     }
 
@@ -79,26 +77,13 @@ Page {
         }
     }
 
-    Dialog {
-        id: errorDialog
-        visible: false
-        standardButtons: StandardButton.Retry | StandardButton.Cancel
-        title: "Error"
-        modality: Qt.WindowModal
-
-        Label {
-            anchors.fill: parent
-            text: errorText
-        }
-    }
-
     RoundButton {
         id: floatingButtonItem
         width: 64
         height: 64
         z: 100
         radius: 30
-        text: "\u2713"
+        text: "\ue863"
         highlighted: true
 
         visible: !loading
