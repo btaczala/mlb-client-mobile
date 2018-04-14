@@ -86,16 +86,15 @@ ApplicationWindow {
             anchors.left: parent.left
             anchors.leftMargin: 5
 
-            Image {
-                source: {
-                    if (mainStack.depth === 1) {
-                        return "images/ic_menu_white_48dp/android/drawable-mdpi/ic_menu_white_48dp.png"
+            MaterialIcon {
+                size: 16
+                text: {
+                    if ( mainStack.depth === 1 ) {
+                        return "\ue5d2"
                     } else {
-                        return "images/ic_keyboard_arrow_left_white_48dp/android/drawable-hdpi/ic_keyboard_arrow_left_white_48dp.png"
+                        return "\ue5c4"
                     }
                 }
-                sourceSize: Qt.size(24, 24)
-                smooth: true
                 anchors.centerIn: parent
             }
 

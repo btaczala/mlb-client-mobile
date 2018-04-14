@@ -6,6 +6,8 @@
 #include <QtCore/QCommandLineParser>
 #include <QtCore/QDebug>
 
+#include <QtGui/QFontDatabase>
+
 #include "datacontroller.h"
 #include "articles.h"
 
@@ -16,6 +18,10 @@ int main(int argc, char* argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    QFontDatabase::addApplicationFont(":/MaterialIcons-Regular.ttf");
+
+
     QGuiApplication::setOrganizationDomain("miastobasketu.com");
     QGuiApplication::setOrganizationName("MLB");
     QGuiApplication::setApplicationName("mlb-mobile-client");
