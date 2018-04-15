@@ -2,39 +2,40 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import ".."
+import ".." as Common
 
 Item {
     width: 300
     height: 40
 
     property Component component: null
-    property alias image: imageItem
+    property alias icon: imageItem.text
     property alias label: labelItem
 
     RowLayout {
         anchors.fill: parent
-
+        anchors.leftMargin: 10
         spacing: 10
 
-        ThemedImage {
+        Common.MaterialIcon {
             id: imageItem
-            Layout.preferredHeight: parent.height
-            Layout.preferredWidth: 64
+            Layout.fillHeight: true
+            Layout.preferredWidth: 30
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
         }
 
         Label {
             id: labelItem
-            Layout.preferredHeight: parent.height
+            Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.preferredWidth: 300
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignLeft
         }
 
         Loader {
             sourceComponent: component
-            Layout.preferredHeight: parent.height
+            Layout.fillHeight: true
         }
     }
 

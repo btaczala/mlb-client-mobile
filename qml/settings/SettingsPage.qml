@@ -19,12 +19,12 @@ BasePage {
         SettingsPageMenuItem {
             Layout.preferredHeight: 60
             width: parent.width
-            image.url: "qrc:/images/ic_invert_colors"
             label.text: "Temat"
+            icon: "\ue243"
 
             component: ComboBox {
                 id: comboBox
-                Layout.preferredWidth: contentWidth + 30
+                Layout.preferredWidth: 340
                 model: ["Jasny", "Ciemny", "Automatyczny"]
 
                 Connections {

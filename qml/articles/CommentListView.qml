@@ -11,21 +11,7 @@ ListView {
     width: 600
     height: 300
 
-    //model: ListModel {}
-    model: ListModel {
-        ListElement {
-            name: "Wierzbol85"
-            date: "2018-04-11"
-            time: "23:49:43"
-            commentText: "Po obejrzeniu materiału na kanale youtube stwierdzam, że kontuzja Rafała Mierzwy była dziełem nieszczęśliwego wypadku i bez ingerencji obrońcy. Przepraszam zawodników drużyny UTD za niesłuszne oskarżenie. Dawid Wierzbicki."
-        }
-        ListElement {
-            name: "Wierzbol85"
-            date: "2018-04-11"
-            time: "23:49:43"
-            commentText: "Po obejrzeniu materiału na kanale youtube stwierdzam, że kontuzja Rafała Mierzwy była dziełem nieszczęśliwego wypadku i bez ingerencji obrońcy. Przepraszam zawodników drużyny UTD za niesłuszne oskarżenie. Dawid Wierzbicki."
-        }
-    }
+    model: ListModel {}
 
     spacing: 5
     delegate: Pane {
