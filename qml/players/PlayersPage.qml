@@ -10,8 +10,6 @@ Common.BasePage {
     width: 600
     height: 800
 
-    floatingButton.visible: false
-
     property var playersModel: ListModel {
     }
 

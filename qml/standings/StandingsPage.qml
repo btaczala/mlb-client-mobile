@@ -38,11 +38,6 @@ Common.BasePage {
     Component.onCompleted: refresh()
 
     Connections {
-        target: floatingButton
-        onClicked: refresh()
-    }
-
-    Connections {
         target: standings
         onError: {
             loading = false

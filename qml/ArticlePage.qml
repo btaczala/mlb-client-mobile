@@ -9,8 +9,6 @@ BasePage {
     id: root
     property int uid: 11
 
-    floatingButton.visible: !flickable.atYEnd
-
     width: 800
     height: 1024
 

@@ -9,6 +9,7 @@
         <file>ArticlePage.qml</file>
         <file>articles/CommentListView.qml</file>
         <file>SideMenu.qml</file>
+        <file>TopBar.qml</file>
         <file>MaterialIcon.qml</file>
         <file>images/menu.png</file>
         <file>images/back.png</file>

@@ -53,9 +53,9 @@ ApplicationWindow {
             console.assert("Url cannot be empty")
 
         if (props !== null && props.newHeader) {
-            label.text = props.newHeader
+            overlayHeader.title = props.newHeader
         } else {
-            label.text = "miastobasketu.com"
+            overlayHeader.title = "miastobasketu.com"
         }
 
         var newPage = mainStack.push(url, props)
@@ -74,52 +74,21 @@ ApplicationWindow {
             newPage.window = window
     }
 
-    ToolBar {
+    TopBar {
         id: overlayHeader
-
         width: parent.width
         parent: window.overlay
+        stack: mainStack
 
-        Item {
-            width: height
-            height: parent.height
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 5
+        isRefreshing: mainStack.currentItem.loading
 
-            MaterialIcon {
-                size: 16
-                text: {
-                    if (mainStack.depth === 1) {
-                        return "\ue5d2"
-                    } else {
-                        return "\ue5c4"
-                    }
-                }
-                anchors.centerIn: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    if (mainStack.depth === 1) {
-
-                        if (drawer.visible) {
-                            drawer.close()
-                        } else {
-                            drawer.open()
-                        }
-                    } else {
-                        mainStack.pop()
-                    }
-                }
-            }
+        onRefreshRequested: {
+            mainStack.currentItem.refreshPageContent()
         }
 
-        Label {
-            id: label
-            anchors.centerIn: parent
-            text: "miastobasketu.com"
+        onMenuClicked: {
+            console.debug("Main.qml Menu clicked")
+            drawer.open()
         }
     }
 
