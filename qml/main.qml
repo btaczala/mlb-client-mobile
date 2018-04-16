@@ -36,6 +36,7 @@ ApplicationWindow {
     Settings {
         id: settings
         property int theme
+        property var disabledPages: ["Zawodnicy"]
         property alias width: window.width
         property alias height: window.height
         readonly property size drawerLogoSize: Qt.size(128, 128)
