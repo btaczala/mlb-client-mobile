@@ -47,6 +47,10 @@ BasePage {
 
         ScheduleBase {
             scheduleModel: majorModel
+            onGameClicked: {
+                console.debug("SchedulePage.qml Clicked game", uid)
+                requestNewPage("game/GamePage.qml", {gameId: uid})
+            }
         }
         ScheduleBase {
             scheduleModel: pretendentModel

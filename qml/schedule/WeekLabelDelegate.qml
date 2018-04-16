@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.3
 Item {
 
     property string label
+    signal gameClicked(int uid)
 
     width: 200
     height: 50

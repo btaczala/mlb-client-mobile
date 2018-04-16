@@ -1,0 +1,47 @@
+[
+    {
+        "team": "THE CATHLONS",
+        "players": [
+            {
+                "name": "Bartosz Grynfelder",
+                "points": 21,
+                "1fgm": 7,
+                "1fga": 13,
+                "2fgm": 7,
+                "2fga": 13,
+                "3fgm": 7,
+                "3fga": 13,
+                "rebounds_off": 2,
+                "rebounds_diff": 2,
+                "assists": 0,
+                "steals": 0,
+                "turnovers": 0,
+                "fouls": 0,
+                "eval": 15
+            }
+        ]
+    },
+    {
+        "team": "FRASSATI",
+        "players": [
+            {
+                "name": "Bartosz Grynfelder",
+                "points": 21,
+                "1fgm": 7,
+                "1fga": 13,
+                "2fgm": 7,
+                "2fga": 13,
+                "3fgm": 7,
+                "3fga": 13,
+                "rebounds_off": 2,
+                "rebounds_diff": 2,
+                "assists": 0,
+                "steals": 0,
+                "turnovers": 0,
+                "fouls": 0,
+                "eval": 15
+            }
+        ]
+    },
+    {}
+]

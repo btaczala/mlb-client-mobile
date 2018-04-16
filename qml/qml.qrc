@@ -11,6 +11,7 @@
         <file>SideMenu.qml</file>
         <file>TopBar.qml</file>
         <file>MaterialIcon.qml</file>
+        <file>Base64Image.qml</file>
         <file>images/menu.png</file>
         <file>images/back.png</file>
         <file>images/ic_menu_black_24px.svg</file>
@@ -47,6 +48,7 @@
         <file>teams/TeamsPageDelegate.qml</file>
         <file>teams/TeamPage.qml</file>
         <file>teams/TeamPlayerDelegate.qml</file>
+        <file>game/GamePage.qml</file>
         <file>rest_controller.js</file>
         <file>settings/SelectTeamSettingsMenuItem.qml</file>
         <file>commonLogic.js</file>

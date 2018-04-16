@@ -13,7 +13,7 @@ BasePage {
         contentHeight: image.height
         contentWidth: image.width
 
-        Image {
+        Base64Image {
             id: image
             source: url
         }

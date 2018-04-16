@@ -88,7 +88,11 @@ ApplicationWindow {
 
         onMenuClicked: {
             console.debug("Main.qml Menu clicked")
-            drawer.open()
+            if (mainStack.depth === 1) {
+                drawer.open()
+            } else {
+                mainStack.pop()
+            }
         }
     }
 

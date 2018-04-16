@@ -1,37 +1,44 @@
 [
-  {
-    "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(41).jpg",
-    "headerContent": "ZAPOWIEDŹ V TYGODNIA",
-    "textContent": "Piąta kolejka spotkań w MLB zacznie się od pojedynku z najwyższego poziomu - MLB MAJOR. Zmierzą się ze sobą Elektryka Morska i FRASSATI. Elektryka Morska po zwycięstwie nad OPEN BASKET [...]",
-    "postedContent": "2017-10-20 14:55, Michael Jordan",
-    "uid": 10
-  },
-  {
-    "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.06%20MLB%20(9).jpg",
-    "headerContent": "PODSUMOWANIE IV TYGODNIA",
-    "textContent": "Czwarty tydzień rozgrywek już za nami. Na początek doszło do sporej niespodzianki Elektryka Morska ograła zespół OPEN BASKETBALL TEAM. Co prawda w pierwszej połowie OPEN kontrol [...]",
-    "postedContent": "2017-10-20 14:55, Michael Jordan",
-    "uid": 11
-  },
-  {
-    "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(3).jpg",
-    "headerContent": "GRACZ TYGODNIA MLB",
-    "textContent": "Niniejszym graczem IV tygodnia MLB ogłaszamy Tomasza Lepperta z ekipy RUN &amp; GUN. W minionym tygodniu Tomasz sportowo uciułał aż 30 punkt&oacute;w, 14 zbi&oacute;rek, 4 asysty i 1 b [...] ",
-    "postedContent": "2017-10-20 14:55, Michael Jordan",
-    "uid": 12
-  },
-  {
-    "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/basketball-885786_640.jpg",
-    "headerContent": "KOMUNIKAT RADY LIGI",
-    "textContent": "W sprawie wniosku kapitana drużyny SMALL BALL dotyczącego incydentu podczas meczu SMALL BALL - UTD, Rada Miejskiej Ligi Basketu postanawia zawiesić zawodnika UTD Łukasza Wielgomasza w",
-    "postedContent": "2017-10-20 14:55, Michael Jordan",
-    "uid": 12
-  },
-  {
-    "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg",
-    "headerContent": "AKADEMIA BASKETU 2016/2017",
-    "textContent": "Jeśli jeszcze do kogoś nie dotarliśmy z koszykarskim przesłaniem, to nasze wspaniałe trenerki od miesiąca pracują już z dziećmi w ramach AKADEMII BASKETU. Zajęć z Pauliną Gajdosz i Martą Malczewską naprawdę nie trzeba zbytn [...]",
-    "postedContent": "2017-10-20 14:55, Michael Jordan",
-    "uid": 13
-  }
+    {
+        "imageUrl": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg",
+        "headerContent": "DOGRYWKA",
+        "textContent": "Pierwszy niedzielny mecz wygrywa Sp\u00f3jnia Stargard. Zawodnicy ze Stargardu ograli KANGOO BASKET. Widzieli\u015bmy niezwykle wyr\u00f3wnany mecz, kt\u00f3ry zako\u0144czy\u0142 si\u0119 dogrywk\u0105. W dodatkowym czasie gry Sp\u00f3jnia Stargard minimalnie lepsza. Mecz sta\u0142 na bardzo dobrym poziomie. W Sp\u00f3jni Stargard [...]",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 10
+    },
+    {
+        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(41).jpg",
+        "headerContent": "ZAPOWIED\u0179 V TYGODNIA",
+        "textContent": "Pi\u0105ta kolejka spotka\u0144 w MLB zacznie si\u0119 od pojedynku z najwy\u017cszego poziomu - MLB MAJOR. Zmierz\u0105 si\u0119 ze sob\u0105 Elektryka Morska i FRASSATI. Elektryka Morska po zwyci\u0119stwie nad OPEN BASKET [...]",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 10
+    },
+    {
+        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.06%20MLB%20(9).jpg",
+        "headerContent": "PODSUMOWANIE IV TYGODNIA",
+        "textContent": "Czwarty tydzie\u0144 rozgrywek ju\u017c za nami. Na pocz\u0105tek dosz\u0142o do sporej niespodzianki Elektryka Morska ogra\u0142a zesp\u00f3\u0142 OPEN BASKETBALL TEAM. Co prawda w pierwszej po\u0142owie OPEN kontrol [...]",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 11
+    },
+    {
+        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(3).jpg",
+        "headerContent": "GRACZ TYGODNIA MLB",
+        "textContent": "Niniejszym graczem IV tygodnia MLB og\u0142aszamy Tomasza Lepperta z ekipy RUN &amp; GUN. W minionym tygodniu Tomasz sportowo uciu\u0142a\u0142 a\u017c 30 punkt&oacute;w, 14 zbi&oacute;rek, 4 asysty i 1 b [...] ",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 12
+    },
+    {
+        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/basketball-885786_640.jpg",
+        "headerContent": "KOMUNIKAT RADY LIGI",
+        "textContent": "W sprawie wniosku kapitana dru\u017cyny SMALL BALL dotycz\u0105cego incydentu podczas meczu SMALL BALL - UTD, Rada Miejskiej Ligi Basketu postanawia zawiesi\u0107 zawodnika UTD \u0141ukasza Wielgomasza w",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 12
+    },
+    {
+        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg",
+        "headerContent": "AKADEMIA BASKETU 2016/2017",
+        "textContent": "Je\u015bli jeszcze do kogo\u015b nie dotarli\u015bmy z koszykarskim przes\u0142aniem, to nasze wspania\u0142e trenerki od miesi\u0105ca pracuj\u0105 ju\u017c z dzie\u0107mi w ramach AKADEMII BASKETU. Zaj\u0119\u0107 z Paulin\u0105 Gajdosz i Mart\u0105 Malczewsk\u0105 naprawd\u0119 nie trzeba zbytn [...]",
+        "postedContent": "2017-10-20 14:55, Michael Jordan",
+        "uid": 13
+    }
 ]

@@ -8,5 +8,6 @@
         <file>qml/dummydata/players.json</file>
         <file>qml/dummydata/article10.json</file>
         <file>qml/dummydata/article11.json</file>
+        <file>qml/dummydata/gameData10.json</file>
     </qresource>
 </RCC>

@@ -25,7 +25,7 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                Image {
+                Base64Image {
                     id: imageItem
                     fillMode: Image.Stretch
                     anchors.horizontalCenter: parent.horizontalCenter
