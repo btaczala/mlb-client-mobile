@@ -49,6 +49,9 @@
         <file>teams/TeamPage.qml</file>
         <file>teams/TeamPlayerDelegate.qml</file>
         <file>game/GamePage.qml</file>
+        <file>game/GameHeader.qml</file>
+        <file>game/HeaderLabel.qml</file>
+        <file>game/PlayerEntryDelegate.qml</file>
         <file>rest_controller.js</file>
         <file>settings/SelectTeamSettingsMenuItem.qml</file>
         <file>commonLogic.js</file>

@@ -22,7 +22,7 @@ QtObject {
         timer.start()
     }
 
-    function gameData(gameId) {
+    function gameData(gameId, callback) {
         var timer = new Rest.Timer(standings)
         timer.interval = __delay
 
