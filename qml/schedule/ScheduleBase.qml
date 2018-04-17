@@ -49,7 +49,8 @@ Item {
                 target: item
                 enabled: type !== "week_nr"
                 onGameClicked: {
-                    console.debug("ScheduleBase.qml Clicked game", host, guest, date)
+                    console.debug("ScheduleBase.qml Clicked game", host,
+                                  guest, date)
                     root.gameClicked(uid)
                 }
             }

@@ -76,7 +76,8 @@ ToolBar {
                     anchors.centerIn: parent
                     opacity: isRefreshing ? 0 : 1
                     Behavior on opacity {
-                        PropertyAnimation {}
+                        PropertyAnimation {
+                        }
                     }
                 }
             }

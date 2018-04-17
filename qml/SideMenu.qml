@@ -20,13 +20,14 @@ Drawer {
 
     Component.onCompleted: {
 
-        for ( var count = 0; count < globalSettings.disabledPages.length; count++) {
-            console.debug("SideMenu.qml: Disabling entry ", globalSettings.disabledPages[count])
-            var searchedName = globalSettings.disabledPages[count];
+        for (var count = 0; count < globalSettings.disabledPages.length; count++) {
+            console.debug("SideMenu.qml: Disabling entry ",
+                          globalSettings.disabledPages[count])
+            var searchedName = globalSettings.disabledPages[count]
 
             for (var listIndex = 0; listIndex < drawerItems.count; listIndex++) {
-                if ( drawerItems.get(listIndex).name === searchedName) {
-                    drawerItems.remove(listIndex, 1);
+                if (drawerItems.get(listIndex).name === searchedName) {
+                    drawerItems.remove(listIndex, 1)
                 }
             }
         }

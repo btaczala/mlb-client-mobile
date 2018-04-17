@@ -50,20 +50,20 @@ Common.BasePage {
                 var playerInfo = resp.home.players[index]
                 var arr = new Array
                 guestModel.append({
-                                     name: playerInfo.name,
-                                     points: playerInfo.points,
-                                     points_two: playerInfo.fgm_two + "/" + playerInfo.fga_two,
-                                     points_three: playerInfo.fgm_three + "/"
-                                                   + playerInfo.fga_three,
-                                     points_one: playerInfo.fgm_one + "/" + playerInfo.fga_one,
-                                     rebounds: playerInfo.rebounds_off + playerInfo.rebounds_diff,
-                                     assists: playerInfo.assists,
-                                     blocks: playerInfo.blocks,
-                                     steals: playerInfo.steals,
-                                     turnovers: playerInfo.turnovers,
-                                     fouls: playerInfo.fouls,
-                                     Eval: playerInfo.eval
-                                 })
+                                      name: playerInfo.name,
+                                      points: playerInfo.points,
+                                      points_two: playerInfo.fgm_two + "/" + playerInfo.fga_two,
+                                      points_three: playerInfo.fgm_three + "/"
+                                                    + playerInfo.fga_three,
+                                      points_one: playerInfo.fgm_one + "/" + playerInfo.fga_one,
+                                      rebounds: playerInfo.rebounds_off + playerInfo.rebounds_diff,
+                                      assists: playerInfo.assists,
+                                      blocks: playerInfo.blocks,
+                                      steals: playerInfo.steals,
+                                      turnovers: playerInfo.turnovers,
+                                      fouls: playerInfo.fouls,
+                                      Eval: playerInfo.eval
+                                  })
             }
         })
     }
@@ -108,7 +108,7 @@ Common.BasePage {
                     height: 60
                     spacing: homeListView.headerItem.spacing
                     backgroundColor: index % 2 === 0 ? "#9E9E9E" : Material.background
-                    texts: [name,points,points_two,points_three,points_one,rebounds,assists,steals,blocks,turnovers,fouls,Eval]
+                    texts: [name, points, points_two, points_three, points_one, rebounds, assists, steals, blocks, turnovers, fouls, Eval]
                 }
             }
         }
@@ -135,7 +135,7 @@ Common.BasePage {
                     height: 60
                     spacing: homeListView.headerItem.spacing
                     backgroundColor: index % 2 === 0 ? "#9E9E9E" : Material.background
-                    texts: [name,points,points_two,points_three,points_one,rebounds,assists,steals,blocks,turnovers,fouls,Eval]
+                    texts: [name, points, points_two, points_three, points_one, rebounds, assists, steals, blocks, turnovers, fouls, Eval]
                 }
             }
         }

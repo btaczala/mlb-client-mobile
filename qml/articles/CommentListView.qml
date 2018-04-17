@@ -11,7 +11,8 @@ ListView {
     width: 600
     height: 300
 
-    model: ListModel {}
+    model: ListModel {
+    }
 
     spacing: 5
     delegate: Pane {
