@@ -14,7 +14,7 @@ BasePage {
         running: fetchingData
     }
 
-    Component.onCompleted: refreshPageContent()
+    Component.onCompleted: startRefreshing()
 
     onRefreshPageContent: {
         console.log("ShortArticleView.qml Refreshing")
@@ -36,7 +36,7 @@ BasePage {
                                           })
             }
 
-            loading = false
+            finishRefreshing()
         })
     }
 

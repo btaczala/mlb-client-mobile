@@ -10,6 +10,8 @@ Page {
 
     property string errorText: "An error blah blah"
 
+    property var mainItem: children[0]
+
     readonly property bool inPortrait: width < height
     signal requestNewPage(string url, var props)
     signal refreshPageContent
@@ -17,6 +19,22 @@ Page {
     signal error(string errorMessage)
 
     property bool loading: false
+
+    function startRefreshing() {
+        loading = true
+        refreshPageContent()
+    }
+
+    function finishRefreshing() {
+        console.log("BasePage.qml Refreshing finished")
+        loading = false
+    }
+
+    Component.onCompleted: {
+        for(var childIndex in children) {
+            console.log("BasePage.qml: child", children[childIndex])
+        }
+    }
 
     onInPortraitChanged: {
         console.log("BasePage.qml: orientation changed ",
@@ -34,6 +52,7 @@ Page {
     }
 
     Rectangle {
+        id: loadingRect
         anchors.fill: parent
         z: 20
         opacity: loading ? 1 : 0

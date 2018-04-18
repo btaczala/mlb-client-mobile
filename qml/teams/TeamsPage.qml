@@ -10,7 +10,6 @@ CommonScrollableLeaguePage {
     id: root
 
     onRefreshPageContent: {
-        loading = true
         var convert = function (obj) {
             return {
                 name: obj.name,
@@ -18,7 +17,7 @@ CommonScrollableLeaguePage {
             }
         }
         var finishCb = function () {
-            loading = false
+            finishRefreshing()
         }
         Logic.getThreeModels(majorTeamsModel, pretendentTeamsModel,
                              basicTeamsModel, teamDataAPI.refresh,
@@ -26,7 +25,7 @@ CommonScrollableLeaguePage {
     }
 
     Component.onCompleted: {
-        refreshPageContent()
+        startRefreshing()
     }
 
     ListModel {

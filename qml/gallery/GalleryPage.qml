@@ -40,6 +40,10 @@ BasePage {
         }
     }
 
+    onRefreshPageContent: {
+        finishRefreshing()
+    }
+
     GridView {
         id: list
         anchors.fill: parent

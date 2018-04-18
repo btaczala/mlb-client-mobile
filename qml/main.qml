@@ -81,7 +81,7 @@ ApplicationWindow {
         stack: mainStack
 
         onRefreshRequested: {
-            mainStack.currentItem.refreshPageContent()
+            mainStack.currentItem.startRefreshing()
         }
 
         onMenuClicked: {

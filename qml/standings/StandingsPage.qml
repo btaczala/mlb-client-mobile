@@ -18,10 +18,14 @@ Common.BasePage {
     }
 
     function refresh() {
-        loading = true
+    }
+
+    Component.onCompleted: startRefreshing()
+
+    onRefreshPageContent: {
         Logic.getThreeModels(majorStandings, pretendentStandings,
                              basicStandings, standings.refresh, function () {
-                                 loading = false
+                                 finishRefreshing()
                              }, function (obj) {
                                  return {
                                      name: obj.name,
@@ -34,8 +38,6 @@ Common.BasePage {
                                  }
                              })
     }
-
-    Component.onCompleted: refresh()
 
     Connections {
         target: standings

@@ -18,12 +18,13 @@ BasePage {
     property var basicModel: ListModel {
     }
 
-    function refresh() {
+    Component.onCompleted: {
+        startRefreshing()
+    }
 
-        loading = true
-
+    onRefreshPageContent: {
         var afterCallback = function () {
-            loading = false
+            finishRefreshing()
         }
 
         var transform = function (object) {
@@ -37,10 +38,6 @@ BasePage {
         }
         Logic.getThreeModels(majorModel, pretendentModel, basicModel,
                              scheduleAPI.refresh, afterCallback, transform)
-    }
-
-    Component.onCompleted: {
-        refresh()
     }
 
     SwipeView {
