@@ -21,6 +21,7 @@ Common.BasePage {
     property string guestTeam: "ENDOO DROGMAL"
 
     function refresh() {
+        loading = true
         console.log("GamePage.qml: Refreshing game data for uid ", uid)
 
         scheduleAPI.gameData(uid, function (jsonData) {
@@ -65,6 +66,8 @@ Common.BasePage {
                                       Eval: playerInfo.eval
                                   })
             }
+
+            loading = false
         })
     }
 
@@ -84,6 +87,7 @@ Common.BasePage {
     SwipeView {
         id: view
         anchors.fill: parent
+        visible: !loading
 
         ColumnLayout {
             Label {

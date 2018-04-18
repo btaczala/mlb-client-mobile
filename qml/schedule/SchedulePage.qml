@@ -52,7 +52,8 @@ BasePage {
             onGameClicked: {
                 console.debug("SchedulePage.qml Clicked game", uid)
                 requestNewPage("game/GamePage.qml", {
-                                   gameId: uid
+                                   gameId: uid,
+                                   loading: true
                                })
             }
         }
