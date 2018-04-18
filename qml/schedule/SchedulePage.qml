@@ -20,6 +20,8 @@ BasePage {
 
     function refresh() {
 
+        loading = true
+
         var afterCallback = function () {
             loading = false
         }
