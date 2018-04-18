@@ -18,8 +18,6 @@ Item {
 
     property int spacing: 1
 
-    Component.onCompleted: console.log(sizes)
-
     RowLayout {
         anchors.fill: parent
 

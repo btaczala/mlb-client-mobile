@@ -47,7 +47,7 @@ Common.BasePage {
             }
             for (var index in resp.guest.players) {
 
-                var playerInfo = resp.home.players[index]
+                var playerInfo = resp.guest.players[index]
                 var arr = new Array
                 guestModel.append({
                                       name: playerInfo.name,
