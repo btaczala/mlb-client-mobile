@@ -32,4 +32,20 @@ Page {
         errorText = errorMessage
         loading = false
     }
+
+    Rectangle {
+        anchors.fill: parent
+        z: 20
+        opacity: loading ? 1 : 0
+        color: root.background.color
+        Behavior on opacity {
+            PropertyAnimation {
+            }
+        }
+
+        BusyIndicator {
+            anchors.centerIn: parent
+            running: loading
+        }
+    }
 }

@@ -16,13 +16,6 @@ ToolBar {
     signal refreshRequested
     signal menuClicked
 
-    property bool isRefreshing: true
-
-    onIsRefreshingChanged: {
-        console.debug("BasePage.qml: Is refreshing ", isRefreshing)
-        refreshItem.rotation = 0
-    }
-
     RowLayout {
         anchors.fill: parent
 
@@ -65,19 +58,14 @@ ToolBar {
             Layout.fillHeight: true
             Layout.preferredWidth: 50
 
-            BusyIndicator {
-                anchors.fill: parent
-                running: isRefreshing
-
-                MaterialIcon {
-                    id: refreshLabel
-                    size: 16
-                    text: "\ue5d5"
-                    anchors.centerIn: parent
-                    opacity: isRefreshing ? 0 : 1
-                    Behavior on opacity {
-                        PropertyAnimation {
-                        }
+            MaterialIcon {
+                id: refreshLabel
+                size: 16
+                text: "\ue5d5"
+                anchors.centerIn: parent
+                opacity: isRefreshing ? 0 : 1
+                Behavior on opacity {
+                    PropertyAnimation {
                     }
                 }
             }

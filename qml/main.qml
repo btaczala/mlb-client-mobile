@@ -80,8 +80,6 @@ ApplicationWindow {
         parent: window.overlay
         stack: mainStack
 
-        isRefreshing: mainStack.currentItem.loading
-
         onRefreshRequested: {
             mainStack.currentItem.refreshPageContent()
         }
