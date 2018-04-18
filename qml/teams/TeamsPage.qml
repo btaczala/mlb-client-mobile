@@ -2,12 +2,21 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
-import ".."
+import ".." as Common
 
 import "../commonLogic.js" as Logic
 
-CommonScrollableLeaguePage {
+Common.BasePage {
     id: root
+    width: 800
+    height: 600
+
+    property var majorTeamsModel: ListModel {
+    }
+    property var pretendentTeamsModel: ListModel {
+    }
+    property var basicTeamsModel: ListModel {
+    }
 
     onRefreshPageContent: {
         var convert = function (obj) {
@@ -28,23 +37,28 @@ CommonScrollableLeaguePage {
         startRefreshing()
     }
 
-    ListModel {
-        id: majorTeamsModel
+    SwipeView {
+        id: swipeView
+        anchors.fill: parent
+
+        TeamsPageDelegate {
+            playerModel: majorTeamsModel
+        }
+        TeamsPageDelegate {
+            playerModel: pretendentTeamsModel
+        }
+        TeamsPageDelegate {
+            playerModel: basicTeamsModel
+        }
     }
 
-    ListModel {
-        id: pretendentTeamsModel
-    }
-    ListModel {
-        id: basicTeamsModel
-    }
+    PageIndicator {
+        id: indicator
 
-    property var __models: [majorTeamsModel, pretendentTeamsModel, basicTeamsModel]
+        count: swipeView.count
+        currentIndex: swipeView.currentIndex
 
-    delegate: TeamsPageDelegate {
-        width: list.width
-        height: list.height
-        title: list.model.get(list.currentIndex).league
-        models: __models
+        anchors.bottom: swipeView.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

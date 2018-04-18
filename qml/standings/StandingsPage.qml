@@ -51,6 +51,7 @@ Common.BasePage {
     SwipeView {
         id: view
         anchors.fill: parent
+        visible: !loading
 
         LeagueStandingDelegate {
             portrait: inPortrait
@@ -60,6 +61,7 @@ Common.BasePage {
             portrait: inPortrait
             model: pretendentStandings
         }
+
         LeagueStandingDelegate {
             portrait: inPortrait
             model: basicStandings

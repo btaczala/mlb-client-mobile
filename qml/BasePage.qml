@@ -10,8 +10,6 @@ Page {
 
     property string errorText: "An error blah blah"
 
-    property var mainItem: children[0]
-
     readonly property bool inPortrait: width < height
     signal requestNewPage(string url, var props)
     signal refreshPageContent

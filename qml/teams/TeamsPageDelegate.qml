@@ -10,7 +10,8 @@ Item {
 
     property alias title: textItem.text
 
-    property var models
+    property var playerModel: ListModel {
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -39,7 +40,7 @@ Item {
             Layout.fillHeight: true
             clip: true
 
-            model: models[index]
+            model: playerModel
             spacing: 4
 
             delegate: Item {
