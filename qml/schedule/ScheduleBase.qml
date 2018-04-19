@@ -4,13 +4,14 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 
 Item {
-
     id: root
-    property alias scheduleModel: list.model
 
-    Component.onCompleted: console.log("ScheduleBase.qml: ", scheduleModel)
+    property alias scheduleModel: list.model
+    property string league
 
     signal gameClicked(int uid)
+
+    Component.onCompleted: console.log("ScheduleBase.qml: ", scheduleModel)
 
     ListView {
         anchors.fill: parent

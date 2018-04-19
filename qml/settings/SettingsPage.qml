@@ -11,6 +11,7 @@ BasePage {
     property var globalSettings
 
     Component.onCompleted: console.log(globalSettings)
+    customHeader: "Ustawienia"
 
     ColumnLayout {
         anchors.fill: parent

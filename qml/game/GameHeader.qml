@@ -37,63 +37,63 @@ RowLayout {
 
     HeaderLabel {
         id: pointsLabelItem
-        text: "Punkty"
+        text: inPortrait ? "Pkt" : "Punkty"
         Layout.fillHeight: true
     }
 
     HeaderLabel {
         id: pts
-        text: "2 pkt. (c/o)"
+        text: "2 pkt. \n(c/o)"
         Layout.fillHeight: true
         visible: !inPortrait
     }
 
     HeaderLabel {
         id: ptsLabelItem_three
-        text: "3 pkt. (c/o)"
+        text: "3 pkt. \n(c/o)"
         Layout.fillHeight: true
         visible: !inPortrait
     }
 
     HeaderLabel {
         id: ptsLabelItem_one
-        text: "1 pkt. (c/o)"
+        text: "1 pkt. \n(c/o)"
         Layout.fillHeight: true
         visible: !inPortrait
     }
 
     HeaderLabel {
         id: reboundsLabelItem
-        text: inPortrait ? "Zbiórki" : "Zbiórki (A/O)"
+        text: inPortrait ? "Zb" : "Zbiórki \n(A/O)"
         Layout.fillHeight: true
     }
 
     HeaderLabel {
         id: assistsLabelItem
-        text: "AST"
+        text: inPortrait ? "Ast" : "Asysty"
         Layout.fillHeight: true
     }
     HeaderLabel {
         id: stealsLabelItem
-        text: "Przechwyty"
+        text: inPortrait ? "Prz" : "Przechwyty"
         Layout.fillHeight: true
     }
 
     HeaderLabel {
         id: blocksLabelItem
-        text: "BLK"
+        text: inPortrait ? "Blk" : "Bloki"
         Layout.fillHeight: true
     }
 
     HeaderLabel {
         id: turnoversLabelItem
-        text: "STR"
+        text: inPortrait ? "Str" : "Straty"
         Layout.fillHeight: true
     }
 
     HeaderLabel {
         id: foulsLabelItem
-        text: "Faule"
+        text: inPortrait ? "Fau" : "Faule"
         Layout.fillHeight: true
     }
 

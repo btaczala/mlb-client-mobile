@@ -25,7 +25,10 @@ function android_build_apk() {
 }
 
 function mlb_build_x86() {
-    build_dir=$(mktemp -d)
+    build_dir=/tmp/mlb-client-android-build-x86
+    if [ -d $build_dir ]; then 
+        /usr/bin/rm $build_dir -rf
+    fi
     android_x86_qmake .. CONFIG+=debug
     make -j$(nproc)
     android_build_apk x86 $build_dir

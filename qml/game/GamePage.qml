@@ -20,7 +20,7 @@ Common.BasePage {
     property string homeTeam: "OPEN BASKETBALL TEAM"
     property string guestTeam: "ENDOO DROGMAL"
 
-    function refresh() {
+    onRefreshPageContent: {
         loading = true
         console.log("GamePage.qml: Refreshing game data for uid ", uid)
 
@@ -66,12 +66,16 @@ Common.BasePage {
                                       Eval: playerInfo.eval
                                   })
             }
-
+            console.log("GamePage.qml: New header should be",
+                        view.currentItem.homeTeamName)
+            customHeader = view.currentItem.homeTeamName
             loading = false
         })
     }
 
-    Component.onCompleted: refresh()
+    Component.onCompleted: {
+        refreshPageContent()
+    }
 
     Component {
         id: listHeader
@@ -89,61 +93,21 @@ Common.BasePage {
         anchors.fill: parent
         visible: !loading
 
-        ColumnLayout {
-            Label {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 100
-                text: homeTeam
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            ListView {
-                id: homeListView
-                model: homeModel
-                header: listHeader
-                headerPositioning: ListView.OverlayHeader
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                clip: true
-                delegate: PlayerEntryDelegate {
-                    width: homeListView.width
-                    sizes: homeListView.headerItem.sizes
-                    height: 60
-                    spacing: homeListView.headerItem.spacing
-                    backgroundColor: index % 2 === 0 ? "#9E9E9E" : Material.background
-                    texts: [name, points, points_two, points_three, points_one, rebounds, assists, steals, blocks, turnovers, fouls, Eval]
-                }
-            }
+        onCurrentItemChanged: {
+            customHeader = currentItem.homeTeamName
         }
 
-        ColumnLayout {
-            Label {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 100
-                text: guestTeam
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-            ListView {
-                id: guestListView
-                model: guestModel
-                header: listHeader
-                headerPositioning: ListView.OverlayHeader
-                clip: true
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                delegate: PlayerEntryDelegate {
-                    width: homeListView.width
-                    sizes: homeListView.headerItem.sizes
-                    height: 60
-                    spacing: homeListView.headerItem.spacing
-                    backgroundColor: index % 2 === 0 ? "#9E9E9E" : Material.background
-                    texts: [name, points, points_two, points_three, points_one, rebounds, assists, steals, blocks, turnovers, fouls, Eval]
-                }
-            }
+        OneTeamPage {
+            homeTeamName: homeTeam
+            teamModel: homeModel
+        }
+
+        OneTeamPage {
+            homeTeamName: guestTeam
+            teamModel: guestModel
         }
     }
+
     PageIndicator {
         id: indicator
 

@@ -51,6 +51,7 @@
         <file>game/GameHeader.qml</file>
         <file>game/HeaderLabel.qml</file>
         <file>game/PlayerEntryDelegate.qml</file>
+        <file>game/OneTeamPage.qml</file>
         <file>rest_controller.js</file>
         <file>settings/SelectTeamSettingsMenuItem.qml</file>
         <file>commonLogic.js</file>

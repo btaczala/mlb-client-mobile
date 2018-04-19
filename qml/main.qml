@@ -52,12 +52,6 @@ ApplicationWindow {
         if (url === "")
             console.assert("Url cannot be empty")
 
-        if (props !== null && props.newHeader) {
-            overlayHeader.title = props.newHeader
-        } else {
-            overlayHeader.title = "miastobasketu.com"
-        }
-
         var newPage = mainStack.push(url, props)
         console.log("main.qml: ", "Pushing " + url + " " + props)
         console.log("main.qml: ", "New Page = ", newPage)
@@ -79,6 +73,8 @@ ApplicationWindow {
         width: parent.width
         parent: window.overlay
         stack: mainStack
+        title: mainStack.currentItem.customHeader
+               !== "" ? mainStack.currentItem.customHeader : "miastobasketu.com"
 
         onRefreshRequested: {
             mainStack.currentItem.startRefreshing()

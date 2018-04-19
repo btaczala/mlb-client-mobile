@@ -7,6 +7,7 @@ Page {
     id: root
     property var applicationWindow
     property var globalSettings
+    property string customHeader
 
     property string errorText: "An error blah blah"
 

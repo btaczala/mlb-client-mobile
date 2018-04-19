@@ -25,6 +25,7 @@ BasePage {
     onRefreshPageContent: {
         var afterCallback = function () {
             finishRefreshing()
+            customHeader = view.currentItem.league
         }
 
         var transform = function (object) {
@@ -44,7 +45,12 @@ BasePage {
         id: view
         anchors.fill: parent
 
+        onCurrentItemChanged: {
+            customHeader = currentItem.league
+        }
+
         ScheduleBase {
+            league: "Major"
             scheduleModel: majorModel
             onGameClicked: {
                 console.debug("SchedulePage.qml Clicked game", uid)
@@ -55,10 +61,26 @@ BasePage {
             }
         }
         ScheduleBase {
+            league: "Pretendent"
             scheduleModel: pretendentModel
+            onGameClicked: {
+                console.debug("SchedulePage.qml Clicked game", uid)
+                requestNewPage("game/GamePage.qml", {
+                                   gameId: uid,
+                                   loading: true
+                               })
+            }
         }
         ScheduleBase {
             scheduleModel: basicModel
+            league: "Basic"
+            onGameClicked: {
+                console.debug("SchedulePage.qml Clicked game", uid)
+                requestNewPage("game/GamePage.qml", {
+                                   gameId: uid,
+                                   loading: true
+                               })
+            }
         }
     }
 

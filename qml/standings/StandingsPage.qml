@@ -17,8 +17,7 @@ Common.BasePage {
     property var basicStandings: ListModel {
     }
 
-    function refresh() {
-    }
+    function refresh() {}
 
     Component.onCompleted: startRefreshing()
 
@@ -57,6 +56,7 @@ Common.BasePage {
             portrait: inPortrait
             model: majorStandings
         }
+
         LeagueStandingDelegate {
             portrait: inPortrait
             model: pretendentStandings

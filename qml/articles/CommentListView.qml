@@ -10,6 +10,7 @@ ListView {
     id: rootList
     width: 600
     height: 300
+    interactive: false
 
     model: ListModel {
     }
