@@ -4,10 +4,13 @@ android_root_dir=/mnt/external/projects/android
 
 export ANDROID_HOME=$android_root_dir/sdk/
 export ANDROID_SDK_ROOT=$ANDROID_HOME
-
+export ANDROID_SDK=$ANDROID_HOME
 export ANDROID_TARGET_ABI=x86
 export ANDROID_TARGET_ABI=armv7
 export ANDROID_NDK_ROOT=$android_root_dir/ndk/android-ndk-r13b
+export ANDROID_NDK=$android_root_dir/ndk/android-ndk-r13b
+
+export JAVA_HOME=/usr/lib/jvm/default
 
 function android_x86_qmake() {
      PATH=$android_root_dir/qt5/5.10.1/android_x86/bin/ qmake $@
@@ -42,4 +45,18 @@ function mlb_build_arm() {
     android_arm_qmake .. CONFIG+=debug
     make -j$(nproc)
     android_build_apk armv7 $build_dir
+}
+
+function mlb_cmake_android() {
+    arch=$1
+
+    mkdir build-android-$arch
+    cd build-android-$arch
+    cmake .. -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_SYSTEM_VERSION=21 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86 \
+  -DCMAKE_ANDROID_NDK=$ANDROID_NDK_ROOT \
+  -DCMAKE_ANDROID_STL_TYPE=gnustl_static \
+  -DCMAKE_PREFIX_PATH=$android_root_dir/qt5/5.10.1/android_$arch/lib/cmake
+    cd -
 }
