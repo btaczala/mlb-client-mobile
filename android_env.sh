@@ -1,6 +1,7 @@
 #!/bin/bash
 
-android_root_dir=/mnt/external/projects/android
+#android_root_dir=/mnt/external/projects/android
+android_root_dir=$HOME/Projects/android
 
 export ANDROID_HOME=$android_root_dir/sdk/
 export ANDROID_SDK_ROOT=$ANDROID_HOME
