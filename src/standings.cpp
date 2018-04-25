@@ -7,11 +7,7 @@ Standings::Standings()
 {
 }
 
-void Standings::refresh(QJSValue callback)
+void Standings::refresh(QJSValue)
 {
-    if (useDummyData) {
-        APIBase::loadDummyData(QString("standings.json"), callback, 2000);
-    } else {
-        qFatal("Not implemented");
-    }
+    qFatal("Not implemented");
 }
