@@ -50,13 +50,17 @@ function mlb_build_arm() {
 function mlb_cmake_android() {
     arch=$1
 
-    mkdir build-android-$arch
-    cd build-android-$arch
+    if [[ "$arch" == "armeabi" ]]; then
+        qt_arch="armv7"
+    else
+        qt_arch=$arch
+    fi
+
     cmake .. -DCMAKE_SYSTEM_NAME=Android \
-  -DCMAKE_SYSTEM_VERSION=21 \
-  -DCMAKE_ANDROID_ARCH_ABI=x86 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_ANDROID_API=21 \
+  -DCMAKE_ANDROID_ARCH_ABI=$arch \
   -DCMAKE_ANDROID_NDK=$ANDROID_NDK_ROOT \
-  -DCMAKE_ANDROID_STL_TYPE=gnustl_static \
-  -DCMAKE_PREFIX_PATH=$android_root_dir/qt5/5.10.1/android_$arch/lib/cmake
-    cd -
+  -DCMAKE_ANDROID_STL_TYPE=gnustl_shared \
+  -DCMAKE_PREFIX_PATH=$android_root_dir/qt5/5.10.1/android_$qt_arch/lib/cmake
 }
