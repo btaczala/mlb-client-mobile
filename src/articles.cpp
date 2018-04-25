@@ -3,9 +3,13 @@
 #include <QtCore/QTimer>
 #include <QtCore/QtDebug>
 
+#include <QtCore/QUrl>
+
 void Articles::refresh(QJSValue callback)
 {
-    return APIBase::loadDummyData("articlesList.json", callback, 500);
+    qDebug() << Q_FUNC_INFO;
+    const QUrl url{QStringLiteral("http://localhost:9080/mlb/articleHeaders")};
+    APIBase::createJsonRequest(url, callback);
 }
 
 void Articles::fetchArticle(qint32 uid, QJSValue callback)

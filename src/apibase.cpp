@@ -2,9 +2,11 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QTimer>
+#include <QtCore/QUrl>
 #include <QtCore/QtDebug>
 
 #include <QtCore/QJsonDocument>
+#include <restc-cpp/restc-cpp.h>
 
 void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 {
@@ -32,4 +34,27 @@ void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
             emit error(jsvalue.toString());
         }
     });
+}
+
+void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
+{
+    using namespace restc_cpp;
+
+    qDebug() << Q_FUNC_INFO << "downloading url = " << url;
+
+    auto rest_client = restc_cpp::RestClient::Create();
+
+    rest_client->Process([&url, callback, this](restc_cpp::Context& ctx) mutable {
+        try {
+            auto reply = ctx.Get(url.toString().toStdString());
+            auto json = reply->GetBodyAsString();
+
+            QJSValueList args;
+            callback.call(args);
+        } catch (const std::exception& ex) {
+            qWarning() << Q_FUNC_INFO << ex.what();
+            emit error("Unable to connect");
+        }
+    });
+    rest_client->CloseWhenReady(true);
 }

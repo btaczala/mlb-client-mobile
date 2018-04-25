@@ -18,6 +18,7 @@ public slots:
 protected:
     void loadDummyData(const QString& file, QJSValue callback, int delay);
 
+    void createJsonRequest(const QUrl& url, QJSValue callback);
 signals:
     void error(QString errorMessage);
 };

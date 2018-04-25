@@ -8,16 +8,16 @@ Page {
     property var applicationWindow
     property var globalSettings
     property string customHeader
-
+    property bool loading: false
     property string errorText: "An error blah blah"
-
     readonly property bool inPortrait: width < height
+    property var currentAPI
+
     signal requestNewPage(string url, var props)
     signal refreshPageContent
 
     signal error(string errorMessage)
 
-    property bool loading: false
 
     function startRefreshing() {
         loading = true
@@ -42,6 +42,15 @@ Page {
 
     onStateChanged: {
         console.debug("BasePage.qml: State changed to ", state)
+    }
+
+    Connections {
+        target: currentAPI
+        onError: {
+            console.warn("Implement error functioN!")
+            console.log("BasePage.qml: Error " + errorMessage)
+            root.error(errorMessage)
+        }
     }
 
     onError: {

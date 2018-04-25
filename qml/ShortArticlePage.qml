@@ -8,6 +8,8 @@ BasePage {
 
     property bool fetchingData: false
 
+    currentAPI: articlesDataAPI
+
     BusyIndicator {
         anchors.horizontalCenter: parent.horizontalCenter
         z: 100
