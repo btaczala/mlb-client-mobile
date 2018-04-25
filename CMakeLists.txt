@@ -30,9 +30,14 @@ if(ANDROID)
     # variables for AddQtAndroidApk
     set(ANDROID_ABI ${CMAKE_ANDROID_ARCH_ABI})
     set(ANDROID_TOOLCHAIN_MACHINE_NAME ${ANDROID_ABI})
+    if ("${ANDROID_ABI}" STREQUAL "armeabi")
+        set(ANDROID_TOOLCHAIN_MACHINE_NAME "arm-linux-androideabi")
+        set(ANDROID_TOOLCHAIN_PREFIX "arm-linux-androideabi")
+    elseif("${ANDROID_ABI}" STREQUAL "x86")
+        set(ANDROID_TOOLCHAIN_PREFIX "i686-linux-android")
+    endif()
     set(ANDROID_COMPILER_VERSION "4.9")
     set(ANDROID_NDK_HOST_SYSTEM_NAME "linux-x86_64")
-    set(ANDROID_TOOLCHAIN_PREFIX "i686-linux-android")
     set(ANDROID_STL_PATH "${CMAKE_ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/lib${CMAKE_ANDROID_STL_TYPE}.so")
     add_qt_android_apk(${PROJECT_NAME}_apk ${PROJECT_NAME}
         BUILDTOOLS_REVISION "28.0.0-rc1"
