@@ -4,6 +4,8 @@
 #include <QtCore/QObject>
 #include <QtQml/QJSValue>
 
+#include <QtNetwork/QNetworkAccessManager>
+
 extern bool useDummyData;
 
 class APIBase : public QObject
@@ -21,6 +23,9 @@ protected:
     void createJsonRequest(const QUrl& url, QJSValue callback);
 signals:
     void error(QString errorMessage);
+
+private:
+    QNetworkAccessManager _nam;
 };
 
 #endif /* end of include guard: APIBASE_H_JMR5OGLD */

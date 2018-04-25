@@ -1,12 +1,13 @@
 #include "apibase.h"
 
 #include <QtCore/QFile>
+#include <QtCore/QJsonDocument>
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
 #include <QtCore/QtDebug>
 
-#include <QtCore/QJsonDocument>
-#include <restc-cpp/restc-cpp.h>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
 
 void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 {
@@ -38,23 +39,27 @@ void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
 
 void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
 {
-    using namespace restc_cpp;
-
     qDebug() << Q_FUNC_INFO << "downloading url = " << url;
 
-    auto rest_client = restc_cpp::RestClient::Create();
+    QNetworkRequest request(url);
+    auto reply = _nam.get(request);
 
-    rest_client->Process([&url, callback, this](restc_cpp::Context& ctx) mutable {
-        try {
-            auto reply = ctx.Get(url.toString().toStdString());
-            auto json = reply->GetBodyAsString();
+    qDebug() << reply;
 
-            QJSValueList args;
-            callback.call(args);
-        } catch (const std::exception& ex) {
-            qWarning() << Q_FUNC_INFO << ex.what();
-            emit error("Unable to connect");
-        }
+    connect(reply, &QNetworkReply::finished, [&reply, callback]() mutable {
+        qDebug() << Q_FUNC_INFO;
+        qDebug() << reply->error();
+        const auto ba = reply->readAll();
+        QJSValueList args;
+        args.push_back(ba.constData());
+        callback.call(args);
     });
-    rest_client->CloseWhenReady(true);
+
+    connect(
+      reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), [this](QNetworkReply::NetworkError) {
+          qDebug() << Q_FUNC_INFO << "error";
+          emit error("");
+      });
+
+    reply->deleteLater();
 }
