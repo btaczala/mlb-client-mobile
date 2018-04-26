@@ -46,20 +46,24 @@ void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
 
     qDebug() << reply;
 
-    connect(reply, &QNetworkReply::finished, [&reply, callback]() mutable {
+    connect(reply, &QNetworkReply::finished, [url, reply, callback]() mutable {
         qDebug() << Q_FUNC_INFO;
-        qDebug() << reply->error();
-        const auto ba = reply->readAll();
-        QJSValueList args;
-        args.push_back(ba.constData());
-        callback.call(args);
+        if (reply->error() == QNetworkReply::NoError) {
+            const auto ba = reply->readAll();
+            QJSValueList args;
+            args.push_back(ba.constData());
+            qDebug() << "Finished downloading url " << url;
+            const auto ret = callback.call(args);
+
+            qDebug() << ret.toString();
+        }
+
+        reply->deleteLater();
     });
 
     connect(
       reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), [this](QNetworkReply::NetworkError) {
           qDebug() << Q_FUNC_INFO << "error";
-          emit error("");
+          emit error("Błąd połączenia");
       });
-
-    reply->deleteLater();
 }

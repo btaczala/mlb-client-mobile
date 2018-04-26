@@ -14,6 +14,7 @@ void Articles::refresh(QJSValue callback)
 
 void Articles::fetchArticle(qint32 uid, QJSValue callback)
 {
-    const QString artid = QString("article%1.json").arg(uid);
-    return APIBase::loadDummyData(artid, callback, 300);
+    qDebug() << Q_FUNC_INFO;
+    const QString url = QString{"%1%2"}.arg("http://localhost:9080/mlb/article/").arg(uid);
+    APIBase::createJsonRequest(url, callback);
 }

@@ -29,7 +29,6 @@ qt5_add_resources(rsc qml/qml.qrc)
 qt5_add_resources(dummy_rsc dummydata.qrc)
 
 
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
 if(ANDROID)
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
     include(AddQtAndroidApk)

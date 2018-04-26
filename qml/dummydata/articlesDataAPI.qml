@@ -7,6 +7,8 @@ QtObject {
 
     property int __delay: 1 * 1000
 
+    signal error(string errorMessage)
+
     function refresh(callback) {
         var timer = new Rest.Timer(standings)
         timer.interval = __delay

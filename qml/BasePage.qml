@@ -57,6 +57,8 @@ Page {
         console.error("BasePage.qml: Error = ", errorMessage)
         errorText = errorMessage
         loading = false
+
+        errorDialog.visible = true
     }
 
     Rectangle {
@@ -74,5 +76,12 @@ Page {
             anchors.centerIn: parent
             running: loading
         }
+    }
+
+    MessageDialog {
+        id: errorDialog
+        visible: false
+        title: "Błąd połączenia"
+        text: errorText
     }
 }

@@ -7,7 +7,9 @@ import "articles"
 
 BasePage {
     id: root
-    property int uid: 11
+    property int uid: 10
+
+    currentAPI: articlesDataAPI
 
     width: 800
     height: 1024
@@ -15,12 +17,14 @@ BasePage {
     function refreshArticle() {
         loading = true
         articlesDataAPI.fetchArticle(uid, function (jsonData) {
+
             var result = JSON.parse(jsonData)
+            console.log("ArticlePage.qml: fetch article (" + uid + ") finished, parsing", result)
             textItem.text = result.text
-            image.source = result.image
+            image.source = result.picture.url
 
             commentListView.model.clear()
-            for (var count = 0; count < result.comments.length; count++) {
+            for (var count = 0; count < result.numberOfComments; count++) {
 
                 var object = result.comments[count]
                 commentListView.model.append({
@@ -31,7 +35,7 @@ BasePage {
                                              })
             }
 
-            loading = false
+            finishRefreshing();
         })
     }
 

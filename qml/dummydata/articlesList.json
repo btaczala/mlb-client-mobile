@@ -1,44 +1,56 @@
 [
     {
-        "imageUrl": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg",
-        "headerContent": "DOGRYWKA",
-        "textContent": "Pierwszy niedzielny mecz wygrywa Sp\u00f3jnia Stargard. Zawodnicy ze Stargardu ograli KANGOO BASKET. Widzieli\u015bmy niezwykle wyr\u00f3wnany mecz, kt\u00f3ry zako\u0144czy\u0142 si\u0119 dogrywk\u0105. W dodatkowym czasie gry Sp\u00f3jnia Stargard minimalnie lepsza. Mecz sta\u0142 na bardzo dobrym poziomie. W Sp\u00f3jni Stargard [...]",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 10
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "DOGRYWKA",
+        "text": "Pierwszy niedzielny mecz wygrywa Sp\u00f3jnia Stargard. Zawodnicy ze Stargardu ograli KANGOO BASKET. Widzieli\u015bmy niezwykle wyr\u00f3wnany mecz, kt\u00f3ry zako\u0144czy\u0142 si\u0119 dogrywk\u0105. W dodatkowym czasie gry Sp\u00f3jnia Stargard minimalnie lepsza. Mecz sta\u0142 na bardzo dobrym poziomie. W Sp\u00f3jni Stargard [...]",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 10
     },
     {
-        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(41).jpg",
-        "headerContent": "ZAPOWIED\u0179 V TYGODNIA",
-        "textContent": "Pi\u0105ta kolejka spotka\u0144 w MLB zacznie si\u0119 od pojedynku z najwy\u017cszego poziomu - MLB MAJOR. Zmierz\u0105 si\u0119 ze sob\u0105 Elektryka Morska i FRASSATI. Elektryka Morska po zwyci\u0119stwie nad OPEN BASKET [...]",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 10
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "ZAPOWIED\u0179 V TYGODNIA",
+        "text": "Pi\u0105ta kolejka spotka\u0144 w MLB zacznie si\u0119 od pojedynku z najwy\u017cszego poziomu - MLB MAJOR. Zmierz\u0105 si\u0119 ze sob\u0105 Elektryka Morska i FRASSATI. Elektryka Morska po zwyci\u0119stwie nad OPEN BASKET [...]",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 10
     },
     {
-        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.06%20MLB%20(9).jpg",
-        "headerContent": "PODSUMOWANIE IV TYGODNIA",
-        "textContent": "Czwarty tydzie\u0144 rozgrywek ju\u017c za nami. Na pocz\u0105tek dosz\u0142o do sporej niespodzianki Elektryka Morska ogra\u0142a zesp\u00f3\u0142 OPEN BASKETBALL TEAM. Co prawda w pierwszej po\u0142owie OPEN kontrol [...]",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 11
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "PODSUMOWANIE IV TYGODNIA",
+        "text": "Czwarty tydzie\u0144 rozgrywek ju\u017c za nami. Na pocz\u0105tek dosz\u0142o do sporej niespodzianki Elektryka Morska ogra\u0142a zesp\u00f3\u0142 OPEN BASKETBALL TEAM. Co prawda w pierwszej po\u0142owie OPEN kontrol [...]",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 11
     },
     {
-        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/2018.04.07%20MLB%20(3).jpg",
-        "headerContent": "GRACZ TYGODNIA MLB",
-        "textContent": "Niniejszym graczem IV tygodnia MLB og\u0142aszamy Tomasza Lepperta z ekipy RUN &amp; GUN. W minionym tygodniu Tomasz sportowo uciu\u0142a\u0142 a\u017c 30 punkt&oacute;w, 14 zbi&oacute;rek, 4 asysty i 1 b [...] ",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 12
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "GRACZ TYGODNIA MLB",
+        "text": "Niniejszym graczem IV tygodnia MLB og\u0142aszamy Tomasza Lepperta z ekipy RUN &amp; GUN. W minionym tygodniu Tomasz sportowo uciu\u0142a\u0142 a\u017c 30 punkt&oacute;w, 14 zbi&oacute;rek, 4 asysty i 1 b [...] ",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 12
     },
     {
-        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/basketball-885786_640.jpg",
-        "headerContent": "KOMUNIKAT RADY LIGI",
-        "textContent": "W sprawie wniosku kapitana dru\u017cyny SMALL BALL dotycz\u0105cego incydentu podczas meczu SMALL BALL - UTD, Rada Miejskiej Ligi Basketu postanawia zawiesi\u0107 zawodnika UTD \u0141ukasza Wielgomasza w",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 12
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "KOMUNIKAT RADY LIGI",
+        "text": "W sprawie wniosku kapitana dru\u017cyny SMALL BALL dotycz\u0105cego incydentu podczas meczu SMALL BALL - UTD, Rada Miejskiej Ligi Basketu postanawia zawiesi\u0107 zawodnika UTD \u0141ukasza Wielgomasza w",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 12
     },
     {
-        "imageUrl": "http://miastobasketu.com/gfx/zdjeciaglowne/AKADEMIABANER800.jpg",
-        "headerContent": "AKADEMIA BASKETU 2016/2017",
-        "textContent": "Je\u015bli jeszcze do kogo\u015b nie dotarli\u015bmy z koszykarskim przes\u0142aniem, to nasze wspania\u0142e trenerki od miesi\u0105ca pracuj\u0105 ju\u017c z dzie\u0107mi w ramach AKADEMII BASKETU. Zaj\u0119\u0107 z Paulin\u0105 Gajdosz i Mart\u0105 Malczewsk\u0105 naprawd\u0119 nie trzeba zbytn [...]",
-        "postedContent": "2017-10-20 14:55, Michael Jordan",
-        "uid": 13
+        "picture": {
+            "url": "http://www.miastobasketu.com//gfx/zdjeciaglowne/2018.04.13%20MLB%20(10).jpg"
+        },
+        "title": "AKADEMIA BASKETU 2016/2017",
+        "text": "Je\u015bli jeszcze do kogo\u015b nie dotarli\u015bmy z koszykarskim przes\u0142aniem, to nasze wspania\u0142e trenerki od miesi\u0105ca pracuj\u0105 ju\u017c z dzie\u0107mi w ramach AKADEMII BASKETU. Zaj\u0119\u0107 z Paulin\u0105 Gajdosz i Mart\u0105 Malczewsk\u0105 naprawd\u0119 nie trzeba zbytn [...]",
+        "postedDate": "2017-10-20 14:55, Michael Jordan",
+        "id": 13
     }
 ]

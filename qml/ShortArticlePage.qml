@@ -25,16 +25,17 @@ BasePage {
 
         articlesDataAPI.refresh(function (jsonData) {
 
+            console.log("ShortArticlePage.qml: Received json")
             articlesShortModel.clear()
             var response = JSON.parse(jsonData)
             for (var count = 0; count < response.length; count++) {
                 var object = response[count]
                 articlesShortModel.append({
-                                              imageUrl: object.imageUrl,
-                                              headerContent: object.headerContent,
-                                              textContent: object.textContent,
-                                              postedContent: object.postedContent,
-                                              uid: object.uid
+                                              imageUrl: object.picture.url,
+                                              headerContent: object.title,
+                                              textContent: object.text,
+                                              postedContent: object.postedDate,
+                                              uid: object.id
                                           })
             }
 
