@@ -9,6 +9,11 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Qml REQUIRED)
 find_package(Qt5Gui REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Svg REQUIRED)
+find_package(Qt5Xml REQUIRED)
 
 set(sources
     src/articles.cpp
@@ -21,11 +26,12 @@ set(sources
     src/playersapi.cpp
 )
 qt5_add_resources(rsc qml/qml.qrc)
+qt5_add_resources(dummy_rsc dummydata.qrc)
 
 if(ANDROID)
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
     include(AddQtAndroidApk)
-    add_library(${PROJECT_NAME} SHARED ${sources} ${rsc})
+    add_library(${PROJECT_NAME} SHARED ${sources} ${rsc} ${dummy_rsc})
 
     # variables for AddQtAndroidApk
     set(ANDROID_ABI ${CMAKE_ANDROID_ARCH_ABI})
@@ -44,8 +50,8 @@ if(ANDROID)
     )
 
 else()
-    add_executable(${PROJECT_NAME} ${sources} ${rsc})
+    add_executable(${PROJECT_NAME} ${sources} ${rsc} ${dummy_rsc})
 endif()
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
-target_link_libraries(${PROJECT_NAME} Qt5::Qml Qt5::Gui)
+target_link_libraries(${PROJECT_NAME} Qt5::Qml Qt5::Gui Qt5::Core Qt5::Widgets Qt5::Quick Qt5::Xml)
