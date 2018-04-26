@@ -10,7 +10,7 @@
  "ndk-host": "@ANDROID_NDK_HOST_SYSTEM_NAME@",
  "target-architecture": "@ANDROID_ABI@",
  "android-package-source-directory": "@CMAKE_SOURCE_DIR@/android",
- "qml-path" : "@CMAKE_SOURCE_DIR@",
+ "qml-root-path" : "@CMAKE_SOURCE_DIR@",
  "stdcpp-path": "@ANDROID_STL_PATH@",
  "application-binary": "@QT_ANDROID_APP_PATH@",
  "android-package": "@QT_ANDROID_APP_PACKAGE_NAME@",
