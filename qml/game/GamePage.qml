@@ -11,6 +11,8 @@ Common.BasePage {
     width: 800
     height: 800
 
+    currentAPI: scheduleAPI
+
     property int uid: 10
     property var homeModel: ListModel {
     }
@@ -27,45 +29,34 @@ Common.BasePage {
         scheduleAPI.gameData(uid, function (jsonData) {
             var resp = JSON.parse(jsonData)
 
-            for (var index in resp.home.players) {
-                var playerInfo = resp.home.players[index]
-                var arr = new Array
-                homeModel.append({
-                                     name: playerInfo.name,
-                                     points: playerInfo.points,
-                                     points_two: playerInfo.fgm_two + "/" + playerInfo.fga_two,
-                                     points_three: playerInfo.fgm_three + "/"
-                                                   + playerInfo.fga_three,
-                                     points_one: playerInfo.fgm_one + "/" + playerInfo.fga_one,
-                                     rebounds: playerInfo.rebounds_off + playerInfo.rebounds_diff,
-                                     assists: playerInfo.assists,
-                                     blocks: playerInfo.blocks,
-                                     steals: playerInfo.steals,
-                                     turnovers: playerInfo.turnovers,
-                                     fouls: playerInfo.fouls,
-                                     Eval: playerInfo.eval
-                                 })
-            }
-            for (var index in resp.guest.players) {
+            var transform = function (jsonModel, model) {
 
-                var playerInfo = resp.guest.players[index]
-                var arr = new Array
-                guestModel.append({
-                                      name: playerInfo.name,
-                                      points: playerInfo.points,
-                                      points_two: playerInfo.fgm_two + "/" + playerInfo.fga_two,
-                                      points_three: playerInfo.fgm_three + "/"
-                                                    + playerInfo.fga_three,
-                                      points_one: playerInfo.fgm_one + "/" + playerInfo.fga_one,
-                                      rebounds: playerInfo.rebounds_off + playerInfo.rebounds_diff,
-                                      assists: playerInfo.assists,
-                                      blocks: playerInfo.blocks,
-                                      steals: playerInfo.steals,
-                                      turnovers: playerInfo.turnovers,
-                                      fouls: playerInfo.fouls,
-                                      Eval: playerInfo.eval
-                                  })
+                for (var index in jsonModel) {
+                    var playerInfo = jsonModel[index]
+                    var arr = new Array
+                    model.append({
+                                         name: playerInfo.player.firstName + " "
+                                               + playerInfo.player.lastName,
+                                         points: playerInfo.points,
+                                         points_two: playerInfo.fgm + "/" + playerInfo.fga,
+                                         points_three: playerInfo.tpm + "/" + playerInfo.tpa,
+                                         points_one: playerInfo.ftm + "/" + playerInfo.fta,
+                                         rebounds: 0,
+                                         assists: 0,
+                                         blocks: 0,
+                                         steals: 0,
+                                         turnovers: 0,
+                                         fouls: 0,
+                                         Eval: playerInfo.eval
+                                     })
+                }
             }
+
+            guestModel.clear()
+            homeModel.clear()
+            transform(resp.guestStats, guestModel)
+            transform(resp.hostStats, homeModel)
+
             console.log("GamePage.qml: New header should be",
                         view.currentItem.homeTeamName)
             customHeader = view.currentItem.homeTeamName

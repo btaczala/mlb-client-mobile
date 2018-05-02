@@ -10,6 +10,8 @@ Common.BasePage {
     width: 600
     height: 800
 
+    currentAPI: standings
+
     property var majorStandings: ListModel {
     }
     property var pretendentStandings: ListModel {

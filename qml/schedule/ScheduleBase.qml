@@ -28,30 +28,38 @@ Item {
                 host: "MLB"
                 date: "2018-04-05 15:10"
                 weeknumber: 1
+                score: "44:123"
             }
             ListElement {
                 guest: "Basket++"
                 host: "MLB"
                 date: "2018-04-05 15:10"
                 weeknumber: 1
+                score: "77:76"
             }
             ListElement {
                 guest: "Basket++"
                 host: "MLB"
                 date: "2018-04-05 15:10"
                 weeknumber: 2
+                score: ""
+                gameId: 1
             }
             ListElement {
                 guest: "Basket++"
                 host: "MLB"
                 date: "2018-04-05 15:10"
                 weeknumber: 3
+                score: ""
+                gameId: 1
             }
             ListElement {
                 guest: "Basket++"
                 host: "MLB"
                 date: "2018-04-05 15:10"
                 weeknumber: 3
+                score: ""
+                gameId: 1
             }
         }
 
@@ -62,6 +70,11 @@ Item {
             guestTeamName: guest
             homeTeamName: host
             gameDate: date
+            scoreLabel: score
+
+            onGameClicked: {
+                requestNewPage("game/GamePage.qml", { uid: uid })
+            }
         }
 
         section.property: "weeknumber"

@@ -45,6 +45,8 @@ BasePage {
                                          guest: game["guest"]["name"],
                                          host: game["host"]["name"],
                                          date: game["datetime"],
+                                         score: game["score"],
+                                         gameId: game["id"],
                                          weeknumber: weeks[index]["weeknumber"]
                                      })
                     }

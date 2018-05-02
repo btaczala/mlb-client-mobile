@@ -9,6 +9,7 @@ Item {
     property string guestTeamName: "San Antonio"
     property string homeTeamName: "San Antonio"
     property string gameDate: "2018-10-15 12:00"
+    property string scoreLabel: "15:13"
 
     signal gameClicked(int uid)
 
@@ -51,7 +52,13 @@ Item {
                     }
 
                     Label {
-                        text: "-"
+                        text: {
+                            if (scoreLabel === "") {
+                                return "-"
+                            } else {
+                                return scoreLabel
+                            }
+                        }
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         Layout.fillHeight: true
