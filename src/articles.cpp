@@ -8,13 +8,13 @@
 void Articles::refresh(QJSValue callback)
 {
     qDebug() << Q_FUNC_INFO;
-    const QUrl url{QStringLiteral("http://localhost:9080/mlb/articleHeaders")};
+    const QUrl url{QStringLiteral("mlb/articleHeaders")};
     APIBase::createJsonRequest(url, callback);
 }
 
 void Articles::fetchArticle(qint32 uid, QJSValue callback)
 {
     qDebug() << Q_FUNC_INFO;
-    const QString url = QString{"%1%2"}.arg("http://localhost:9080/mlb/article/").arg(uid);
+    const QString url = QString{"%1%2"}.arg("mlb/article/").arg(uid);
     APIBase::createJsonRequest(url, callback);
 }

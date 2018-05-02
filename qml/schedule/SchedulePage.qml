@@ -11,6 +11,8 @@ BasePage {
     width: 600
     height: 800
 
+    currentAPI: scheduleAPI
+
     property var majorModel: ListModel {
     }
     property var pretendentModel: ListModel {
@@ -23,22 +25,44 @@ BasePage {
     }
 
     onRefreshPageContent: {
-        var afterCallback = function () {
+
+        var afterCallback = function (jsonData) {
+            var result = JSON.parse(jsonData)
+
+            var parseFunction = function (jsonModel, model) {
+                var weeks = jsonModel["weeks"]
+
+                console.log(weeks.length)
+                for (var index = 0; index < weeks.length; ++index) {
+                    console.log("Week number ", weeks[index]["weeknumber"])
+
+                    var gamesArray = weeks[index]["games"]
+                    console.log("Number of games: " + gamesArray.length)
+                    for (var gIndex = 0; gIndex < gamesArray.length; ++gIndex) {
+                        var game = gamesArray[gIndex]
+
+                        model.append({
+                                         guest: game["guest"]["name"],
+                                         host: game["host"]["name"],
+                                         date: game["datetime"],
+                                         weeknumber: weeks[index]["weeknumber"]
+                                     })
+                    }
+                }
+            }
+            majorModel.clear()
+            pretendentModel.clear()
+            basicModel.clear()
+
+            parseFunction(result["major"], majorModel)
+            parseFunction(result["pretendent"], pretendentModel)
+            parseFunction(result["basic"], basicModel)
+
             finishRefreshing()
             customHeader = view.currentItem.league
         }
 
-        var transform = function (object) {
-            return {
-                type: object.type,
-                number: object.number,
-                guest: object.guest,
-                host: object.host,
-                date: object.date
-            }
-        }
-        Logic.getThreeModels(majorModel, pretendentModel, basicModel,
-                             scheduleAPI.refresh, afterCallback, transform)
+        scheduleAPI.refresh(afterCallback)
     }
 
     SwipeView {

@@ -6,9 +6,9 @@ import QtQuick.Layouts 1.3
 Item {
     id: root
 
-    property string guest: "San Antonio"
-    property string home: "San Antonio"
-    property string date: "2018-10-15 12:00"
+    property string guestTeamName: "San Antonio"
+    property string homeTeamName: "San Antonio"
+    property string gameDate: "2018-10-15 12:00"
 
     signal gameClicked(int uid)
 
@@ -26,7 +26,7 @@ Item {
                 Layout.fillHeight: true
                 Layout.preferredWidth: 120
 
-                text: root.date
+                text: gameDate
                 font.pointSize: 8
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -44,7 +44,7 @@ Item {
                     Label {
                         Layout.preferredWidth: parent.width / 2 - 10
                         Layout.fillHeight: true
-                        text: guest
+                        text: guestTeamName
                         font.pointSize: 11
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
@@ -60,7 +60,7 @@ Item {
                         Layout.preferredWidth: parent.width / 2 - 10
                         Layout.fillHeight: true
 
-                        text: home
+                        text: homeTeamName
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }

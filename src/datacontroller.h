@@ -13,7 +13,7 @@ class DataController : public QObject
 {
     Q_OBJECT
 public:
-    explicit DataController(bool dummy, QObject* parent = nullptr);
+    explicit DataController(QObject* parent = nullptr);
     ~DataController() noexcept final;
 
     QObject* standings() const noexcept;
@@ -23,7 +23,6 @@ public:
     QObject* playersAPI() const noexcept;
 
 private:
-    const bool _dummy;
     std::unique_ptr<Standings> _standingsAPI;
     std::unique_ptr<Articles> _articles;
     std::unique_ptr<TeamAPI> _teamAPI;

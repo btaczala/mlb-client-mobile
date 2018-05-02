@@ -2,7 +2,9 @@
 
 void ScheduleAPI::refresh(QJSValue callback)
 {
-    APIBase::loadDummyData("scheduleExample.json", callback, 500);
+    qDebug() << Q_FUNC_INFO;
+    const QUrl url{QStringLiteral("mlb/schedule")};
+    APIBase::createJsonRequest(url, callback);
 }
 
 void ScheduleAPI::gameData(quint32 uid, QJSValue callback)

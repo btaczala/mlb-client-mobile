@@ -1,116 +1,65 @@
 {
-  "major": [
-    {
-      "type": "week_nr",
-      "number": 2,
-      "guest": "",
-      "host": "",
-      "date": ""
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "week_nr",
-      "number": 4,
-      "guest": "",
-      "host": "",
-      "date": ""
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    },
-    {
-      "type": "week_nr",
-      "number": 4,
-      "guest": "",
-      "host": "",
-      "date": ""
-    },
-    {
-      "type": "week_nr",
-      "number": 4,
-      "guest": "",
-      "host": "",
-      "date": ""
-    }
-
-  ],
-  "pretendent": [
-    {
-      "type": "week_nr",
-      "number": 1,
-      "guest": "",
-      "host": "",
-      "date": ""
-    },
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    }
-,
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    }
-,
-    {
-      "type": "game",
-      "number": -1,
-      "guest": "Basket++",
-      "host": "MLB",
-      "date": "2018-04-05 15:10"
-    }
-  ],
-  "basic": [
-    {
-      "type": "week_nr",
-      "number": 3,
-      "guest": "",
-      "host": "",
-      "date": ""
-    }
-  ]
+  "basic": {
+    "weeks": [
+      {
+        "games": [
+          {
+            "datetime": "2018-10-15",
+            "guest": {
+              "id": 0,
+              "name": "RIM"
+            },
+            "host": {
+              "id": 1,
+              "name": "FRASSATI"
+            },
+            "score": "22:11"
+          }
+        ],
+        "weeknumber": 1
+      }
+    ]
+  },
+  "major": {
+    "weeks": [
+      {
+        "games": [
+          {
+            "datetime": "2018-10-15",
+            "guest": {
+              "id": 0,
+              "name": "RIM"
+            },
+            "host": {
+              "id": 1,
+              "name": "FRASSATI"
+            },
+            "score": "22:11"
+          }
+        ],
+        "weeknumber": 1
+      }
+    ]
+  },
+  "pretendent": {
+    "weeks": [
+      {
+        "games": [
+          {
+            "datetime": "2018-10-15",
+            "guest": {
+              "id": 0,
+              "name": "RIM"
+            },
+            "host": {
+              "id": 1,
+              "name": "FRASSATI"
+            },
+            "score": "22:11"
+          }
+        ],
+        "weeknumber": 1
+      }
+    ]
+  }
 }

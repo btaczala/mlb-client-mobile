@@ -1,13 +1,12 @@
 #include "datacontroller.h"
 #include "articles.h"
+#include "playersapi.h"
 #include "scheduleapi.h"
 #include "standings.h"
 #include "teamapi.h"
-#include "playersapi.h"
 
-DataController::DataController(bool dummy, QObject* parent)
+DataController::DataController(QObject* parent)
   : QObject(parent)
-  , _dummy(dummy)
   , _standingsAPI(new Standings())
   , _articles(new Articles())
   , _teamAPI(new TeamAPI())

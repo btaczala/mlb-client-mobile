@@ -26,14 +26,10 @@ int main(int argc, char* argv[])
     QGuiApplication::setApplicationVersion("0.1");
 
     QCommandLineParser parser;
-    QCommandLineOption useDummyData("d", QCoreApplication::translate("main", "use dummy data"));
-    parser.addOption(useDummyData);
 
     parser.process(app);
 
-    const bool useDummy = parser.isSet(useDummyData);
-
-    DataController controller{useDummy};
+    DataController controller;
     qRegisterMetaType<QObjectList>("QObjectList");
 
     QQmlApplicationEngine engine;

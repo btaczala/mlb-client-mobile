@@ -25,7 +25,7 @@ BasePage {
 
         articlesDataAPI.refresh(function (jsonData) {
 
-            console.log("ShortArticlePage.qml: Received json")
+            console.log("ShortArticlePage.qml: Received json ", jsonData)
             articlesShortModel.clear()
             var response = JSON.parse(jsonData)
             for (var count = 0; count < response.length; count++) {
