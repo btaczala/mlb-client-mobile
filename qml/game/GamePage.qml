@@ -41,12 +41,12 @@ Common.BasePage {
                                          points_two: playerInfo.fgm + "/" + playerInfo.fga,
                                          points_three: playerInfo.tpm + "/" + playerInfo.tpa,
                                          points_one: playerInfo.ftm + "/" + playerInfo.fta,
-                                         rebounds: 0,
-                                         assists: 0,
-                                         blocks: 0,
-                                         steals: 0,
-                                         turnovers: 0,
-                                         fouls: 0,
+                                         rebounds: playerInfo.offensiveRebounds + "/" + playerInfo.defensiveRebounds,
+                                         assists: playerInfo.assists,
+                                         blocks: playerInfo.blocks,
+                                         steals: playerInfo.steals,
+                                         turnovers: playerInfo.turnovers,
+                                         fouls: playerInfo.fouls,
                                          Eval: playerInfo.eval
                                      })
                 }
