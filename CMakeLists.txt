@@ -26,13 +26,12 @@ set(sources
     src/playersapi.cpp
 )
 qt5_add_resources(rsc qml/qml.qrc)
-qt5_add_resources(dummy_rsc dummydata.qrc)
 
 
 if(ANDROID)
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
     include(AddQtAndroidApk)
-    add_library(${PROJECT_NAME} SHARED ${sources} ${rsc} ${dummy_rsc})
+    add_library(${PROJECT_NAME} SHARED ${sources} ${rsc})
 
     # variables for AddQtAndroidApk
     set(ANDROID_ABI ${CMAKE_ANDROID_ARCH_ABI})
@@ -51,7 +50,7 @@ if(ANDROID)
     )
 
 else()
-    add_executable(${PROJECT_NAME} ${sources} ${rsc} ${dummy_rsc})
+    add_executable(${PROJECT_NAME} ${sources} ${rsc})
 endif()
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)

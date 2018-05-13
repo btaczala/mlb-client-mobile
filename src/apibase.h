@@ -14,10 +14,13 @@ class APIBase : public QObject
 public:
     virtual ~APIBase() = default;
 
+    void createJsonRequestRaw(const QUrl&, const std::function<void(const QString& json)>& callback);
 public slots:
-    virtual void refresh(QJSValue) = 0;
+    virtual void refresh(QJSValue)
+    {
+    }
 
-protected:
+protected slots:
     void loadDummyData(const QString& file, QJSValue callback, int delay);
 
     void createJsonRequest(const QUrl& url, QJSValue callback);

@@ -42,9 +42,8 @@ void APIBase::loadDummyData(const QString& file, QJSValue callback, int delay)
     });
 }
 
-void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
+void APIBase::createJsonRequestRaw(const QUrl& url, const std::function<void(const QString& json)>& callback)
 {
-
     const QUrl fullUrl{QString{"%1/%2"}.arg(serverAddress).arg(url.toString())};
     qDebug() << Q_FUNC_INFO << "downloading url = " << fullUrl;
 
@@ -66,12 +65,8 @@ void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
                 qFatal("No :(");
             }
 
-            QString jsonData{jsonRawData};
-            QJSValueList args;
-            args.push_back(jsonData);
-            qDebug() << "Finished downloading url " << url;
-            const auto ret = callback.call(args);
-            qDebug() << ret.toString();
+            if (callback)
+                callback(jsonRawData);
         }
 
         reply->deleteLater();
@@ -82,4 +77,16 @@ void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
           qDebug() << Q_FUNC_INFO << "error" << reply->error();
           emit error("Błąd połączenia");
       });
+}
+
+void APIBase::createJsonRequest(const QUrl& url, QJSValue callback)
+{
+    createJsonRequestRaw(url, [url, callback](const QString& jsonRawData) mutable {
+        QString jsonData = (jsonRawData);
+        QJSValueList args;
+        args.push_back(jsonData);
+        qDebug() << "Finished downloading url " << url;
+        const auto ret = callback.call(args);
+        qDebug() << ret.toString();
+    });
 }
