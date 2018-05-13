@@ -131,5 +131,15 @@ Drawer {
             ScrollIndicator.vertical: ScrollIndicator {
             }
         }
+
+        Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 60
+            Label {
+                anchors.fill:parent
+                text: "Wersja " + serverVersion + " app " + clientVersion
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
     }
 }
